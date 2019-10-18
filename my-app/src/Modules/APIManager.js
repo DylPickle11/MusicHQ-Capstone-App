@@ -16,7 +16,7 @@ export default {
       )
     },
     get(id) {
-        return fetch(`${remoteURL}/coffee/${id}`).then(result => result.json())
+        return fetch(`${remoteURL}/songPlans/${id}`).then(result => result.json())
     },
     getAll(resource) {
         return fetch(`${remoteURL}/${resource}`).then(result => result.json())

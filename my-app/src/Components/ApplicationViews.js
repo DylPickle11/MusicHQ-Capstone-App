@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Login from './auth/Login';
 import Home from  './home/Home';
-//import OrderView from "./views/OrderView";
+
+import SongPlanDetail from './songPlans/SongPlanDetail'
+
 
 class ApplicationViews extends Component {
 
@@ -14,6 +16,10 @@ class ApplicationViews extends Component {
         }} />
          <Route path="/home" render={props => {
            return <Home userId={this.props.userId} />
+        }} />
+
+        <Route exact path="/songPlans/:songPlansId(\d+)" render={(props) => {
+          return <SongPlanDetail songPlanId={parseInt(props.match.params.songPlansId)} {...props} />
         }} />
       </>
     )
