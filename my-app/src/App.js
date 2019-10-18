@@ -3,6 +3,7 @@ import ApplicationViews from './Components/ApplicationViews';
 //import Nav from './components/nav/Nav';
 import Login from './Components/auth/Login'
 import './App.css';
+import { withRouter } from 'react-router-dom'
 
 class App extends Component {
   state = {
@@ -37,7 +38,7 @@ class App extends Component {
       <>
         {this.state.user ?
           <>
-            <ApplicationViews userId={this.state.userId} />
+            <ApplicationViews userId={this.state.userId} {...this.props}/>
           </>
           :
           <Login setUser={this.setUser} />
@@ -47,4 +48,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

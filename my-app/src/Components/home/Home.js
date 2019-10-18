@@ -7,7 +7,7 @@ class Home extends Component {
     render() {
       return (
         <>
-         <SongPlanList/>
+         <SongPlanList {...this.props}/>
         </>
       )
     }

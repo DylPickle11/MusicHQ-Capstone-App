@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SongPlanCard from './SongPlanCard';
+import { Route , withRouter} from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 
 class SongPlanList extends Component {
@@ -29,9 +30,12 @@ class SongPlanList extends Component {
 
     render() {
         console.log("pls render songs")
+        console.log(this.props)
         return (
             <>
                 <h1>Song Plans</h1>
+                <button onClick={() => {this.props.history.push("/songPlans/new")}}>New Post</button>
+
                 {
                     this.state.allSongPlans.map(song =>
                         <SongPlanCard
