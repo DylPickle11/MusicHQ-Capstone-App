@@ -52,32 +52,35 @@
     }
   ],
   "songPlans": [
-      { "id": 1,
-        "userId": 1 ,
-        "title": "Dalcroze Technique",
-        "date": "timestamp",
-        "description": "varchar",
-        "video": "varchar",
-        "keywordId": 1,
-        "ifPublic": "boolean"
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Dalcroze Technique",
+      "date": "timestamp",
+      "description": "varchar",
+      "video": "varchar",
+      "keywordId": 1,
+      "ifPublic": "boolean"
     },
-    { "id": 1,
-        "userId": 2 ,
-        "title": "Kodaly Techniques",
-        "date": "timestamp",
-        "description": "varchar",
-        "video": "varchar",
-        "keywordId": 1,
-        "ifPublic": "boolean"
+    {
+      "id": 2,
+      "userId": 2,
+      "title": "Kodaly Techniques",
+      "date": "timestamp",
+      "description": "varchar",
+      "video": "varchar",
+      "keywordId": 1,
+      "ifPublic": "boolean"
     },
-    { "id": 1,
-        "userId": 3 ,
-        "title": "Orff Techniques",
-        "date": "timestamp",
-        "description": "varchar",
-        "video": "varchar",
-        "keywordId": 1,
-        "ifPublic": "boolean"
+    {
+      "id": 3,
+      "userId": 3,
+      "title": "Orff Techniques",
+      "date": "timestamp",
+      "description": "varchar",
+      "video": "varchar",
+      "keywordId": 1,
+      "ifPublic": "boolean"
     }
   ]
 }

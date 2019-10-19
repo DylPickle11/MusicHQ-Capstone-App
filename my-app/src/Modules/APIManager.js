@@ -21,8 +21,8 @@ export default {
     getAll(resource) {
         return fetch(`${remoteURL}/${resource}`).then(result => result.json())
     },
-    delete(resource, id) {
-        return fetch(`${remoteURL}/${resource}/${id}`,{
+    delete(id) {
+        return fetch(`${remoteURL}/songPlans/${id}`,{
             method: "DELETE"
         })
         .then(result => result.json())

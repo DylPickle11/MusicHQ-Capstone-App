@@ -12,7 +12,7 @@ class SongPlanForm extends Component {
         video: "",
         keywordId: "",
         ifPublic: true,
-        loadingStatus: true
+        loadingStatus: false
     }
 
     handleFieldChange = evt => {
@@ -23,7 +23,6 @@ class SongPlanForm extends Component {
 
     constructNewSongPlan = evt => {
         evt.preventDefault();
-        this.setState({ loadingStatus: true });
             const newSongPlan = {
                 title: this.state.title,
                 date: this.state.date,

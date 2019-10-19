@@ -15,7 +15,6 @@ class SongPlanCard extends Component {
                 <CardSubtitle>Video</CardSubtitle>
                 <CardSubtitle>{this.props.song.keywordId}</CardSubtitle>
                 <Link className="navLink" to={`/songPlans/${this.props.song.id}`} type="button"><Button>Details</Button></Link>
-                <Button className="song-btns" color="primary">Details</Button>
             </Card>
         )
     }

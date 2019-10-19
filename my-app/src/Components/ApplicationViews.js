@@ -19,9 +19,10 @@ class ApplicationViews extends Component {
          <Route path="/home" render={props => {
            return <Home userId={this.props.userId} {...this.props}/>
         }} />
+        {/*
         <Route exact path="/songPlans/new" render={(props) => {
           return <SongPlanForm {...this.props} />
-        }} />
+        }} />*/}
          <Route path="/songPlans" render={(props) => {
           return <SongPlanList {...this.props} />
         }} />
