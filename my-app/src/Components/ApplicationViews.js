@@ -5,6 +5,7 @@ import Home from  './home/Home';
 import SongPlanList from './songPlans/SongPlanList';
 import SongPlanDetail from './songPlans/SongPlanDetail';
 import SongPlanForm from './songPlans/SongPlanForm';
+import SongPlanEditForm from './songPlans/SongPlanEditForm';
 
 
 
@@ -28,6 +29,9 @@ class ApplicationViews extends Component {
         }} />
         <Route exact path="/songPlans/:songPlansId(\d+)" render={(props) => {
           return <SongPlanDetail songPlanId={parseInt(props.match.params.songPlansId)} {...props} />
+        }} />
+         <Route path="/songPlans/:songPlanId(\d+)/edit" render={props => {
+          return <SongPlanEditForm {...props} />
         }} />
       </>
     )

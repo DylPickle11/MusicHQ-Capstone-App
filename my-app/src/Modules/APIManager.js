@@ -36,8 +36,8 @@ export default {
             body: JSON.stringify(newObject)
         }).then(response => response.json())
     },
-    update(resource, editedObject) {
-        return fetch(`${remoteURL}/${resource}/${editedObject.id}`, {
+    update(editedObject) {
+        return fetch(`${remoteURL}/SongPlans/${editedObject.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
