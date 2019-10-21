@@ -82,5 +82,7 @@
       "keywordId": 1,
       "ifPublic": "boolean"
     }
+  ],
+  "upload": [
   ]
 }

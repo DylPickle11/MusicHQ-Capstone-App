@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import APIManager from '../../Modules/APIManager';
 import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import Upload from '../upload/Upload';
+import SongPlan from './SongPlan.css';
+import Dropzone from '../dropzone/Dropzone';
 
 class SongPlanForm extends Component {
     //set the initial state
@@ -59,6 +62,12 @@ class SongPlanForm extends Component {
                 <Label for="video">video</Label>
                 <Input type="video" name="video" id="video" onChange={this.handleFieldChange} placeholder="place location"/>
             </FormGroup>
+            <div className="App">
+             <div className="Card">
+               <Dropzone onFilesAdded={console.log} />
+               <Upload />
+             </div>
+            </div>
             <FormGroup>
                 <Label for="keywordId">keywordId</Label>
                 <Input type="text" name="keywordId" id="keywordId" onChange={this.handleFieldChange} placeholder="place image"/>
