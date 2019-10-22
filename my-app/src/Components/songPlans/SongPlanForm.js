@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
-import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button, FormText, } from 'reactstrap';
 import Upload from '../upload/Upload';
-import SongPlan from './SongPlan.css';
+//import SongPlan from './SongPlan.css';
 import Dropzone from '../dropzone/Dropzone';
 
 class SongPlanForm extends Component {
     //set the initial state
     state= {
-        userId: "",
+        userId: sessionStorage.getItem('activeUser'),
         title: "",
         date: "",
         description: "",
@@ -48,41 +49,64 @@ class SongPlanForm extends Component {
            <Form>
             <h1>New Song Plan</h1>
             <FormGroup>
+              <Label for="date">Title</Label>
               <Input type="text" name="title" id="title" onChange={this.handleFieldChange} placeholder="place title"/>
             </FormGroup>
+
             <FormGroup>
                <Label for="date">Date</Label>
                <Input type="date" name="date" id="date" onChange={this.handleFieldChange} placeholder="place date"/>
             </FormGroup>
+
             <FormGroup>
                 <Label for="description">Description</Label>
-                <Input type="text" name="description" id="description" onChange={this.handleFieldChange} placeholder="place url"/>
+                <Input type="textarea" name="description" id="description" onChange={this.handleFieldChange} placeholder="description"/>
             </FormGroup>
-            <FormGroup>
-                <Label for="video">video</Label>
-                <Input type="video" name="video" id="video" onChange={this.handleFieldChange} placeholder="place location"/>
-            </FormGroup>
+
             <div className="App">
              <div className="Card">
                <Dropzone onFilesAdded={console.log} />
-               <Upload />
+               <Label for="video">video</Label>
+               <Upload type="video" name="video" id="video" onChange={this.handleFieldChange}/>
              </div>
             </div>
-            <FormGroup>
-                <Label for="keywordId">keywordId</Label>
-                <Input type="text" name="keywordId" id="keywordId" onChange={this.handleFieldChange} placeholder="place image"/>
-            </FormGroup>
-            <FormGroup>
-                <Label for="ifPublic">Public</Label>
-                <Input type="text" name="ifPublic" id="ifPublic" onChange={this.handleFieldChange} placeholder="place url"/>
-            </FormGroup>
-           </Form>
-        <Button type="button" disabled={this.state.loadingStatus} onClick={this.constructNewSongPlan}>Submit</Button>
 
-    </div>
-        </>
+            <FormGroup>
+              <Label for="type">Musical Type</Label>
+              <Input type="select" name="type" id="type">
+                <option>Instrumental</option>
+                <option>Vocal</option>
+                <option>Both</option>
+              </Input>
+            </FormGroup>
+
+            <FormGroup>
+              <Label for="level">Grade Level</Label>
+              <Input type="select" name="level" id="level">
+                <option>Early Elementary</option>
+                <option>Late Elementary</option>
+                <option>Middle School</option>
+                <option>Early High School</option>
+                <option>Late High School</option>
+              </Input>
+            </FormGroup>
+
+            <FormGroup>
+              <Label for="exampleFile">File</Label>
+              <Input type="file" name="file" id="exampleFile" />
+              <FormText color="muted">
+          This is some placeholder block-level help text for the above input.
+          It's a bit lighter and easily wraps to a new line.
+              </FormText>
+            </FormGroup>
+
+          </Form>
+          <Button type="button" disabled={this.state.loadingStatus} onClick={this.constructNewSongPlan}>Submit</Button>
+
+        </div>
+      </>
       );
     }
 }
 
-export default SongPlanForm
+export default withRouter(SongPlanForm)

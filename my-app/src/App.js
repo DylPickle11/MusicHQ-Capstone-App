@@ -1,51 +1,61 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
+import { Link } from "react-router-dom";
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import ApplicationViews from './Components/ApplicationViews';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import Nav from './components/nav/Nav';
 import Login from './Components/auth/Login'
 import './App.css';
-import { withRouter } from 'react-router-dom'
+//import { withRouter } from 'react-router-dom'
+//import Registration from './Components/auth/Registration';
 
 class App extends Component {
   state = {
-    user: localStorage.getItem("credentials") !== null,
-    userId: localStorage.getItem("credentials") !== null ? JSON.parse(localStorage.getItem("credentials")).id : false
-  }
+		user: sessionStorage.getItem('activeUser') !== null,
+		activeUser: this.getUser()
+  };
 
-  // Check if credentials are in local storage
+	//Check if credentials are in session storage
   //returns true/false
-  isAuthenticated = () => localStorage.getItem("credentials") !== null
 
+	isAuthenticated = () => sessionStorage.getItem('activeUser') !== null;
 
-  setUser = (authObj) => {
-    console.log("authObj", authObj)
-    /*
-      For now, just store the email and password that
-      the customer enters into local storage.
-    */
-    localStorage.setItem(
-      "credentials",
-      JSON.stringify(authObj)
-    )
-    console.log(authObj, typeof authObj)
-    this.setState({
-      user: this.isAuthenticated(),
-      userId: authObj.id
-    });
-  }
+  setUser = id => {
+		sessionStorage.setItem('activeUser', id);
+		this.setState({ activeUser: this.getUser(), user: true });
+	};
+
+	getUser() {
+		if (sessionStorage.getItem('activeUser')) {
+			return parseInt(sessionStorage.getItem('activeUser'));
+		} else {
+			return '';
+    }
+
+	}
+
+	clearUser = () => {
+		sessionStorage.removeItem('activeUser');
+		this.setState({
+			user: this.isAuthenticated()
+		});
+  };
+
 
   render() {
     return(
       <>
-        {this.state.user ?
-          <>
-            <ApplicationViews userId={this.state.userId} {...this.props}/>
-          </>
-          :
-          <Login setUser={this.setUser} />
-        }
+       {this.state.user ?
+      <>
+       <ApplicationViews userId={this.state.userId}/>
+      </>
+      : <Login setUser={this.setUser} {...this.props} />
+  }
       </>
     )
+    }
   }
-}
 
-export default withRouter(App);
+
+
+export default App;

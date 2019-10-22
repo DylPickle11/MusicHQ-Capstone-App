@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import AuthManager from '../../Modules/AuthManager';
+//import Registration from '../auth/Registration';
 import { withRouter } from "react-router-dom"
-import APIManager from "./../../Modules/APIManager";
+//import APIManager from "./../../Modules/APIManager";
+import { Link } from "react-router-dom";
+import {Card, CardSubtitle, CardText, Button, CardHeader} from 'reactstrap';
+import Registration from './RegistrationForm';
 
 class Login extends Component {
   // Set initial state
   state = {
-    email: "",
+    userId: "",
+    userName: "",
     password: ""
   }
 
@@ -18,31 +24,29 @@ class Login extends Component {
 
   handleLogin = (e) => {
     e.preventDefault()
-    /*
-        For now, just store the email and password that
-        the customer enters into local storage.
-    */
-    let credentials = { email: this.state.email, password: this.state.password }
+    let userName = this.state.userName;
+    let password = this.state.password;
 
-    APIManager.searchUsername(this.state.email)
-    .then(result => {
-      console.log("what is the result of search", result)
-      if (result.length > 0){
-        //this returns an array - we only need object
-        //this.props.setUser(result[0]);
-        this.props.history.push("/home");
-      } else {
-        APIManager.addUser(credentials)
-        .then(result => {
-          //this returns an object
-          console.log("result is", result);
-          alert("Need to register")
-          //this.props.setUser(result);
-        })
-        this.props.history.push("/");
-      }
-    })
-  }
+    // Fetch Call and authentication
+    AuthManager.getUser(userName).then(response => {
+      console.log(response)
+			if (response.length === 0) {
+				alert('Please enter a valid User Name.');
+			} else if (response.length === 1 && response[0].password !== password) {
+				alert('Password is incorrect, please try again.');
+				// starting the if statement to check for empty fields//
+			} else if (password === '') {
+				alert('Please fill the Password Form');
+			} else if (userName === '') {
+				alert('Please enter a valid userName');
+			} else if (response[0].password === password) {
+
+    //response[0].id is the ID of the user you logged in with,
+				this.props.setUser(response[0].id);
+				this.props.history.push(`/home`);
+			}
+		});
+  };
 
   render() {
     return (
@@ -50,24 +54,13 @@ class Login extends Component {
         <fieldset>
           <h3>Please sign in</h3>
           <div className="formgrid">
-            <input onChange={this.handleFieldChange} type="email"
-              id="email"
-              placeholder="Email address"
-              required="" autoFocus="" />
-            <label htmlFor="inputEmail">Email address</label>
-
-            <input onChange={this.handleFieldChange} type="password"
-              id="password"
-              placeholder="Password"
-              required="" />
-            <label htmlFor="inputPassword">Password</label>
+            <input onChange={this.handleFieldChange} type="text" id="userName" placeholder="UserName" required="" autoFocus=""/>
+            <input onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
           </div>
-          <button type="submit">
-            Sign in
-            </button>
-            <button type="submit">
-            Register
-            </button>
+          <button type="submit">Sign in</button>
+          <div>
+          <Registration {...this.props} />
+          </div>
         </fieldset>
       </form>
 

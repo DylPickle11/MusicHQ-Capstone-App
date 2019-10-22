@@ -2,53 +2,34 @@
   "users": [
     {
       "id": 1,
-      "email": "Brenda",
-      "password": "222222"
+      "userName": "bb",
+      "password": "222"
     },
     {
-      "email": "bbb@mail.com",
-      "password": "1111112",
-      "id": 2
+      "id": 2,
+      "userName": "ab@mail.com",
+      "password": "333"
     },
     {
-      "email": "sdf@sdf.com",
-      "password": "3333",
+      "userName": "asdas",
+      "password": "sdfsdf",
+      "email": "asdasd@gmail.com",
+      "passwordConfirm": "sdfsdf",
       "id": 3
     },
     {
-      "email": "me@home.com",
-      "password": "333333",
+      "userName": "adasd",
+      "password": "sdfsdf",
+      "email": "asdas@gmail.com",
+      "passwordConfirm": "sdfsd",
       "id": 4
     },
     {
-      "email": "me@home.com",
-      "password": "111111",
-      "id": 5
-    },
-    {
-      "email": "Grab@gmail.com",
-      "password": "Moonpie11",
-      "id": 6
-    },
-    {
+      "userName": "sadasd",
+      "password": "sd",
       "email": "Dylan.Griff11@gmail.com",
-      "password": "Pudding",
-      "id": 7
-    },
-    {
-      "email": "hmmm@gmail.com",
-      "password": "Password",
-      "id": 8
-    },
-    {
-      "email": "whatsup7@gmail.com",
-      "password": "sdfsdf",
-      "id": 9
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 10
+      "passwordConfirm": "sd",
+      "id": 5
     }
   ],
   "songPlans": [
@@ -81,8 +62,93 @@
       "video": "varchar",
       "keywordId": 1,
       "ifPublic": "boolean"
+    },
+    {
+      "title": "",
+      "date": "",
+      "description": "",
+      "video": "",
+      "keywordId": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 4
+    },
+    {
+      "title": "Orff Insturmental",
+      "date": "2019-10-21",
+      "description": "Here it is the documents",
+      "video": "",
+      "keywordId": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 5
+    },
+    {
+      "title": "New Lesson plan",
+      "date": "2019-10-22",
+      "description": "czasdasd",
+      "video": "",
+      "keywordId": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 6
+    },
+    {
+      "title": "dfsdfd",
+      "date": "2019-10-23",
+      "description": "sfdsfdsfdsf",
+      "video": "",
+      "keywordId": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 7
+    }
+  ],
+  "folders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "hmmmm",
+      "date": "timestamp",
+      "description": "varchar",
+      "keywordId": 1,
+      "ifPublic": "boolean"
+    },
+    {
+      "title": "New folder",
+      "date": "2019-10-22",
+      "description": "Maybe it works",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 2
+    },
+    {
+      "title": "Second new Folder",
+      "date": "2019-10-22",
+      "description": "New folders",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 3
     }
   ],
   "upload": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    }
   ]
 }

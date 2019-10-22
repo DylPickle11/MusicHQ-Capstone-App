@@ -4,10 +4,10 @@ import {Card, CardSubtitle, CardText, Button, CardHeader} from 'reactstrap';
 //import {FaRegTrashAlt } from "react-icons/fa"
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
-class SongPlanCard extends Component {
+class FolderCard extends Component {
     render() {
         return (
-            <Card className="songPlan-Card">
+            <Card>
                 <CardHeader>
                     {this.props.song.title}
                 </CardHeader>
@@ -20,4 +20,4 @@ class SongPlanCard extends Component {
     }
 }
 
-export default SongPlanCard
+export default FolderCard

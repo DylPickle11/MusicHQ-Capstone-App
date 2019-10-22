@@ -7,7 +7,7 @@ import { FaRegEdit} from "react-icons/fa"
 class SongPlanDetail extends Component {
 
     state = {
-        userId: "",
+        userId: "", //sessionStorage.getItem(),
         title: "",
         date: "",
         description: "",

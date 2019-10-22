@@ -112,10 +112,13 @@ class Upload extends Component {
            });
 
           const formData = new FormData();
-          formData.append("file", file, file.name);
-
-          req.open("POST", "http://localhost:3000/upload");
-          req.send(formData);
+          var reader  = new FileReader();
+          reader.onload = () => {
+            formData.append("file", reader.result);
+            req.open("POST", "http://localhost:3000/upload");
+            req.send(formData);
+          }
+          reader.readAsDataURL(file);
         });
       }
 
