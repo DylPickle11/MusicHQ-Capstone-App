@@ -131,6 +131,38 @@
       "id": 3
     }
   ],
+  "folderPlan": [
+    {
+      "id": 1,
+      "userId": 1,
+      "folderId": 1,
+      "songPlanId":1
+    }],
+    "songPlanKeyword": [
+      {
+        "id": 1,
+        "userId": 1,
+        "folderId": 1,
+        "songPlanId":1
+      }],
+      "keywords": [
+        {
+          "id": 1,
+          "keyword": ""
+        },
+        {
+          "id": 2,
+          "keyword": ""
+        },
+        {
+          "id": 3,
+          "keyword": ""
+        },
+        {
+          "id": 4,
+          "keyword": ""
+        }],
+
   "upload": [
     {
       "id": 1

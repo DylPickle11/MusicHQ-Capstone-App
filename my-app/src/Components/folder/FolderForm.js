@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+//import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import {Form, FormGroup, Label, Input, Button, FormText, } from 'reactstrap';
 
@@ -64,4 +64,4 @@ class FolderForm extends Component {
     }
 }
 
-export default withRouter(FolderForm)
+export default FolderForm;

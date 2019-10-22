@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import SongPlanCard from './SongPlanCard';
+import FolderCard from '../folder/FolderCard';
 import { Route, withRouter} from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 
-class SongPlanList extends Component {
+class FolderList extends Component {
     state = {
-        allSongPlans: []
+        allFolders: []
     }
 
     componentDidMount() {
-        APIManager.getAll("songPlans").then((allSongs) => {
+        APIManager.getAll("folders").then((allFolders) => {
             this.setState({
-                allSongPlans: allSongs
+                allFolders: allFolders
             })
         })
     }
 
-    deleteSong(id) {
-        APIManager.delete("songPlans", id)
+    deleteFolder(id) {
+        APIManager.delete("folders", id)
             .then(() => {
-                APIManager.getAll("songPlans").then((allSongs) => {
+                APIManager.getAll("folders").then((Folders) => {
                     this.setState({
-                        allSongs: allSongs
+                        allFolders: Folders
                     })
                 })
             })
@@ -29,20 +29,15 @@ class SongPlanList extends Component {
 
 
     render() {
-        console.log("pls render songs")
-        console.log(this.props)
         return (
             <>
-                <h1>Song Plans</h1>
-                <button onClick={() => {this.props.history.push("/songPlans/new")}}>New Post</button>
-                <button onClick={() => {this.props.history.push("/folder/new")}}>New Folder</button>
-
+                <h1>Folder</h1>
                 {
-                    this.state.allSongPlans.map(song =>
-                        <SongPlanCard
-                        key={song.id}
-                         song={song}
-                         deleteSong={this.deleteSong}
+                    this.state.allFolders.map(folder =>
+                        <FolderCard
+                        key={folder.id}
+                        folder={folder}
+                         deleteFolder={this.deleteFolder}
                          {...this.props}/>
                     )
                 }
@@ -51,4 +46,4 @@ class SongPlanList extends Component {
     }
 }
 
-export default withRouter(SongPlanList);
+export default withRouter(FolderList);

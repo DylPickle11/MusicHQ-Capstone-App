@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SongPlanCard from './SongPlanCard';
 import { Route, withRouter} from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
+import FolderList from '../folder/FolderList';
 
 class SongPlanList extends Component {
     state = {
@@ -46,6 +47,9 @@ class SongPlanList extends Component {
                          {...this.props}/>
                     )
                 }
+                <div>
+                    <FolderList />
+                </div>
             </>
         )
     }
