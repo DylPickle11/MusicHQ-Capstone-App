@@ -62,6 +62,94 @@
       "ifPublic": true,
       "loadingStatus": true,
       "id": 4
+    },
+    {
+      "title": "Joint lessons are a pain",
+      "date": "",
+      "description": "Joint charts are a pain and I do not understand",
+      "video": "",
+      "type": "",
+      "level": "",
+      "ifPublic": "on",
+      "loadingStatus": true,
+      "id": 5
+    },
+    {
+      "title": "More song plans",
+      "date": "October 23, 2019 11:29 AM",
+      "description": "Spinning my wheels",
+      "type": "",
+      "level": "",
+      "ifPublic": "on",
+      "loadingStatus": true,
+      "id": 6
+    },
+    {
+      "userId": "1",
+      "title": "gdgdgf",
+      "date": "October 23, 2019 11:34 AM",
+      "description": "dgdgdfgdfg",
+      "type": "",
+      "level": "",
+      "ifPublic": "on",
+      "loadingStatus": true,
+      "id": 7
+    },
+    {
+      "userId": "1",
+      "title": "sfsdf",
+      "date": "October 23, 2019 11:42 AM",
+      "description": "sdfsdf",
+      "type": "",
+      "ifPublic": "on",
+      "loadingStatus": true,
+      "id": 8
+    },
+    {
+      "userId": "1",
+      "title": "adasd",
+      "date": "October 23, 2019 11:45 AM",
+      "description": "asdasd",
+      "type": "",
+      "level": {
+        "value": ""
+      },
+      "ifPublic": "on",
+      "loadingStatus": true,
+      "id": 9
+    },
+    {
+      "userId": "1",
+      "title": "asdasd",
+      "date": "October 23, 2019 11:51 AM",
+      "description": "asdasd",
+      "type": "",
+      "levelOption": "4",
+      "ifPublic": "on",
+      "loadingStatus": true,
+      "id": 10
+    },
+    {
+      "userId": "1",
+      "title": "dfsdfsf",
+      "date": "October 23, 2019 11:52 AM",
+      "description": "sdfsfsdf",
+      "type": "Instrumental",
+      "levelOption": "2",
+      "ifPublic": "on",
+      "loadingStatus": true,
+      "id": 11
+    },
+    {
+      "userId": "1",
+      "title": "sfsfsdf",
+      "date": "October 23, 2019 12:02 PM",
+      "description": "sdfsdfsf",
+      "type": "Instrumental",
+      "levelOption": "3",
+      "ifPublic": "on",
+      "loadingStatus": true,
+      "id": 12
     }
   ],
   "folders": [
@@ -83,23 +171,36 @@
     }
   ],
   "folderPlan": [],
-  "songPlanKeyword": [],
-  "keywords": [
+  "GradeLevel": [
     {
       "id": 1,
-      "keyword": ""
+      "keyword": "Early Elementary"
     },
     {
       "id": 2,
-      "keyword": ""
+      "keyword": "Late Elementary"
     },
     {
       "id": 3,
-      "keyword": ""
+      "keyword": "Middle School"
     },
     {
       "id": 4,
-      "keyword": ""
+      "keyword": "Early High School"
+    },
+    {
+      "id": 5,
+      "keyword": "Late High School"
+    }
+  ],
+  "Types": [
+    {
+      "id": 1,
+      "keyword": "instrumental"
+    },
+    {
+      "id": 2,
+      "keyword": "vocal"
     }
   ],
   "upload": [

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FolderCard from '../folder/FolderCard';
-import { Route, withRouter} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 
 class FolderList extends Component {

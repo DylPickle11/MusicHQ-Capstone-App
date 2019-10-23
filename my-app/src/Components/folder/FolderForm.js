@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
-import {Form, FormGroup, Label, Input, Button, FormText, } from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import moment from 'moment';
 
 class FolderForm extends Component {

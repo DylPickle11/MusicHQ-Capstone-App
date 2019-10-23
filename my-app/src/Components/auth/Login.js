@@ -47,7 +47,7 @@ class Login extends Component {
 		});
   };
 
-  //
+  // Registration
   // Set initial state
 	constructor(props) {
 		super(props);

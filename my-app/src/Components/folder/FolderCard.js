@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import APIManager from '../../Modules/APIManager';
 import {Card, CardSubtitle, CardText, Button, CardHeader} from 'reactstrap';
 import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"

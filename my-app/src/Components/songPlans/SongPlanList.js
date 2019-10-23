@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SongPlanCard from './SongPlanCard';
-import { Route, withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import FolderList from '../folder/FolderList';
 

@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from "react-router-dom"
-import { Button, Navbar } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
+import { Navbar } from 'reactstrap';
+import AuthManager from '../../Modules/AuthManager';
 import './NavBar.css'
+import APIManager from '../../Modules/APIManager';
 
 class NavigationBar extends Component {
+  state = {
+    userId: sessionStorage.getItem('activeUser'),
+	};
+
+  clearUser = () => {
+		sessionStorage.removeItem('activeUser');
+		this.setState({
+			user: this.isAuthenticated()
+		});
+  };
+
+  isAuthenticated = () => sessionStorage.getItem('activeUser') !== null;
+
 
   handleLogout = () => {
-    this.props.clearUser();
-    this.props.history.push('/');
+    this.clearUser();
+    this.props.history.push('/Login');
 }
 
-  render(){
+userName () {
+  //get userID
+  let userId = this.state.userId;
+  APIManager.get('users', userId).then(response =>{
+    let userNameE = response.userName
+    console.log(userNameE)
+  })
 
+};
+
+  render() {
     return (
       <Navbar className= "navbar navbar-light light-blue flex-md-nowrap p-0">
       <>
@@ -19,7 +43,7 @@ class NavigationBar extends Component {
           <h3>SongPlan Logo</h3>
         </div>
 
-        <h5>Hi, {this.props.userName} </h5>
+        <h5>Hi,{this.userNameE}</h5>
           <ul className="nav nav-pills nav-fill">
             <li><Link className='nav-link' to='/songplans'>My Song Plan</Link></li>
             <li><Link className='nav-link' to='/messages'>Messages</Link></li>
@@ -30,6 +54,7 @@ class NavigationBar extends Component {
      </Navbar>
     );
   }
+
 }
 
 export default withRouter(NavigationBar);
