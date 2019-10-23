@@ -4,6 +4,7 @@ import { Route, withRouter} from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import FolderList from '../folder/FolderList';
 
+
 class SongPlanList extends Component {
     state = {
         allSongPlans: []
@@ -29,12 +30,19 @@ class SongPlanList extends Component {
     }
 
 
+
+
+
     render() {
         console.log("pls render songs")
         console.log(this.props)
         return (
             <>
                 <h1>Song Plans</h1>
+
+              <div className="md-form active-purple active-purple-2 mb-3">
+                <input className="form-control" type="text" placeholder="Search" aria-label="Search"/>
+              </div>
                 <button onClick={() => {this.props.history.push("/songPlans/new")}}>New Post</button>
                 <button onClick={() => {this.props.history.push("/folder/new")}}>New Folder</button>
 

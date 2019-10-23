@@ -10,6 +10,7 @@ import './App.css';
 //import Registration from './Components/auth/Registration';
 
 class App extends Component {
+
   state = {
 		user: sessionStorage.getItem('activeUser') !== null,
 		activeUser: this.getUser()

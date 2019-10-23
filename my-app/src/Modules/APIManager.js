@@ -15,14 +15,14 @@ export default {
       .then(e => e.json()
       )
     },
-    get(id) {
-        return fetch(`${remoteURL}/songPlans/${id}`).then(result => result.json())
+    get(resource, id) {
+        return fetch(`${remoteURL}/${resource}/${id}`).then(result => result.json())
     },
     getAll(resource) {
         return fetch(`${remoteURL}/${resource}`).then(result => result.json())
     },
-    delete(id) {
-        return fetch(`${remoteURL}/songPlans/${id}`,{
+    delete(resource, id)  {
+        return fetch(`${remoteURL}/${resource}/${id}`,{
             method: "DELETE"
         })
         .then(result => result.json())

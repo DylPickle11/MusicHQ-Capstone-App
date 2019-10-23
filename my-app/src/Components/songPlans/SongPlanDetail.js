@@ -20,9 +20,10 @@ class SongPlanDetail extends Component {
     handleDelete = () => {
       //invoke the delete function in APIManger and re-direct to the coffee list.
       this.setState({ loadingStatus: true })
-      APIManager.delete(this.props.songPlanId)
+      APIManager.delete("songPlans", this.props.songPlanId)
         .then(() => this.props.history.push("/songPlans"))
     }
+
     componentDidMount() {
       console.log("SongPlanDetail: ComponentDidMount");
       //get(id) from APIManager and hang on to that data; put it into state

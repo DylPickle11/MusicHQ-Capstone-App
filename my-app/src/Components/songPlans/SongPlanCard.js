@@ -5,7 +5,9 @@ import {Card, CardSubtitle, CardText, Button, CardHeader} from 'reactstrap';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 class SongPlanCard extends Component {
+
     render() {
+        console.log(this.props.song.id)
         return (
             <Card className="songPlan-Card">
                 <CardHeader>
@@ -14,7 +16,7 @@ class SongPlanCard extends Component {
                 <CardText>{this.props.song.description}</CardText>
                 <CardSubtitle>Video</CardSubtitle>
                 <CardSubtitle>{this.props.song.keywordId}</CardSubtitle>
-                <Link className="navLink" to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
+                <Link to={`/songPlans/${this.props.song.id}/edit`} type="button"><Button color='primary'>Details</Button></Link>
             </Card>
         )
     }

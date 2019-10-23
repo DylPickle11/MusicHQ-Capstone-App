@@ -6,8 +6,8 @@ import SongPlanList from './songPlans/SongPlanList';
 import SongPlanDetail from './songPlans/SongPlanDetail';
 import SongPlanForm from './songPlans/SongPlanForm';
 import SongPlanEditForm from './songPlans/SongPlanEditForm';
-import Registration from './auth/RegistrationForm';
 import FolderForm from './folder/FolderForm';
+import FolderEditForm from './folder/FolderEditForm';
 
 
 
@@ -22,11 +22,12 @@ class ApplicationViews extends Component {
         <Route exact path="/Login" render={(props) => {
           return <Login {...this.props} />
         }} />
-        <Route exact path="/Registration" render={(props) => {
-          return <Registration {...this.props} />
-        }} />
+
         <Route exact path="/folder/new" render={(props) => {
           return <FolderForm {...props} />
+        }} />
+        <Route path="/folder/:folderId(\d+)/edit" render={props => {
+          return <FolderEditForm {...props} />
         }} />
 
         <Route exact path="/songPlans/new" render={(props) => {
@@ -38,7 +39,7 @@ class ApplicationViews extends Component {
         <Route exact path="/songPlans/:songPlansId(\d+)" render={(props) => {
           return <SongPlanDetail songPlanId={parseInt(props.match.params.songPlansId)} {...props} />
         }} />
-         <Route path="/songPlans/:songPlanId(\d+)/edit" render={props => {
+         <Route exact path="/songPlans/:songPlanId(\d+)/edit" render={props => {
           return <SongPlanEditForm {...props} />
         }} />
       </>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import {Form, FormGroup, Label, Input, Button, FormText, } from 'reactstrap';
+import moment from 'moment';
 
 class FolderForm extends Component {
     //set the initial state
@@ -9,10 +10,11 @@ class FolderForm extends Component {
         userId: sessionStorage.getItem('activeUser'),
         title: "",
         date: "",
-        description: "",
         ifPublic: true,
         loadingStatus: false
     }
+    moment = require('moment');
+    date = moment().format('LLL');
 
     handleFieldChange = evt => {
       const stateToChange = {}
@@ -25,7 +27,6 @@ class FolderForm extends Component {
             const newFolder = {
                 title: this.state.title,
                 date: this.state.date,
-                description: this.state.description,
                 ifPublic: true,
                 loadingStatus: true
             };
@@ -48,12 +49,7 @@ class FolderForm extends Component {
 
             <FormGroup>
                <Label for="date">Date</Label>
-               <Input type="date" name="date" id="date" onChange={this.handleFieldChange} placeholder="place date"/>
-            </FormGroup>
-
-            <FormGroup>
-                <Label for="description">Description</Label>
-                <Input type="textarea" name="description" id="description" onChange={this.handleFieldChange} placeholder="description"/>
+               <Input type="text" name="date" id="date" value={this.date} onChange={this.handleFieldChange} placeholder="place date"/>
             </FormGroup>
           </Form>
           <Button type="button" disabled={this.state.loadingStatus} onClick={this.constructFolder}>Submit</Button>

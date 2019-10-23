@@ -2,15 +2,12 @@ import React, { Component } from "react"
 import APIManager from './../../Modules/APIManager'
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-class SongPlanEditForm extends Component {
+class FolderEditForm extends Component {
     //set the initial state
     state = {
-        userId: "",
+        userId: sessionStorage.getItem('activeUser'),
         title: "",
         date: "",
-        description: "",
-        video: "",
-        keywordId: "",
         ifPublic: true,
         loadingStatus: false
       }
@@ -22,33 +19,27 @@ class SongPlanEditForm extends Component {
         this.setState(stateToChange)
     }
     // update edited task object
-    updateSongPlan = event => {
+    updateFolderForm = event => {
         event.preventDefault()
         this.setState({ loadingStatus: true });
-        const editedSongPlan = {
-            id: this.props.match.params.songPlanId,
+        const editedFolder = {
+            id: this.props.match.params.folderId,
             title: this.state.title,
             date: this.state.date,
-            description: this.state.description,
-            video: this.state.video,
-            keywordId: this.state.keywordId,
             ifPublic: true,
             loadingStatus: true
         };
         // push edited task
-        APIManager.update("songPlans", editedSongPlan)
+        APIManager.update("folders", editedFolder)
             .then(() => this.props.history.push("/home"))
     }
 
     componentDidMount() {
-        APIManager.get("songPlans", this.props.match.params.songPlanId)
-            .then(SongPlan => {
+        APIManager.get("folders", this.props.match.params.folderId)
+            .then(folder => {
                 this.setState({
-                    title: SongPlan.title,
-                    date: SongPlan.date,
-                    description: SongPlan.description,
-                    video: SongPlan.video,
-                    keywordId: SongPlan.keywordId,
+                    title: folder.title,
+                    date: folder.date,
                     ifPublic: true,
                     loadingStatus: false
                 });
@@ -61,7 +52,7 @@ class SongPlanEditForm extends Component {
     render() {
         return (
             <>
-           <Form onSubmit={this.updateSongPlan}>
+           <Form onSubmit={this.updateExistingSongPlan}>
             <h1>New Song Plan</h1>
             <FormGroup>
               <Input type="text" name="title" id="title" value={this.state.title} onChange={this.handleFieldChange} placeholder="place title"/>
@@ -72,7 +63,7 @@ class SongPlanEditForm extends Component {
             </FormGroup>
             <FormGroup>
                 <Label for="description">Description</Label>
-                <Input type="text" name="description" id="description" value={this.state.description} onChange={this.handleFieldChange} placeholder="place url"/>
+                <Input type="text" name="description" id="description"  value={this.state.description} onChange={this.handleFieldChange} placeholder="place url"/>
             </FormGroup>
             <FormGroup>
                 <Label for="video">video</Label>
@@ -87,10 +78,10 @@ class SongPlanEditForm extends Component {
                 <Input type="text" name="ifPublic" id="ifPublic" onChange={this.handleFieldChange} placeholder="place url"/>
             </FormGroup>
            </Form>
-        <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPlan}>Submit</Button>
+        <Button type="button" disabled={this.state.loadingStatus} onClick={this.editedSongPlan}>Submit</Button>
 
             </>
         );
     }
 }
-export default SongPlanEditForm
+export default FolderEditForm
