@@ -1,13 +1,18 @@
 import React, { Component } from "react"
 import APIManager from './../../Modules/APIManager'
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Card, CardSubtitle, CardText, CardHeader } from "reactstrap";
+import moment from 'moment';
+
 
 class FolderEditForm extends Component {
+    moment = require('moment');
+    date = moment().calendar();
+
     //set the initial state
     state = {
         userId: sessionStorage.getItem('activeUser'),
         title: "",
-        date: "",
+        date: this.date,
         ifPublic: true,
         loadingStatus: false
       }
@@ -19,7 +24,7 @@ class FolderEditForm extends Component {
         this.setState(stateToChange)
     }
     // update edited task object
-    updateFolderForm = event => {
+    updateFolder = event => {
         event.preventDefault()
         this.setState({ loadingStatus: true });
         const editedFolder = {
@@ -46,40 +51,28 @@ class FolderEditForm extends Component {
             });
     }
 
-
-
     // render JSX to be displayed on the DOM
     render() {
         return (
             <>
-           <Form onSubmit={this.updateExistingSongPlan}>
-            <h1>New Song Plan</h1>
-            <FormGroup>
-              <Input type="text" name="title" id="title" value={this.state.title} onChange={this.handleFieldChange} placeholder="place title"/>
-            </FormGroup>
-            <FormGroup>
-               <Label for="date">Date</Label>
-               <Input type="date" name="date" id="date" value={this.state.date} onChange={this.handleFieldChange} placeholder="place date"/>
-            </FormGroup>
-            <FormGroup>
-                <Label for="description">Description</Label>
-                <Input type="text" name="description" id="description"  value={this.state.description} onChange={this.handleFieldChange} placeholder="place url"/>
-            </FormGroup>
-            <FormGroup>
-                <Label for="video">video</Label>
-                <Input type="video" name="video" id="video" value={this.state.video} onChange={this.handleFieldChange} placeholder="place location"/>
-            </FormGroup>
-            <FormGroup>
-                <Label for="keywordId">keywordId</Label>
-                <Input type="text" name="keywordId" id="keywordId"  value={this.state.keywordId} onChange={this.handleFieldChange} placeholder="place image"/>
-            </FormGroup>
-            <FormGroup>
-                <Label for="ifPublic">Public</Label>
-                <Input type="text" name="ifPublic" id="ifPublic" onChange={this.handleFieldChange} placeholder="place url"/>
-            </FormGroup>
-           </Form>
-        <Button type="button" disabled={this.state.loadingStatus} onClick={this.editedSongPlan}>Submit</Button>
+           <Form onSubmit={this.updateFolder}>
+           <h1>Edit Folder Plan</h1>
 
+           <FormGroup>
+               <h6>Date updated:{this.state.date}</h6>
+           </FormGroup>
+
+           <FormGroup>
+              <Input type="text" name="title" id="title" value={this.state.title} onChange={this.handleFieldChange} placeholder="place title"/>
+           </FormGroup>
+
+           <FormGroup>
+              <Label for="ifPublic"> Keep it Public?</Label>
+              <Input type="text" name="ifPublic" id="ifPublic" value={this.state.ifPublic} onChange={this.handleFieldChange} placeholder="place url"/>
+           </FormGroup>
+           </Form>
+
+        <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateFolder}>Submit</Button>
             </>
         );
     }

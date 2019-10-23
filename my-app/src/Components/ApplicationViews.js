@@ -26,14 +26,14 @@ class ApplicationViews extends Component {
         <Route exact path="/folder/new" render={(props) => {
           return <FolderForm {...props} />
         }} />
-        <Route path="/folder/:folderId(\d+)/edit" render={props => {
+        <Route exact path="/folder/:folderId(\d+)/edit" render={props => {
           return <FolderEditForm {...props} />
         }} />
 
         <Route exact path="/songPlans/new" render={(props) => {
           return <SongPlanForm {...props} />
         }} />
-         <Route path="/songPlans" render={(props) => {
+         <Route exact path="/songPlans" render={(props) => {
           return <SongPlanList {...this.props} />
         }} />
         <Route exact path="/songPlans/:songPlansId(\d+)" render={(props) => {

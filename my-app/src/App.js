@@ -1,6 +1,4 @@
-import React, {Component, useState} from 'react';
-import { Link } from "react-router-dom";
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import React, { Component } from 'react';
 import ApplicationViews from './Components/ApplicationViews';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Nav from './components/nav/Nav';

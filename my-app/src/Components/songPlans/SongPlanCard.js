@@ -7,16 +7,12 @@ import {Card, CardSubtitle, CardText, Button, CardHeader} from 'reactstrap';
 class SongPlanCard extends Component {
 
     render() {
-        console.log(this.props.song.id)
         return (
             <Card className="songPlan-Card">
-                <CardHeader>
-                    {this.props.song.title}
-                </CardHeader>
+                <CardHeader>{this.props.song.title}</CardHeader>
                 <CardText>{this.props.song.description}</CardText>
-                <CardSubtitle>Video</CardSubtitle>
-                <CardSubtitle>{this.props.song.keywordId}</CardSubtitle>
-                <Link to={`/songPlans/${this.props.song.id}/edit`} type="button"><Button color='primary'>Details</Button></Link>
+                <CardSubtitle>{this.props.song.date}</CardSubtitle>
+                <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
             </Card>
         )
     }

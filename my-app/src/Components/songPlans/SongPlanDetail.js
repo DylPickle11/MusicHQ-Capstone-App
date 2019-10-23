@@ -5,15 +5,14 @@ import {Card, CardText, CardSubtitle, Button } from 'reactstrap';
 import { FaRegEdit} from "react-icons/fa"
 
 class SongPlanDetail extends Component {
-
     state = {
-        userId: "", //sessionStorage.getItem(),
+        userId: sessionStorage.getItem('activeUser'),
         title: "",
         date: "",
         description: "",
-        video: "",
-        keywordId: "",
-        ifPublic: true,
+        type: "",
+        levelOption: "",
+        ifPublic: "",
         loadingStatus: true
     }
 
@@ -27,16 +26,16 @@ class SongPlanDetail extends Component {
     componentDidMount() {
       console.log("SongPlanDetail: ComponentDidMount");
       //get(id) from APIManager and hang on to that data; put it into state
-      APIManager.get(this.props.songPlanId)
+      APIManager.get("songPlans", this.props.songPlanId)
         .then((song) => {
           this.setState({
             userId: song.userId,
             title: song.title,
             date: song.date,
             description: song.description,
-            video: song.video,
-            keywordId: song.keywordId,
-            ifPublic: true,
+            type: song.type,
+            levelOption: song.levelOption,
+            ifPublic: song.ifPublic,
             loadingStatus: false
           });
         });
@@ -44,13 +43,13 @@ class SongPlanDetail extends Component {
 
     render() {
       return (
-        <Card className="songPlan-Card">
-                <CardHeader>
-                    {this.state.title}
-                </CardHeader>
-                <CardText>{this.state.description}</CardText>
-                <CardSubtitle>{this.state.video}</CardSubtitle>
-                <CardSubtitle>{this.state.keywordId}</CardSubtitle>
+        <Card>
+                <CardHeader>Title:{this.state.title}</CardHeader>
+                <CardSubtitle>Date:{this.state.date}</CardSubtitle>
+                <CardText>Description:{this.state.description}</CardText>
+                <CardText>Type:{this.state.type}</CardText>
+                <CardText>Level:{this.state.levelOption}</CardText>
+                <CardText>Public:{this.state.ifPublic}</CardText>
                 <Button type="button" onClick={() => { this.props.history.push(`/songPlans/${this.props.songPlanId}/edit`) }}><FaRegEdit/></Button>
                 <Button className="song-btns" color="danger" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Delete</Button>
             </Card>

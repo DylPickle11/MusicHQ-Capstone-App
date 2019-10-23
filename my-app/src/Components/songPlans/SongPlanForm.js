@@ -18,7 +18,7 @@ class SongPlanForm extends Component {
         date: this.date,
         description: "",
         type: "",
-        level: "",
+        levelOption: "",
         ifPublic: "",
         loadingStatus: false
     }
@@ -55,7 +55,7 @@ class SongPlanForm extends Component {
            <Form>
             <h1>New Song Plan</h1>
             <FormGroup>
-               <h6>Date Created:{this.date}</h6>
+               <h6>Date Created:{this.state.date}</h6>
             </FormGroup>
 
             <FormGroup>

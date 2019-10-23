@@ -42,6 +42,7 @@ class Login extends Component {
 
     //response[0].id is the ID of the user you logged in with,
 				this.props.setUser(response[0].id);
+				this.props.setUser(response[0].userName);
 				this.props.history.push(`/home`);
 			}
 		});

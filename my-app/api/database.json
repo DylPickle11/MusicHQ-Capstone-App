@@ -34,102 +34,6 @@
   ],
   "songPlans": [
     {
-      "id": 2,
-      "userId": 2,
-      "title": "Kodaly Techniques",
-      "date": "timestamp",
-      "description": "varchar",
-      "video": "varchar",
-      "keywordId": 1,
-      "ifPublic": "boolean"
-    },
-    {
-      "id": 3,
-      "userId": 3,
-      "title": "Orff Techniques",
-      "date": "timestamp",
-      "description": "varchar",
-      "video": "varchar",
-      "keywordId": 1,
-      "ifPublic": "boolean"
-    },
-    {
-      "title": "New Song",
-      "date": "2019-10-22",
-      "description": "The news songs",
-      "video": "",
-      "keywordId": "",
-      "ifPublic": true,
-      "loadingStatus": true,
-      "id": 4
-    },
-    {
-      "title": "Joint lessons are a pain",
-      "date": "",
-      "description": "Joint charts are a pain and I do not understand",
-      "video": "",
-      "type": "",
-      "level": "",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 5
-    },
-    {
-      "title": "More song plans",
-      "date": "October 23, 2019 11:29 AM",
-      "description": "Spinning my wheels",
-      "type": "",
-      "level": "",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 6
-    },
-    {
-      "userId": "1",
-      "title": "gdgdgf",
-      "date": "October 23, 2019 11:34 AM",
-      "description": "dgdgdfgdfg",
-      "type": "",
-      "level": "",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 7
-    },
-    {
-      "userId": "1",
-      "title": "sfsdf",
-      "date": "October 23, 2019 11:42 AM",
-      "description": "sdfsdf",
-      "type": "",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 8
-    },
-    {
-      "userId": "1",
-      "title": "adasd",
-      "date": "October 23, 2019 11:45 AM",
-      "description": "asdasd",
-      "type": "",
-      "level": {
-        "value": ""
-      },
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 9
-    },
-    {
-      "userId": "1",
-      "title": "asdasd",
-      "date": "October 23, 2019 11:51 AM",
-      "description": "asdasd",
-      "type": "",
-      "levelOption": "4",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 10
-    },
-    {
       "userId": "1",
       "title": "dfsdfsf",
       "date": "October 23, 2019 11:52 AM",
@@ -141,33 +45,23 @@
       "id": 11
     },
     {
-      "userId": "1",
-      "title": "sfsfsdf",
+      "id": 12,
+      "title": "A real lesson plan",
       "date": "October 23, 2019 12:02 PM",
-      "description": "sdfsdfsf",
+      "description": "I think I have my edit working",
       "type": "Instrumental",
       "levelOption": "3",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 12
+      "ifPublic": true,
+      "loadingStatus": true
     }
   ],
   "folders": [
     {
-      "title": "New folder",
+      "id": 2,
+      "title": "New Edit",
       "date": "2019-10-22",
-      "description": "Maybe it works",
       "ifPublic": true,
-      "loadingStatus": true,
-      "id": 2
-    },
-    {
-      "title": "Second new Folder",
-      "date": "2019-10-22",
-      "description": "New folders",
-      "ifPublic": true,
-      "loadingStatus": true,
-      "id": 3
+      "loadingStatus": true
     }
   ],
   "folderPlan": [],

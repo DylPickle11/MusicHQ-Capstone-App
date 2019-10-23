@@ -1,17 +1,21 @@
 import React, { Component } from "react"
 import APIManager from './../../Modules/APIManager'
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import moment from 'moment';
 
 class SongPlanEditForm extends Component {
+    moment = require('moment');
+    date = moment().calendar();
+
     //set the initial state
     state = {
         userId: "",
         title: "",
-        date: "",
+        date: this.date,
         description: "",
-        video: "",
-        keywordId: "",
-        ifPublic: true,
+        type: "",
+        levelOption: "",
+        ifPublic: "",
         loadingStatus: false
       }
 
@@ -30,8 +34,8 @@ class SongPlanEditForm extends Component {
             title: this.state.title,
             date: this.state.date,
             description: this.state.description,
-            video: this.state.video,
-            keywordId: this.state.keywordId,
+            type: this.state.type,
+            levelOption: this.state.levelOption,
             ifPublic: true,
             loadingStatus: true
         };
@@ -47,8 +51,8 @@ class SongPlanEditForm extends Component {
                     title: SongPlan.title,
                     date: SongPlan.date,
                     description: SongPlan.description,
-                    video: SongPlan.video,
-                    keywordId: SongPlan.keywordId,
+                    type: SongPlan.type,
+                    levelOption: SongPlan.levelOption,
                     ifPublic: true,
                     loadingStatus: false
                 });
@@ -62,32 +66,61 @@ class SongPlanEditForm extends Component {
         return (
             <>
            <Form onSubmit={this.updateSongPlan}>
-            <h1>New Song Plan</h1>
+            <h1>Edit Song Plan</h1>
+            <FormGroup>
+               <h6>Date updated:{this.state.date}</h6>
+            </FormGroup>
+
             <FormGroup>
               <Input type="text" name="title" id="title" value={this.state.title} onChange={this.handleFieldChange} placeholder="place title"/>
             </FormGroup>
-            <FormGroup>
-               <Label for="date">Date</Label>
-               <Input type="date" name="date" id="date" value={this.state.date} onChange={this.handleFieldChange} placeholder="place date"/>
-            </FormGroup>
+
             <FormGroup>
                 <Label for="description">Description</Label>
                 <Input type="text" name="description" id="description" value={this.state.description} onChange={this.handleFieldChange} placeholder="place url"/>
             </FormGroup>
+
             <FormGroup>
-                <Label for="video">video</Label>
-                <Input type="video" name="video" id="video" value={this.state.video} onChange={this.handleFieldChange} placeholder="place location"/>
+              <Label for="type">Musical Type</Label>
+              <Input type="select" name="type" id="type" onChange={this.handleFieldChange} multiple>
+                <option>Instrumental</option>
+                <option>Vocal</option>
+              </Input>
             </FormGroup>
+
             <FormGroup>
-                <Label for="keywordId">keywordId</Label>
-                <Input type="text" name="keywordId" id="keywordId"  value={this.state.keywordId} onChange={this.handleFieldChange} placeholder="place image"/>
+              <Label for="level">Grade Level</Label>
+              <Input type="select" name="level" id="level" value={this.state.levelOption} onChange={this.handleFieldChange}>
+                <option value="1">Early Elementary</option>
+                <option value="2">Late Elementary</option>
+                <option value="3">Middle School</option>
+                <option value="4">Early High School</option>
+                <option value="5">Late High School</option>
+              </Input>
             </FormGroup>
-            <FormGroup>
-                <Label for="ifPublic">Public</Label>
-                <Input type="text" name="ifPublic" id="ifPublic" onChange={this.handleFieldChange} placeholder="place url"/>
+
+            <FormGroup value={this.state.ifPublic} onChange={this.handleFieldChange}>
+              <legend>Would you like this to be Public?</legend>
+
+            <FormGroup check>
+              <Label check>
+              <Input type="radio" name="radio1" id="ifPublic" onChange={this.handleFieldChange}/>{' '}
+              Please make it Public!
+              </Label>
             </FormGroup>
-           </Form>
-        <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPlan}>Submit</Button>
+
+            <FormGroup check>
+              <Label check>
+              <Input type="radio" name="radio1" id="ifPublic" onChange={this.handleFieldChange} />{' '}
+              Keep it Private!
+              </Label>
+           </FormGroup>
+
+          </FormGroup>
+
+          <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPlan}>Submit</Button>
+          </Form>
+
 
             </>
         );

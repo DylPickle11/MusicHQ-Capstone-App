@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Navbar } from 'reactstrap';
-import AuthManager from '../../Modules/AuthManager';
 import './NavBar.css'
 import APIManager from '../../Modules/APIManager';
 
 class NavigationBar extends Component {
   state = {
     userId: sessionStorage.getItem('activeUser'),
-	};
+    userName: sessionStorage.getItem('activeUser')
+  	};
 
   clearUser = () => {
 		sessionStorage.removeItem('activeUser');
@@ -18,6 +18,7 @@ class NavigationBar extends Component {
   };
 
   isAuthenticated = () => sessionStorage.getItem('activeUser') !== null;
+  activeUserName = this.state.userId;
 
 
   handleLogout = () => {
@@ -43,7 +44,7 @@ userName () {
           <h3>SongPlan Logo</h3>
         </div>
 
-        <h5>Hi,{this.userNameE}</h5>
+        <h5>Hi, {this.state.userName}</h5>
           <ul className="nav nav-pills nav-fill">
             <li><Link className='nav-link' to='/songplans'>My Song Plan</Link></li>
             <li><Link className='nav-link' to='/messages'>Messages</Link></li>

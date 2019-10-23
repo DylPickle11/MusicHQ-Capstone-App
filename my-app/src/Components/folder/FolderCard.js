@@ -17,9 +17,9 @@ class FolderCard extends Component {
         return (
             <Card>
                 <CardHeader>{this.props.folder.title}</CardHeader>
-                <CardText>{this.props.folder.description}</CardText>
-                <CardSubtitle>Video</CardSubtitle>
-                <Button type="button" onClick={() => { this.props.history.push(`/folders/${this.props.folderId}/edit`) }}><FaRegEdit/></Button>
+                <CardText>{this.props.folder.date}</CardText>
+                <CardText>{this.props.folder.ifPublic}</CardText>
+                <Button type="button" onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/edit`) }}><FaRegEdit/></Button>
                 <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button>
             </Card>
         )

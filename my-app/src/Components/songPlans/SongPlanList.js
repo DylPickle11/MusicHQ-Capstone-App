@@ -34,8 +34,6 @@ class SongPlanList extends Component {
 
 
     render() {
-        console.log("pls render songs")
-        console.log(this.props)
         return (
             <>
                 <h1>Song Plans</h1>
