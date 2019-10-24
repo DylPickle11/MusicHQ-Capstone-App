@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import APIManager from '../../Modules/APIManager';
-import {Card, CardSubtitle, CardText, Button, CardHeader} from 'reactstrap';
+import {Card, CardText, Button, CardHeader, CardSubtitle} from 'reactstrap';
 import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class FolderCard extends Component {
+class FolderFileCard extends Component {
     handleDelete = () => {
         //invoke the delete function in APIManger and re-direct to the coffee list.
         this.setState({ loadingStatus: true })
@@ -14,17 +14,20 @@ class FolderCard extends Component {
       }
 
     render() {
+        console.log("file:", this.props.file.songPlan)
         return (
             <Card>
-                <CardHeader>{this.props.folder.title}</CardHeader>
-                <CardText>{this.props.folder.date}</CardText>
-                <CardText>{this.props.folder.ifPublic}</CardText>
-                <Link onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/files`) }}><Button>Open Folder</Button></Link>
-                <Button type="button" onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/edit`) }}><FaRegEdit/></Button>
+                <CardHeader>{this.props.file.songPlan.title}</CardHeader>
+                <CardSubtitle>{this.props.file.songPlan.date}</CardSubtitle>
+                <CardText>{this.props.file.songPlan. description}</CardText>
+     {/*
+                <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
                 <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button>
-            </Card>
+
+     */}
+       </Card>
         )
     }
 }
 
-export default FolderCard
+export default FolderFileCard

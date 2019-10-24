@@ -9,7 +9,7 @@ class SongPlanEditForm extends Component {
 
     //set the initial state
     state = {
-        userId: "",
+        userId: sessionStorage.getItem('activeUser'),
         title: "",
         date: this.date,
         description: "",

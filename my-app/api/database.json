@@ -64,7 +64,13 @@
       "loadingStatus": true
     }
   ],
-  "folderPlan": [],
+  "folderPlans": [
+    {
+      "id": 2,
+      "folderId": 2,
+      "songPlanId": 11
+    }
+  ],
   "GradeLevel": [
     {
       "id": 1,

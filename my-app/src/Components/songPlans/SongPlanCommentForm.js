@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import AuthManager from '../../Modules/AuthManager';
+//import Registration from '../auth/Registration';
+import { withRouter } from "react-router-dom"
 import APIManager from "./../../Modules/APIManager";
-import {Card, CardSubtitle, CardText,CardHeader, Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button} from 'reactstrap';
-//import {FaRegTrashAlt } from "react-icons/fa"
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button} from 'reactstrap';
 
-class SongPlanCard extends Component {
-    // Registration
+
+class Login extends Component {
+  // Registration
   // Set initial state
 	constructor(props) {
 		super(props);
@@ -48,15 +49,9 @@ class SongPlanCard extends Component {
 	.then(() => this.props.history.push("/users"))
 }
 
-    render() {
-        return (
-            <Card className="songPlan-Card">
-                <CardHeader>{this.props.song.title}</CardHeader>
-                <CardText>{this.props.song.description}</CardText>
-                <CardSubtitle>{this.props.song.date}</CardSubtitle>
-                <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
-                <Button type="button" onClick={() => { this.props.history.push(`/songPlans/${this.props.song.id}/comment`) }}>Post comment</Button>
-                <Form onSubmit={this.handleLogin}>
+  render() {
+    return (
+      <Form onSubmit={this.handleLogin}>
         <Button onClick={this.toggle} type="button">Do not have an Account? Register Now</Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
 			  <ModalBody>
@@ -85,9 +80,8 @@ class SongPlanCard extends Component {
       </Modal>
       </Form>
 
-            </Card>
-        )
-    }
+    )
+  }
 }
 
-export default SongPlanCard
+export default withRouter(Login);
