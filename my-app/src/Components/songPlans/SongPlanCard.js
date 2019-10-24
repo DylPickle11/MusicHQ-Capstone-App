@@ -6,15 +6,18 @@ import {Card, CardSubtitle, CardText,CardHeader, Modal, ModalBody, ModalFooter, 
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 class SongPlanCard extends Component {
-    // Registration
   // Set initial state
 	constructor(props) {
 		super(props);
 	this.state = {
-		regUserName: '',
-		regPassword: '',
-		regEmail: '',
-		regPasswordConfirm: '',
+        userId: sessionStorage.getItem('activeUser'),
+        title: "",
+        date: this.date,
+        description: "",
+        type: "",
+        levelOption: "",
+        ifPublic: "",
+		comment: "",
 		loadingStatus: false,
 		modal: false
 	}
@@ -27,64 +30,76 @@ class SongPlanCard extends Component {
 		}));
 	}
 
-	// Update state whenever an input field is edited
-	handleFieldChange = evt => {
-		const stateToChange = {};
-		stateToChange[evt.target.id] = evt.target.value;
-		this.setState(stateToChange);
-    };
+	 // set state to value of input
+     handleFieldChange = event => {
+        const stateToChange = {}
+        stateToChange[event.target.id] = event.target.value
+        this.setState(stateToChange)
+    }
+    // update edited task object
+    updateSongPlan = event => {
+		console.log(this.props.song.id)
+        event.preventDefault()
+        this.setState({ loadingStatus: true });
+        const editedSongPlan = {
+            id: this.props.song.id,
+            title: this.state.title,
+            date: this.state.date,
+            description: this.state.description,
+            type: this.state.type,
+			levelOption: this.state.levelOption,
+			comment: this.state.comment,
+            ifPublic: true,
+            loadingStatus: true
+        };
+        // push edited task
+        APIManager.update("songPlans", editedSongPlan)
+            .then(() => this.props.history.push("/home"))
+    }
 
-    handleRegistration = e => {
-		e.preventDefault();
-		this.setState({ loadingStatus: true });
-		const registration = {
-		userName: this.state.regUserName,
-		password: this.state.regPassword,
-		email: this.state.regEmail,
-		passwordConfirm: this.state.regPasswordConfirm
-	};
+    componentDidMount() {
+        APIManager.get("songPlans", this.props.song.id)
+            .then(SongPlan => {
+                this.setState({
+                    title: SongPlan.title,
+                    date: SongPlan.date,
+                    description: SongPlan.description,
+                    type: SongPlan.type,
+					levelOption: SongPlan.levelOption,
+					comment: SongPlan.comment,
+                    ifPublic: true,
+                    loadingStatus: false
+                });
+            });
+    }
 
-	APIManager.post("users", registration)
-	.then(() => this.props.history.push("/users"))
-}
 
     render() {
         return (
             <Card className="songPlan-Card">
-                <CardHeader>{this.props.song.title}</CardHeader>
-                <CardText>{this.props.song.description}</CardText>
+                <CardHeader>Title:{this.props.song.title}</CardHeader>
+                <CardText>description:{this.props.song.description}</CardText>
                 <CardSubtitle>{this.props.song.date}</CardSubtitle>
+                <CardSubtitle>Comment:{this.props.song.comment}</CardSubtitle>
                 <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
-                <Button type="button" onClick={() => { this.props.history.push(`/songPlans/${this.props.song.id}/comment`) }}>Post comment</Button>
-                <Form onSubmit={this.handleLogin}>
-        <Button onClick={this.toggle} type="button">Do not have an Account? Register Now</Button>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-			  <ModalBody>
-				<Form onSubmit={this.handleRegistration} id='loginForm'>
-				  <ModalHeader toggle={this.toggle}>Register Now</ModalHeader>
-					<FormGroup>
-					  <Input onChange={this.handleFieldChange} id='regUserName' type='userName'placeholder='User Name' required=''autoFocus=''/>
-					</FormGroup>
+                <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>AddSongPLan</Button></Link>
 
-					<FormGroup>
-					  <Input onChange={this.handleFieldChange} type='email' id='regEmail' placeholder='Email' required='' autoFocus=''/>
-					</FormGroup>
 
-					<FormGroup>
-					  <Input onChange={this.handleFieldChange} type='password' id='regPassword' placeholder='Password' required=''/>
-					</FormGroup>
-
-					<FormGroup>
-					  <Input onChange={this.handleFieldChange} type='password' id='regPasswordConfirm' placeholder='Confirm Password' required=''/>
-					</FormGroup>
-					</Form>
-              </ModalBody>
-          <ModalFooter>
-		  <Button type="button" disabled={this.state.loadingStatus} onClick={this.handleRegistration}>Submit</Button>
-          </ModalFooter>
-      </Modal>
-      </Form>
-
+             {/* Modal For Comments*/}
+                <Button onClick={this.toggle} type="button">Post comment</Button>
+                  <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+			        <ModalBody>
+				      <Form onSubmit={this.updateSongPlan}>
+				      <ModalHeader toggle={this.toggle}>Register Now</ModalHeader>
+					    <FormGroup>
+					     <Input onChange={this.handleFieldChange} id='comment' type='comment'placeholder='comment' required=''autoFocus=''/>
+					    </FormGroup>
+					  </Form>
+                    </ModalBody>
+                   <ModalFooter>
+		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPlan}>Comment</Button>
+                   </ModalFooter>
+                </Modal>
             </Card>
         )
     }

@@ -29,10 +29,17 @@ class FolderForm extends Component {
                 date: this.state.date,
                 ifPublic: true,
                 loadingStatus: true
-            };
+            }
 
         APIManager.post("folders", newFolder)
-          .then(() => this.props.history.push("/home"))
+          .then((response) => {
+             const newFolderPlan = {
+              userdId: sessionStorage.getItem('activeUser'),
+              folderId: response.id
+            }
+            APIManager.post("folderPlans", newFolderPlan)
+            .then(()=> this.props.history.push("/home"))
+             })
     }
 
     render() {

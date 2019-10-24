@@ -19,6 +19,7 @@ class SongPlanForm extends Component {
         description: "",
         type: "",
         levelOption: "",
+        comment:"",
         ifPublic: "",
         loadingStatus: false
     }
@@ -38,6 +39,7 @@ class SongPlanForm extends Component {
                 description: this.state.description,
                 type: this.state.type,
                 levelOption: this.state.level,
+                comment: this.state.comment,
                 ifPublic: this.state.ifPublic,
                 loadingStatus: true
             };
