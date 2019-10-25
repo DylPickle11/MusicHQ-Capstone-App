@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import APIManager from './../../Modules/APIManager'
-import { Button, Form, FormGroup, Label, Input, Card, CardSubtitle, CardText, CardHeader } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import moment from 'moment';
 
 

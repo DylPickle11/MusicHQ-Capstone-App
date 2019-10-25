@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import APIManager from '../../Modules/APIManager';
-import {Card, CardText, Button, CardHeader, CardSubtitle} from 'reactstrap';
-import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
+import {Card, CardText, CardHeader, CardSubtitle} from 'reactstrap';
+//import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class FolderFileCard extends Component {
@@ -23,7 +22,6 @@ class FolderFileCard extends Component {
      {/*
                 <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
                 <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button>
-
      */}
        </Card>
         )

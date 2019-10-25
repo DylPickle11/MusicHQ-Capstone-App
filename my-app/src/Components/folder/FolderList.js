@@ -16,6 +16,7 @@ class FolderList extends Component {
         })
     }
 
+
     deleteFolder(id) {
         APIManager.delete("folders", id)
             .then(() => {
@@ -34,13 +35,17 @@ class FolderList extends Component {
                 <h1>Folder</h1>
                 {
                     this.state.allFolders.map(folder =>
+                        <div key={folder.id}>
                         <FolderCard
                         key={folder.id}
                         folder={folder}
                          deleteFolder={this.deleteFolder}
                          {...this.props}/>
+                         </div>
                     )
                 }
+
+
             </>
         )
     }
