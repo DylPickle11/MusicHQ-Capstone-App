@@ -13,12 +13,11 @@ class FolderFileCard extends Component {
       }
 
     render() {
-        console.log("file:", this.props.file.songPlan)
         return (
             <Card>
-                <CardHeader>{this.props.file.songPlan.title}</CardHeader>
-                <CardSubtitle>{this.props.file.songPlan.date}</CardSubtitle>
-                <CardText>{this.props.file.songPlan. description}</CardText>
+                <CardHeader>Hello:{this.props.file.title}</CardHeader>
+                <CardSubtitle>{this.props.file.date}</CardSubtitle>
+                <CardText>{this.props.file.description}</CardText>
      {/*
                 <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
                 <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button>

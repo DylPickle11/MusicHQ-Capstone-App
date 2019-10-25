@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import FolderFileCard from './FolderFileCard';
 import APIManager from '../../Modules/APIManager';
-
+//
 class FolderFileView extends Component {
     state = {
         allFiles: []
     }
 
     componentDidMount() {
-        APIManager.getExpand("folderPlans", "folders").then((files) => {
-            console.log(files)
+        APIManager.getExpand("folderPlans").then((files) => {
             this.setState({
                 allFiles: files
             })
+            console.log(files)
         })
     }
+
     render() {
     return (
         <>

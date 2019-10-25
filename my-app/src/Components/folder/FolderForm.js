@@ -32,14 +32,7 @@ class FolderForm extends Component {
             }
 
         APIManager.post("folders", newFolder)
-          .then((response) => {
-             const newFolderPlan = {
-              userdId: sessionStorage.getItem('activeUser'),
-              folderId: response.id
-            }
-            APIManager.post("folderPlans", newFolderPlan)
             .then(()=> this.props.history.push("/home"))
-             })
     }
 
     render() {

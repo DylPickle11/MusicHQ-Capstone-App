@@ -34,11 +34,6 @@
   ],
   "songPlans": [
     {
-      "id": 11,
-      "ifPublic": true,
-      "loadingStatus": true
-    },
-    {
       "id": 12,
       "title": "A real lesson plan",
       "date": "October 23, 2019 12:02 PM",
@@ -54,7 +49,7 @@
       "title": "New Song PLan",
       "date": "October 24, 2019 2:48 PM",
       "description": "Checking to see if comments work",
-      "type": "",
+      "type": "Vocal",
       "levelOption": "3",
       "comment": "Whats up",
       "ifPublic": true,
@@ -71,30 +66,20 @@
     },
     {
       "title": "Kodaly Techniques!!!",
-      "date": "",
+      "date": "2019-10-22",
       "ifPublic": true,
       "loadingStatus": true,
       "id": 3
     },
     {
       "title": "I want a new Folder",
-      "date": "",
+      "date": "2019-10-22",
       "ifPublic": true,
       "loadingStatus": true,
       "id": 4
     }
   ],
   "folderPlans": [
-    {
-      "id": 2,
-      "folderId": 2,
-      "songPlanId": 11
-    },
-    {
-      "userdId": "bb",
-      "folderId": 4,
-      "id": 3
-    },
     {
       "userdId": "bb",
       "folderId": "2",
