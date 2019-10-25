@@ -66,20 +66,16 @@ class SongPlanCard extends Component {
     }
 
     pushToFolder = event => {
+        let folderSelect = document.getElementById("folderSelect");
+        let  folderValue = folderSelect.value;
         event.preventDefault()
         this.setState({ loadingStatus: true });
         const pushSong = {
-            id: this.props.song.id,
-            title: this.state.title,
-            date: this.state.date,
-            description: this.state.description,
-            type: this.state.type,
-			levelOption: this.state.levelOption,
-			comment: this.state.comment,
-            ifPublic: true,
-            loadingStatus: true
+            userdId: sessionStorage.getItem('activeUser'),
+            folderId: folderValue,
+            songPlanId: this.props.song.id
         };
-        APIManager.update("", pushSong)
+        APIManager.post("folderPlans", pushSong)
         .then(() => this.props.history.push("/home"))
     }
 
@@ -123,7 +119,7 @@ class SongPlanCard extends Component {
 
                         <FormGroup>
                           <Label for="folder">Push to Folder</Label>
-                            <Input type="select" name="folder" id="folder" onChange={this.handleFieldChange}>
+                            <Input type="select" name="folder" id="folderSelect" onChange={this.handleFieldChange}>
                         {
                             this.state.allFolders.map(folder =>
                                 <option key={folder.id} value={folder.id}>{folder.title}</option>
@@ -134,7 +130,7 @@ class SongPlanCard extends Component {
 					  </Form>
                     </ModalBody>
                     <ModalFooter>
-		              <Button type="button" disabled={this.state.loadingStatus} onClick={this.pushToFolder}>Comment</Button>
+		              <Button type="button" disabled={this.state.loadingStatus} onClick={this.pushToFolder}>Push to Folder</Button>
                     </ModalFooter>
                  </Modal>
 
@@ -143,7 +139,7 @@ class SongPlanCard extends Component {
                   <Modal isOpen={this.state.modal2} toggle={this.toggle2} className={this.props.className}>
 			        <ModalBody>
 				      <Form onSubmit={this.updateSongPlan}>
-				      <ModalHeader toggle={this.toggle2}>Register Now</ModalHeader>
+				      <ModalHeader toggle={this.toggle2}>Comment</ModalHeader>
 					    <FormGroup>
 					     <Input onChange={this.handleFieldChange} id='comment' type='comment'placeholder='comment' required=''autoFocus=''/>
 					    </FormGroup>
