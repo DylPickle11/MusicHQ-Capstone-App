@@ -52,8 +52,8 @@ export default {
         return fetch(`${remoteURL}/${firstResource}/${id}?_embed=${secondResource}`)
             .then(response => response.json())
     },
-     searchDatabase(search, database, type) {
-        return fetch(`${remoteURL}/${database}?${type}_like=${search}`)
+     searchDatabase(search, resource, title) {
+        return fetch(`${remoteURL}/${resource}?${title}_like=${search}`)
             .then(response => response.json())
     }
 }
