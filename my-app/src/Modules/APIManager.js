@@ -21,8 +21,8 @@ export default {
     getAll(resource) {
         return fetch(`${remoteURL}/${resource}`).then(result => result.json())
     },
-    getExpand(resource) {
-        return fetch(`${remoteURL}/${resource}?_expand=folder&_expand=songPlan`).then(result => result.json())
+    getExpand(resource, id) {
+        return fetch(`${remoteURL}/${resource}/?folderId=${id}&_expand=folder&_expand=songPlan`).then(result => result.json())
     },
     delete(resource, id)  {
         return fetch(`${remoteURL}/${resource}/${id}`,{

@@ -87,7 +87,7 @@ class Login extends Component {
 	};
 
 	APIManager.post("users", registration)
-	.then(() => this.props.history.push("/users"))
+	.then(() => this.props.history.push("/Login"))
 }
 
   render() {

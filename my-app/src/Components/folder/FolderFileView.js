@@ -8,15 +8,13 @@ class FolderFileView extends Component {
     }
 
     componentDidMount() {
-        APIManager.getExpand("folderPlans").then((files) => {
-            this.setState({
-                allFiles: files
+         APIManager.getExpand("folderPlans",this.props.match.params.folderId).then((files) => {
+             this.setState({allFiles: files})
             })
-            console.log(files)
-        })
     }
 
     render() {
+       console.log(this.state.allFiles)
     return (
         <>
         <h1>Files</h1>
