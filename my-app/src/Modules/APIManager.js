@@ -1,6 +1,8 @@
 const remoteURL = "http://localhost:3000";
 
 export default {
+    //Login and Register
+
     addUser(newUser) {
       return fetch(`${remoteURL}/users`, {
         method: "POST",
@@ -15,6 +17,13 @@ export default {
       .then(e => e.json()
       )
     },
+
+    // Get Specific User Data
+    getUserData(resource, userId) {
+        return fetch(`${remoteURL}/${resource}?userId=${userId}`)
+            .then(response => response.json())
+    },
+    // Get resources
     get(resource, id) {
         return fetch(`${remoteURL}/${resource}/${id}`).then(result => result.json())
     },
@@ -55,8 +64,18 @@ export default {
         return fetch(`${remoteURL}/${firstResource}/${id}?_embed=${secondResource}`)
             .then(response => response.json())
     },
-     searchDatabase(search, resource, title) {
-        return fetch(`${remoteURL}/${resource}?${title}_like=${search}`)
+    
+    searchPublicDatabase(search, resource, title) {
+        return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public!&${title}_like=${search}`)
             .then(response => response.json())
+    },
+    searchUserDatabase(resource, userId) {
+        return fetch(`${remoteURL}/${resource}?userId=${userId}`)
+            .then(response => response.json())
+    },
+    getAllPublic(resource){
+        return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public!`)
+        .then(response => response.json())
     }
 }
+

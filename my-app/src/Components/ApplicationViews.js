@@ -9,6 +9,7 @@ import SongPlanEditForm from './songPlans/SongPlanEditForm';
 import FolderForm from './folder/FolderForm';
 import FolderEditForm from './folder/FolderEditForm';
 import FolderFileView from './folder/FolderFileView';
+import SearchList from '../search/SearchList';
 
 
 
@@ -18,7 +19,7 @@ class ApplicationViews extends Component {
     return (
       <>
          <Route exact path="/" render={props => {
-           return <Home userId={this.props.userId} userName={this.props.userName} {...this.props}/>
+           return <Home userId={this.props.userId} userName={this.props.userName} handleLogout={this.handleLogout} {...this.props}/>
         }} />
         <Route exact path="/Login" render={(props) => {
           return <Login {...this.props} />
@@ -46,6 +47,13 @@ class ApplicationViews extends Component {
          <Route exact path="/songPlans/:songPlanId(\d+)/edit" render={props => {
           return <SongPlanEditForm {...props} />
         }} />
+         <Route exact path="/search" render={(props) => {
+          return <SearchList {...this.props} />
+        }} />
+        <Route exact path="/search" render={(props) => {
+          return //<FriendList {...this.props} />
+        }} />
+       
       </>
     )
   }

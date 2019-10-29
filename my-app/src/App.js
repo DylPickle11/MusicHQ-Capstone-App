@@ -23,7 +23,7 @@ class App extends Component {
   setUser = (id, username) => {
     sessionStorage.setItem('activeUser', id);
     sessionStorage.setItem('userName', username);
-		this.setState({ activeUser: this.getUser(), user: true });
+		this.setState({ activeUserId: this.getUser(), user: true });
 	};
 
 	getUser() {
@@ -44,11 +44,17 @@ class App extends Component {
 	}
 
 	clearUser = () => {
-		sessionStorage.removeItem('activeUser');
+    sessionStorage.removeItem('activeUserId');
+    sessionStorage.removeItem('userName');
 		this.setState({
 			user: this.isAuthenticated()
 		});
   };
+
+  handleLogout = () => {
+        this.clearUser();
+        this.props.history.push('/Login')
+  }
 
 
   render() {
@@ -56,9 +62,9 @@ class App extends Component {
       <>
        {this.state.user ?
       <>
-       <ApplicationViews userId={this.state.activeUserId} userName={this.state.userName}/>
+       <ApplicationViews userId={this.state.activeUserId} userName={this.state.userName} handleLogout={this.handleLogout}/>
       </>
-      : <Login setUser={this.setUser} userId={this.state.userId} userName={this.state.userName} {...this.props} />
+      : <Login setUser={this.setUser} userId={this.state.activeUserId} userName={this.state.userName} {...this.props} />
   }
       </>
     )

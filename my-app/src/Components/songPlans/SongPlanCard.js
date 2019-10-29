@@ -93,7 +93,7 @@ class SongPlanCard extends Component {
                     loadingStatus: false
                 });
             });
-        APIManager.getAll("folders").then((allFolders) => {
+        APIManager.getUserData("folders", this.props.userId).then((allFolders) => {
                 this.setState({
                     allFolders: allFolders
                 })
@@ -146,7 +146,7 @@ class SongPlanCard extends Component {
 					  </Form>
                     </ModalBody>
                    <ModalFooter>
-		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPlan}>Comment</Button>
+		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPlan, this.toggle2}>Comment</Button>
                    </ModalFooter>
                 </Modal>
             </Card>

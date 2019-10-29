@@ -3,9 +3,15 @@ import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import moment from 'moment';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+
 //import Upload from '../upload/Upload';
 //import SongPlan from './SongPlan.css';
 //import Dropzone from '../dropzone/Dropzone';
+
+const CLOUDINARY_UPLOAD_PRESET = 'xkcknffm';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dylcapstone-app/video/upload';
 
 class SongPlanForm extends Component {
     moment = require('moment');
@@ -17,11 +23,16 @@ class SongPlanForm extends Component {
         title: "",
         date: this.date,
         description: "",
+        allTypes: [],
         type: "",
-        levelOption: "",
+        allGradesLevel: [],
+        level: "", 
         comment:"",
-        ifPublic: "",
-        loadingStatus: false
+        ifPublic: [],
+        ifPublicChoice: "",
+        loadingStatus: false,
+        uploadedFileCloudinaryUrl: '',
+        uploadedFile: null
     }
 
     handleFieldChange = evt => {
@@ -31,7 +42,7 @@ class SongPlanForm extends Component {
     }
 
     constructNewSongPlan = evt => {
-      console.log(this.state.userId)
+
         evt.preventDefault();
             const newSongPlan = {
                 userId: this.state.userId,
@@ -41,7 +52,7 @@ class SongPlanForm extends Component {
                 type: this.state.type,
                 levelOption: this.state.level,
                 comment: this.state.comment,
-                ifPublic: this.state.ifPublic,
+                ifPublic: this.state.ifPublicChoice,
                 loadingStatus: true
             };
 
@@ -49,10 +60,51 @@ class SongPlanForm extends Component {
           .then(() => this.props.history.push("/songPlans"))
     }
 
+    // onImageDrop(files) {
+    //   this.setState({
+    //     uploadedFile: files[0]
+    //   });
+    //    this.handleImageUpload(files[0])
+    // }    
+  
+    //   handleImageUpload(file) {
+    //     let upload = request.post(CLOUDINARY_UPLOAD_URL)
+    //                         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+    //                         .field('file', file);
+    
+    //     upload.end((err, response) => {
+    //       if (err) {
+    //         console.error(err);
+    //       }
+    
+    //       if (response.body.secure_url !== '') {
+    //         this.setState({
+    //           uploadedFileCloudinaryUrl: response.body.secure_url
+    //         });
+    //       }
+    //     });
+    //   }
 
+    componentDidMount() { //set state one time
+        let levels =[];
+        let type = [];
+      APIManager.getAll("gradeLevels")
+          .then((level =>{levels = level}))
+          .then(()=> APIManager.getAll("types"))
+          .then((types =>{type= types }))
+          .then(()=> APIManager.getAll("ifPublic"))
+          .then(ifPublic =>{
+            this.setState({
+              allTypes: levels,
+              allGradesLevel: type,
+              ifPublic: ifPublic
+            })
+          })
+      }
+  
     render() {
 
-      return (
+        return (
         <>
         <div>
            <Form>
@@ -71,60 +123,65 @@ class SongPlanForm extends Component {
                 <Input type="textarea" name="description" id="description" onChange={this.handleFieldChange} placeholder="description"/>
             </FormGroup>
 
-             {/*
-            <div className="App">
-             <div className="Card">
-               <Dropzone onFilesAdded={console.log} />
-               <Label for="video">video</Label>
-               <Upload type="video" name="video" id="video" onChange={this.handleFieldChange}/>
-             </div>
-            </div>*/}
+            {/* <Dropzone
+               onDrop={this.onImageDrop.bind(this)}
+               accept="image/*"
+              multiple={false}>
+               {({getRootProps, getInputProps}) => {
+                return (
+                   <div  {...getRootProps()} >
+                  <input {...getInputProps()} />
+          {
+          <p>Try dropping some files here, or click to select files to upload.</p>
+          }
+        </div>
+      )
+  }}
+</Dropzone>
+            <div>
+              {this.state.uploadedFileCloudinaryUrl === '' ? null :
+             <div>
+             <p>{this.state.uploadedFile.name}</p>
+              <img src={this.state.uploadedFileCloudinaryUrl} />
+             </div>}
+               </div> */}
 
             <FormGroup>
               <Label for="type">Musical Type</Label>
-              <Input type="select" name="type" id="type" onChange={this.handleFieldChange} multiple>
-                <option>Instrumental</option>
-                <option>Vocal</option>
+              <Input type="select" name="type" id="type" onChange={this.handleFieldChange}>
+                { this.state.allTypes.map(type =>
+                   <option key={type.id} value={type.keyword}>{type.keyword}</option>
+                )
+                }
               </Input>
             </FormGroup>
 
             <FormGroup>
               <Label for="level">Grade Level</Label>
               <Input type="select" name="level" id="level" onChange={this.handleFieldChange}>
-                <option value="Early Elementary">Early Elementary</option>
-                <option value="Late Elementary">Late Elementary</option>
-                <option value="Middle School">Middle School</option>
-                <option value="Early High School">Early High School</option>
-                <option value="Late High School">Late High School</option>
+                 { this.state.allGradesLevel.map(level  =>
+                 <option key={level.id} value={level.keyword}>{level.keyword}</option>
+                 )}
               </Input>
             </FormGroup>
-
-            <FormGroup onChange={this.handleFieldChange}>
-              <legend>Would you like this to be Public?</legend>
-
-            <FormGroup check>
-              <Label check>
-              <Input type="radio" name="radio1" id="ifPublic" onChange={this.handleFieldChange}/>{' '}
-              Please make it Public!
-              </Label>
-            </FormGroup>
-
-            <FormGroup check>
-              <Label check>
-              <Input type="radio" name="radio1" id="ifPublic" onChange={this.handleFieldChange} />{' '}
-              Keep it Private!
-              </Label>
-           </FormGroup>
-          </FormGroup>
-            {/*
+             
             <FormGroup>
-              <Label for="exampleFile">File</Label>
-              <Input type="file" name="file" id="exampleFile" />
-              <FormText color="muted">
-          This is some placeholder block-level help text for the above input.
-          It's a bit lighter and easily wraps to a new line.
-              </FormText>
-            </FormGroup> */}
+              <legend>Would you like this to be Public?</legend>
+              <Input type="select" name="ifPublic" id="ifPublicChoice" onChange={this.handleFieldChange}>
+             {this.state.ifPublic.map(ifPub=>
+                 <option key={ifPub.id} value={ifPub.keyword}>{ifPub.keyword}</option>
+             )}
+             </Input>
+             </FormGroup>
+            
+          {/* //   <FormGroup>
+          //     <Label for="exampleFile">File</Label>
+          //     <Input type="file" name="file" id="exampleFile" />
+          //     <FormText color="muted">
+          // This is some placeholder block-level help text for the above input.
+          // It's a bit lighter and easily wraps to a new line.
+          //     </FormText>
+          //   </FormGroup>  */}
 
           </Form>
           <Button type="button" disabled={this.state.loadingStatus} onClick={this.constructNewSongPlan}>Submit</Button>

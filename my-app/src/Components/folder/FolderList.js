@@ -9,7 +9,7 @@ class FolderList extends Component {
     }
 
     componentDidMount() {
-        APIManager.getAll("folders").then((allFolders) => {
+        APIManager.getUserData("folders",this.props.userId).then((allFolders) => {
             this.setState({
                 allFolders: allFolders
             })
@@ -20,7 +20,7 @@ class FolderList extends Component {
     deleteFolder(id) {
         APIManager.delete("folders", id)
             .then(() => {
-                APIManager.getAll("folders").then((Folders) => {
+                APIManager.getAll("folders", this.props.userId).then((Folders) => {
                     this.setState({
                         allFolders: Folders
                     })

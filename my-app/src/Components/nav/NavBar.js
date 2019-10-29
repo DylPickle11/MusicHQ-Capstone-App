@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Navbar } from 'reactstrap';
 import './NavBar.css'
-import APIManager from '../../Modules/APIManager';
 
 class NavigationBar extends Component {
 
@@ -19,7 +18,7 @@ class NavigationBar extends Component {
           <ul className="nav nav-pills nav-fill">
             <li><Link className='nav-link' to='/songplans'>My Song Plan</Link></li>
             <li><Link className='nav-link' to='/messages'>Messages</Link></li>
-            <li><Link className='nav-link' to='/othersongs'>Explore Songs</Link></li>
+            <li><Link className='nav-link' to='/search'>Explore Songs</Link></li>
             <li onClick={this.handleLogout}>Logout</li>
           </ul>
           </>
