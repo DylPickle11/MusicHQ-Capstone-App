@@ -6,6 +6,7 @@ import APIManager from "./../../Modules/APIManager";
 import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button} from 'reactstrap';
 import './Login.css';
 
+
 class Login extends Component {
   // Set initial state
   state = {
@@ -22,13 +23,13 @@ class Login extends Component {
   }
 
   handleLogin = (e) => {
+	  console.log(this.props)
     e.preventDefault()
     let userName = this.state.userName;
     let password = this.state.password;
 
     // Fetch Call and authentication
-    AuthManager.getUser(userName).then(response => {
-      console.log(response)
+	AuthManager.getUser(userName).then(response => {
 			if (response.length === 0) {
 				alert('Please enter a valid User Name.');
 			} else if (response.length === 1 && response[0].password !== password) {
@@ -39,13 +40,11 @@ class Login extends Component {
 			} else if (userName === '') {
 				alert('Please enter a valid userName');
 			} else if (response[0].password === password) {
-
-    //response[0].id is the ID of the user you logged in with,
-				this.props.setUser(response[0].id);
-				this.props.setUser(response[0].userName);
-				this.props.history.push(`/home`);
+                    this.props.setUser(response[0].id, response[0].userName)
+			} else {
+				console.log('error')
 			}
-		});
+		})
   };
 
   // Registration
@@ -67,14 +66,7 @@ class Login extends Component {
         this.setState(prevState => ({
             modal: !prevState.modal
 		}));
-	}
-
-	// Update state whenever an input field is edited
-	handleFieldChange = evt => {
-		const stateToChange = {};
-		stateToChange[evt.target.id] = evt.target.value;
-		this.setState(stateToChange);
-    };
+	};
 
     handleRegistration = e => {
 		e.preventDefault();
@@ -87,7 +79,7 @@ class Login extends Component {
 	};
 
 	APIManager.post("users", registration)
-	.then(() => this.props.history.push("/Login"))
+	.then(() => this.props.history.push("/Home"))
 }
 
   render() {
@@ -99,7 +91,7 @@ class Login extends Component {
             <Input onChange={this.handleFieldChange} type="text" id="userName" placeholder="UserName" required="" autoFocus=""/>
             <Input onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
           </div>
-          <Button type="submit">Sign in</Button>
+          <Button type="submit" onClick={this.handleLogin}>Sign in</Button>
           <div>
 
         <Button onClick={this.toggle} type="button">Do not have an Account? Register Now</Button>

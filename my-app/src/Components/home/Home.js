@@ -10,7 +10,7 @@ class Home extends Component {
     render() {
       return (
         <>
-         <NavigationBar {...this.props}/>
+         <NavigationBar userId={this.props.userId} userName={this.props.userName}{...this.props}/>
 
          <div className='flex-container'>
            <SongPlanList {...this.props}/>

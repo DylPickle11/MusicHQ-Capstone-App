@@ -17,8 +17,8 @@ class ApplicationViews extends Component {
   render() {
     return (
       <>
-         <Route path="/home" render={props => {
-           return <Home userId={this.props.userId} {...this.props}/>
+         <Route path="/" render={props => {
+           return <Home userId={this.props.userId} userName={this.props.userName} {...this.props}/>
         }} />
         <Route exact path="/Login" render={(props) => {
           return <Login {...this.props} />

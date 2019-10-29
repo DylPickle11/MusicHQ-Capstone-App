@@ -31,6 +31,7 @@ class SongPlanForm extends Component {
     }
 
     constructNewSongPlan = evt => {
+      console.log(this.state.userId)
         evt.preventDefault();
             const newSongPlan = {
                 userId: this.state.userId,

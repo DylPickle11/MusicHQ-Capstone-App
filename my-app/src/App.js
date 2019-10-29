@@ -10,23 +10,33 @@ import './App.css';
 class App extends Component {
 
   state = {
-		user: sessionStorage.getItem('activeUser') !== null,
-		activeUser: this.getUser()
+		user: sessionStorage.getItem('activeUser') !== null, //Evaluates True or False
+    activeUserId: this.getUser(),
+    userName: this.getUserName()
   };
 
 	//Check if credentials are in session storage
   //returns true/false
 
-	isAuthenticated = () => sessionStorage.getItem('activeUser') !== null;
+  isAuthenticated = () => sessionStorage.getItem('activeUser') !== null;
 
-  setUser = id => {
-		sessionStorage.setItem('activeUser', id);
+  setUser = (id, username) => {
+    sessionStorage.setItem('activeUser', id);
+    sessionStorage.setItem('userName', username);
 		this.setState({ activeUser: this.getUser(), user: true });
 	};
 
 	getUser() {
 		if (sessionStorage.getItem('activeUser')) {
 			return parseInt(sessionStorage.getItem('activeUser'));
+		} else {
+			return '';
+    }
+
+  }
+  getUserName() {
+		if (sessionStorage.getItem('userName')) {
+			return sessionStorage.getItem('userName');
 		} else {
 			return '';
     }
@@ -42,14 +52,13 @@ class App extends Component {
 
 
   render() {
-
     return(
       <>
        {this.state.user ?
       <>
-       <ApplicationViews userId={this.state.userId}/>
+       <ApplicationViews userId={this.state.activeUserId} userName={this.state.userName}/>
       </>
-      : <Login setUser={this.setUser} {...this.props} />
+      : <Login setUser={this.setUser} userId={this.state.userId} userName={this.state.userName} {...this.props} />
   }
       </>
     )

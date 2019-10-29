@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import FolderList from '../folder/FolderList';
 import { Button } from 'reactstrap';
-import ResultsCard from './results/ResultsCard'
+import ResultsCard from './results/ResultsCard';
+import FolderResultsCard from './results/ResultsCard';
 
 
 class SongPlanList extends Component {
@@ -74,7 +75,7 @@ class SongPlanList extends Component {
               </div>
                 <button onClick={() => {this.props.history.push("/songPlans/new")}}>New Post</button>
                 <button onClick={() => {this.props.history.push("/folder/new")}}>New Folder</button>
-
+                <h2>SONGPLANS</h2>
                 {
                     this.state.allSongPlans.map(song =>
                         <SongPlanCard
@@ -84,9 +85,11 @@ class SongPlanList extends Component {
                          {...this.props}/>
                     )
                 }
+             
                 <div>
                     <FolderList />
                 </div>
+                <h2>SEARCH PLAN RESULTS</h2>
                 <div>
                 {
                     this.state.searchPlanResults.map(result =>
@@ -97,18 +100,19 @@ class SongPlanList extends Component {
                          {...this.props}/>
                     )
                 }
+                </div>
+                <h2>SEARCH FOLDER RESULTS</h2>
                 <div>
                 {
                     this.state.searchFolderResults.map(result =>
-                        <ResultsCard
+                        <FolderResultsCard
                         key={result.id}
                          result={result}
                          deleteSong={this.deleteSong}
                          {...this.props}/>
                     )
                 }
-                </div>  
-                </div>  
+                </div>   
                 
             </>
         )
