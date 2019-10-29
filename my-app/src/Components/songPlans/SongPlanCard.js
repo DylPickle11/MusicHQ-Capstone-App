@@ -62,7 +62,7 @@ class SongPlanCard extends Component {
         };
         // push edited task
         APIManager.update("songPlans", editedSongPlan)
-            .then(() => this.props.history.push("/home"))
+            .then(() => this.props.history.push("/"))
     }
 
     pushToFolder = event => {
@@ -71,12 +71,12 @@ class SongPlanCard extends Component {
         event.preventDefault()
         this.setState({ loadingStatus: true });
         const pushSong = {
-            userdId: sessionStorage.getItem('activeUser'),
+            userdId: this.state.userId,
             folderId: folderValue,
             songPlanId: this.props.song.id
         };
         APIManager.post("folderPlans", pushSong)
-        .then(() => this.props.history.push("/home"))
+        .then(() => this.props.history.push("/"))
     }
 
     componentDidMount() {

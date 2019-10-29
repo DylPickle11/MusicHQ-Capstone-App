@@ -41,7 +41,7 @@ class SongPlanEditForm extends Component {
         };
         // push edited task
         APIManager.update("songPlans", editedSongPlan)
-            .then(() => this.props.history.push("/home"))
+            .then(() => this.props.history.push("/"))
     }
 
     componentDidMount() {

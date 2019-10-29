@@ -23,8 +23,10 @@ class FolderForm extends Component {
     }
 
     constructFolder = evt => {
+      console.log(this.state.userId)
         evt.preventDefault();
             const newFolder = {
+                userId: this.state.userId,
                 title: this.state.title,
                 date: this.state.date,
                 ifPublic: true,
@@ -32,7 +34,7 @@ class FolderForm extends Component {
             }
 
         APIManager.post("folders", newFolder)
-            .then(()=> this.props.history.push("/home"))
+            .then(()=> this.props.history.push("/"))
     }
 
     render() {

@@ -9,7 +9,7 @@ class FolderCard extends Component {
         //invoke the delete function in APIManger and re-direct to the coffee list.
         this.setState({ loadingStatus: true })
         APIManager.delete('folders', this.props.folder.id)
-          .then(() => this.props.history.push("/home"))
+          .then(() => this.props.history.push("/songPlans"))
       }
 
     render() {

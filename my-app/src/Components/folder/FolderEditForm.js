@@ -36,7 +36,7 @@ class FolderEditForm extends Component {
         };
         // push edited task
         APIManager.update("folders", editedFolder)
-            .then(() => this.props.history.push("/home"))
+            .then(() => this.props.history.push("/"))
     }
 
     componentDidMount() {

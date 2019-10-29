@@ -91,11 +91,11 @@ class SongPlanForm extends Component {
             <FormGroup>
               <Label for="level">Grade Level</Label>
               <Input type="select" name="level" id="level" onChange={this.handleFieldChange}>
-                <option value="1">Early Elementary</option>
-                <option value="2">Late Elementary</option>
-                <option value="3">Middle School</option>
-                <option value="4">Early High School</option>
-                <option value="5">Late High School</option>
+                <option value="Early Elementary">Early Elementary</option>
+                <option value="Late Elementary">Late Elementary</option>
+                <option value="Middle School">Middle School</option>
+                <option value="Early High School">Early High School</option>
+                <option value="Late High School">Late High School</option>
               </Input>
             </FormGroup>
 

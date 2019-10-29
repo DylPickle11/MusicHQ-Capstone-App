@@ -4,208 +4,39 @@
       "id": 1,
       "userName": "bb",
       "password": "222"
-    },
-    {
-      "id": 2,
-      "userName": "ab@mail.com",
-      "password": "333"
-    },
-    {
-      "userName": "asdas",
-      "password": "sdfsdf",
-      "email": "asdasd@gmail.com",
-      "passwordConfirm": "sdfsdf",
-      "id": 3
-    },
-    {
-      "userName": "adasd",
-      "password": "sdfsdf",
-      "email": "asdas@gmail.com",
-      "passwordConfirm": "sdfsd",
-      "id": 4
-    },
-    {
-      "userName": "sadasd",
-      "password": "sd",
-      "email": "Dylan.Griff11@gmail.com",
-      "passwordConfirm": "sd",
-      "id": 5
-    },
-    {
-      "userName": "Dyl",
-      "password": "222",
-      "email": "sd@gmail.com",
-      "passwordConfirm": "222",
-      "id": 6
-    },
-    {
-      "userName": "sid",
-      "password": "111",
-      "email": "sid@gmail.com",
-      "passwordConfirm": "111",
-      "id": 7
-    },
-    {
-      "userName": "Hello",
-      "password": "1234",
-      "email": "hello@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 8
-    },
-    {
-      "userName": "Heidi",
-      "password": "1234",
-      "email": "heyheyhey@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 9
-    },
-    {
-      "userName": "bob",
-      "password": "4321",
-      "email": "bob@gmail.com",
-      "passwordConfirm": "4321",
-      "id": 10
-    },
-    {
-      "userName": "amber",
-      "password": "123",
-      "email": "amber@gmail.com",
-      "passwordConfirm": "123",
-      "id": 11
-    },
-    {
-      "userName": "greg",
-      "password": "12",
-      "email": "greg@gmail.com",
-      "passwordConfirm": "12",
-      "id": 12
-    },
-    {
-      "userName": "quin",
-      "password": "54321",
-      "email": "quin@gmail.com",
-      "passwordConfirm": "54321",
-      "id": 13
     }
   ],
   "songPlans": [
     {
-      "id": 12,
-      "title": "A real lesson plan",
-      "date": "October 23, 2019 12:02 PM",
-      "description": "I think I have my edit working",
-      "type": "Instrumental",
-      "levelOption": "3",
-      "comment": "Hey",
-      "ifPublic": true,
-      "loadingStatus": true
-    },
-    {
-      "id": 13,
-      "title": "New Song PLan",
-      "date": "October 24, 2019 2:48 PM",
-      "description": "Checking to see if comments work",
-      "type": "Vocal",
-      "levelOption": "3",
-      "comment": "Whats up",
-      "ifPublic": true,
-      "loadingStatus": true
-    },
-    {
-      "id": 11,
-      "title": "New Song PLan",
-      "date": "October 24, 2019 2:48 PM",
-      "description": "Checking to see if comments work",
-      "type": "Vocal",
-      "levelOption": "3",
-      "comment": "Whats up",
-      "ifPublic": true,
-      "loadingStatus": true
-    },
-    {
-      "userId": null,
-      "title": "New music lessons plans",
-      "date": "October 28, 2019 3:45 PM",
-      "description": "Test run here I go",
-      "type": "Instrumental",
-      "levelOption": "3",
-      "comment": "",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 14
-    },
-    {
-      "userId": "bb",
-      "title": "",
-      "date": "October 28, 2019 3:48 PM",
-      "description": "",
+      "id": 2,
+      "title": "sdfsdf",
+      "date": "October 28, 2019 8:58 PM",
+      "description": "sdfsdf",
       "type": "",
-      "comment": "",
-      "ifPublic": "",
-      "loadingStatus": true,
-      "id": 15
+      "ifPublic": true,
+      "loadingStatus": true
     },
     {
-      "userId": "bob",
-      "title": "",
-      "date": "October 28, 2019 4:02 PM",
-      "description": "",
-      "type": "",
-      "comment": "",
-      "ifPublic": "",
-      "loadingStatus": true,
-      "id": 16
+      "id": 3,
+      "title": "Here is the new song ID. It is working",
+      "date": "October 28, 2019 9:27 PM",
+      "description": "HEre we go",
+      "type": "Vocal",
+      "levelOption": "Early High School",
+      "ifPublic": true,
+      "loadingStatus": true
     }
   ],
   "folders": [
     {
-      "id": 2,
-      "title": "New Edit",
-      "date": "2019-10-22",
+      "id": 1,
+      "title": "something nice",
+      "date": "",
       "ifPublic": true,
       "loadingStatus": true
-    },
-    {
-      "title": "Kodaly Techniques!!!",
-      "date": "2019-10-22",
-      "ifPublic": true,
-      "loadingStatus": true,
-      "id": 3
-    },
-    {
-      "title": "I want a new Folder",
-      "date": "2019-10-22",
-      "ifPublic": true,
-      "loadingStatus": true,
-      "id": 4
     }
   ],
-  "folderPlans": [
-    {
-      "userdId": "bb",
-      "folderId": "2",
-      "songPlanId": 12,
-      "id": 4
-    },
-    {
-      "userdId": "bb",
-      "folderId": "4",
-      "songPlanId": 11,
-      "id": 5
-    },
-    {
-      "userdId": "bb",
-      "folderId": "2",
-      "songPlanId": 13,
-      "id": 6
-    },
-    {
-      "userdId": "bb",
-      "folderId": "4",
-      "songPlanId": 13,
-      "id": 7
-    }
-  ],
+  "folderPlans": [],
   "GradeLevel": [
     {
       "id": 1,
@@ -238,24 +69,5 @@
       "keyword": "vocal"
     }
   ],
-  "upload": [
-    {
-      "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    }
-  ]
+  "upload": []
 }

@@ -24,6 +24,9 @@ export default {
     getExpand(resource, id) {
         return fetch(`${remoteURL}/${resource}/?folderId=${id}&_expand=folder&_expand=songPlan`).then(result => result.json())
     },
+    getExpandGrade(resource, id) {
+        return fetch(`${remoteURL}/${resource}/?gradeLevelId=${id}&_expand=keyword`).then(result => result.json())
+    },
     delete(resource, id)  {
         return fetch(`${remoteURL}/${resource}/${id}`,{
             method: "DELETE"
