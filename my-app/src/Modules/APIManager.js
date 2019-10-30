@@ -63,7 +63,10 @@ export default {
     }, getObjectWithDatabase(firstResource, id, secondResource) {
         return fetch(`${remoteURL}/${firstResource}/${id}?_embed=${secondResource}`)
             .then(response => response.json())
-    },
+    }, getFriends(userId) {
+        return fetch(`http://localhost:3000/friendships?userId=${userId}&_expand=friend`)
+        .then(response => response.json());
+      },
     
     searchPublicDatabase(search, resource, title) {
         return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public!&${title}_like=${search}`)

@@ -216,5 +216,39 @@
       "id": 2,
       "keyword": "No, Keep it Private!"
     }
+  ],
+  "friends": [
+    {
+      "friendName": "Chloe",
+      "friendUserName": "bb",
+      "id": 1
+    },
+    {
+      "friendName": "Sam",
+      "friendUserName": "bb",
+      "id": 2
+    },
+    {
+      "friendName": "Chloe",
+      "friendUserName": "sim",
+      "id": 3
+    }
+  ],
+  "friendships": [
+    {
+      "userId": "6",
+      "friendId": "1",
+      "id": 1
+    },
+    {
+      "userId": "6",
+      "friendId": "2",
+      "id": 2
+    },
+    {
+      "userId": "4",
+      "friendId": "3",
+      "id": 3
+    }
   ]
 }

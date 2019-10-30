@@ -10,6 +10,7 @@ import FolderForm from './folder/FolderForm';
 import FolderEditForm from './folder/FolderEditForm';
 import FolderFileView from './folder/FolderFileView';
 import SearchList from '../search/SearchList';
+import FriendList from './friends/FriendList';
 
 
 
@@ -50,8 +51,8 @@ class ApplicationViews extends Component {
          <Route exact path="/search" render={(props) => {
           return <SearchList {...this.props} />
         }} />
-        <Route exact path="/search" render={(props) => {
-          return //<FriendList {...this.props} />
+        <Route exact path="/friends" render={(props) => {
+          return <FriendList userId={this.props.userId} userName={this.props.userName} {...this.props} />
         }} />
        
       </>
