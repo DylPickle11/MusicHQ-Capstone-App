@@ -60,10 +60,10 @@ class ApplicationViews extends Component {
         <Route exact path="/messages" render={(props) => {
           return <MessageList userId={this.props.userId} userName={this.props.userName} {...this.props} />
         }} />
-         <Route exact path="/messages/new" render={(props) => {
-          return <MessageForm userId={this.props.userId} userName={this.props.userName} {...this.props} />
+         <Route exact path="/messages/new/:userId(\d+)" render={(props) => {
+          return <MessageForm userId={this.props.userId} userName={this.props.userName} {...this.props} {...props} />
         }} />
-       
+
       </>
     )
   }

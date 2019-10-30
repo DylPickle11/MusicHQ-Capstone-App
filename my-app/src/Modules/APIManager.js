@@ -63,8 +63,9 @@ export default {
     }, getObjectWithDatabase(firstResource, id, secondResource) {
         return fetch(`${remoteURL}/${firstResource}/${id}?_embed=${secondResource}`)
             .then(response => response.json())
-    }, getFriends(userId) {
-        return fetch(`http://localhost:3000/friendships?userId=${userId}&_expand=friend`)
+    
+    }, getFriends(currentuserId) {
+        return fetch(`http://localhost:3000/friendships?currentuserId=${currentuserId}&_expand=user`)
         .then(response => response.json());
       },
     

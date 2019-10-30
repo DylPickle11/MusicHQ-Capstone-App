@@ -4,16 +4,14 @@ import { Card, CardTitle, CardText, CardBody, Button} from "reactstrap";
 
 export default class FriendCard extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <Card>
           <CardBody className="cardBody">
             <CardTitle className="cardTitle">
-            <CardText>{this.props.friend.friend.friendName}</CardText>
-            <CardText>{this.props.friend.friend.friendUserName}</CardText>
+            <CardText>{this.props.friend.user.userName}</CardText>
             </CardTitle>
-            <Link to={`/messages/new`} type="button"><Button color='primary'>Send Message</Button></Link>
+            <Link to={`/messages/new/${this.props.friend.user.id}`} type="button"><Button color='primary'>Send Message</Button></Link>
             <Button>Remove</Button>
           </CardBody>
         </Card>

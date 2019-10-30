@@ -24,11 +24,10 @@ class MessageForm extends Component {
     }
 
     constructNewMessage = evt => {
-        console.log(this.props)
         evt.preventDefault();
             const newMessage = {
                 userId: this.state.userId,
-                receivedId: this.state.id,
+                receivedId: this.props.match.params.userId,
                 title: this.state.title,
                 date: this.state.date,
                 description: this.state.description,
@@ -40,7 +39,7 @@ class MessageForm extends Component {
     }
 
     render() {
-        console.log(this.props)
+        console.log(this.props.match.params.userId)
         return (
         <>
         <div>

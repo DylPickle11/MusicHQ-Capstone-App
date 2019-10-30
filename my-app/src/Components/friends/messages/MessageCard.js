@@ -3,7 +3,6 @@ import { Card, CardTitle, CardText, CardBody, Button} from "reactstrap";
 
 export default class FriendCard extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <Card>

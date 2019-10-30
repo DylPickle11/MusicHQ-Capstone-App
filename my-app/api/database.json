@@ -217,37 +217,20 @@
       "keyword": "No, Keep it Private!"
     }
   ],
-  "friends": [
-    {
-      "friendName": "Chloe",
-      "friendUserName": "bb",
-      "id": 1
-    },
-    {
-      "friendName": "Sam",
-      "friendUserName": "bb",
-      "id": 2
-    },
-    {
-      "friendName": "Chloe",
-      "friendUserName": "sim",
-      "id": 3
-    }
-  ],
   "friendships": [
     {
-      "userId": "6",
-      "friendId": "1",
+      "currentuserId": 6,
+      "userId": 1,
       "id": 1
     },
     {
-      "userId": "6",
-      "friendId": "2",
+      "currentuserId": 6,
+      "userId": 2,
       "id": 2
     },
     {
-      "userId": "4",
-      "friendId": "3",
+      "currentuserId": 4,
+      "userId": "3",
       "id": 3
     }
   ],
@@ -280,6 +263,15 @@
       "description": "First message sent out",
       "loadingStatus": true,
       "id": 4
+    },
+    {
+      "userId": "6",
+      "receivedId": "1",
+      "title": "what we doing",
+      "date": "October 30, 2019 2:44 PM",
+      "description": "lets hang out",
+      "loadingStatus": true,
+      "id": 5
     }
   ]
 }
