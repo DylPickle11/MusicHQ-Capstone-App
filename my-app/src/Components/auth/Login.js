@@ -118,7 +118,7 @@ class Login extends Component {
 					</Form>
               </ModalBody>
           <ModalFooter>
-		  <Button type="button" disabled={this.state.loadingStatus} onClick={this.toggle, this.handleRegistration}>Submit</Button>
+		  <Button type="button" disabled={this.state.loadingStatus} onClick={this.toggle}>Submit</Button>
           </ModalFooter>
       </Modal>
           </div>

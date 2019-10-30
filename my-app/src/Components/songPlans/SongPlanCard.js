@@ -146,7 +146,7 @@ class SongPlanCard extends Component {
 					  </Form>
                     </ModalBody>
                    <ModalFooter>
-		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPlan, this.toggle2}>Comment</Button>
+		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.toggle2}>Comment</Button>
                    </ModalFooter>
                 </Modal>
             </Card>

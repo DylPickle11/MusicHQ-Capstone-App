@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchCard from './SearchCard';
 //import { withRouter} from 'react-router-dom';
-import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import PublicResultsCard from '../Components/songPlans/results/PublicResultsCard';
 import APIManager from '../Modules/APIManager';
 

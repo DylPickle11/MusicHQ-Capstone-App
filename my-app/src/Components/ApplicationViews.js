@@ -11,12 +11,15 @@ import FolderEditForm from './folder/FolderEditForm';
 import FolderFileView from './folder/FolderFileView';
 import SearchList from '../search/SearchList';
 import FriendList from './friends/FriendList';
+import MessageForm from './friends/messages/MessageForm';
+import MessageList from './friends/messages/MessageList';
 
 
 
 class ApplicationViews extends Component {
 
   render() {
+
     return (
       <>
          <Route exact path="/" render={props => {
@@ -53,6 +56,12 @@ class ApplicationViews extends Component {
         }} />
         <Route exact path="/friends" render={(props) => {
           return <FriendList userId={this.props.userId} userName={this.props.userName} {...this.props} />
+        }} />
+        <Route exact path="/messages" render={(props) => {
+          return <MessageList userId={this.props.userId} userName={this.props.userName} {...this.props} />
+        }} />
+         <Route exact path="/messages/new" render={(props) => {
+          return <MessageForm userId={this.props.userId} userName={this.props.userName} {...this.props} />
         }} />
        
       </>

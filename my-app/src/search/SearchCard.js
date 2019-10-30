@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import APIManager from '../Modules/APIManager';
 import {Card, CardText, Button, CardHeader} from 'reactstrap';
-import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
+// import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class SearchCard extends Component {

@@ -3,15 +3,15 @@ import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import moment from 'moment';
-import Dropzone from 'react-dropzone';
-import request from 'superagent';
+// import Dropzone from 'react-dropzone';
+// import request from 'superagent';
 
 //import Upload from '../upload/Upload';
 //import SongPlan from './SongPlan.css';
 //import Dropzone from '../dropzone/Dropzone';
 
-const CLOUDINARY_UPLOAD_PRESET = 'xkcknffm';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dylcapstone-app/video/upload';
+// const CLOUDINARY_UPLOAD_PRESET = 'xkcknffm';
+// const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dylcapstone-app/video/upload';
 
 class SongPlanForm extends Component {
     moment = require('moment');

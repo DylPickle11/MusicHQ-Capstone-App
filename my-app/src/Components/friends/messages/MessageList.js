@@ -1,27 +1,25 @@
-import APIManager from '../../Modules/APIManager';
+import APIManager from '../../../Modules/APIManager';
 import React, { Component } from "react";
-import FriendCard from './FriendCard';
-import MessageList from './messages/MessageList';
+import MessageCard from './MessageCard';
 import { Button } from 'reactstrap';
 
 //Make message form to send the message possibly a modal
 //This should create and object that has the userId and friendId on it
 
 
-export default class FriendList extends Component {
+export default class MessageList extends Component {
     state = {
-      friends: [],
-      friend: ""
+      messages: [],
+      message: ""
     };
-
+  
     componentDidMount() {
-    APIManager.getFriends(this.props.userId)
-         .then((friends)=>{
+      APIManager.getUserData('messages',this.props.userId)
+      .then((messages)=>
         this.setState({
-            friends : friends,
-         })
+            messages : messages
         })
-    }
+      )}
 
     render() {
       return (
@@ -32,14 +30,10 @@ export default class FriendList extends Component {
           </div>
 
           <div>
-              <h1>Friends</h1>
-            {this.state.friends.map(friend => (
-              <FriendCard key={friend.id} friend={friend} {...this.props} />
+              <h1>Messages</h1>
+            {this.state.messages.map(message => (
+              <MessageCard key={message.id} message={message} {...this.props} />
             ))}
-
-          </div>
-          <div>
-             <MessageList {...this.props} />
 
           </div>
         </>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 import { Card, CardTitle, CardText, CardBody, Button} from "reactstrap";
 
 export default class FriendCard extends Component {
@@ -9,11 +8,10 @@ export default class FriendCard extends Component {
       <div>
         <Card>
           <CardBody className="cardBody">
-            <CardTitle className="cardTitle">
-            <CardText>{this.props.friend.friend.friendName}</CardText>
-            <CardText>{this.props.friend.friend.friendUserName}</CardText>
-            </CardTitle>
-            <Link to={`/messages/new`} type="button"><Button color='primary'>Send Message</Button></Link>
+            <CardTitle className="cardTitle">{this.props.message.title}</CardTitle>
+            <CardText>{this.props.message.date}</CardText>
+            <CardText>{this.props.message.description}</CardText>
+            
             <Button>Remove</Button>
           </CardBody>
         </Card>

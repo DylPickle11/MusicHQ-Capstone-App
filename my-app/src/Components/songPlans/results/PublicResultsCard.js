@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Card, CardText, Button, CardHeader} from 'reactstrap';
-import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
+import {Card, CardText, CardHeader} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class PublicResultsCard extends Component {
