@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import APIManager from "./../../Modules/APIManager";
+import '../../bootstrap.min.css'
 import {Card, CardSubtitle, CardText,CardHeader, Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button, Label} from 'reactstrap';
 //import {FaRegTrashAlt } from "react-icons/fa"
 //import 'bootstrap/dist/css/bootstrap.min.css';
@@ -111,7 +112,7 @@ class SongPlanCard extends Component {
                 <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
 
                 {/* Modal to Add to Folder*/}
-                <Button onClick={this.toggle} type="button">Add to Folder</Button>
+                <button onClick={this.toggle} className="btn btn-primary" type="button">Add to Folder</button>
                   <Modal isOpen={this.state.modal1} toggle={this.toggle} className={this.props.className}>
 			        <ModalBody>
 				      <Form onSubmit={this.pushToFolder}>

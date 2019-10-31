@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ApplicationViews from './Components/ApplicationViews';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
+import './bootstrap.min.css';
 //import Nav from './components/nav/Nav';
-import Login from './Components/auth/Login'
-import './App.css';
+import Login from './Components/auth/Login';
 //import { withRouter } from 'react-router-dom'
 //import Registration from './Components/auth/Registration';
 
