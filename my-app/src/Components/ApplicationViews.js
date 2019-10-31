@@ -23,10 +23,10 @@ class ApplicationViews extends Component {
     return (
       <>
          <Route exact path="/" render={props => {
-           return <Home userId={this.props.userId} userName={this.props.userName} handleLogout={this.handleLogout} {...this.props}/>
+           return <Home userId={this.props.userId} userName={this.props.userName} handleLogout={this.handleLogout} clearUser={this.clearUser} {...this.props}/>
         }} />
         <Route exact path="/Login" render={(props) => {
-          return <Login {...this.props} />
+          return <Login {...props} />
         }} />
 
         <Route exact path="/folder/new" render={(props) => {

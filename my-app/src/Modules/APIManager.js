@@ -68,7 +68,6 @@ export default {
         return fetch(`http://localhost:3000/friendships?currentuserId=${currentuserId}&_expand=user`)
         .then(response => response.json());
       },
-    
     searchPublicDatabase(search, resource, title) {
         return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public!&${title}_like=${search}`)
             .then(response => response.json())

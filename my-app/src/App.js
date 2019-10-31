@@ -4,21 +4,24 @@ import './App.css'
 import './bootstrap.min.css';
 //import Nav from './components/nav/Nav';
 import Login from './Components/auth/Login';
+import NavigationBar from './Components/nav/NavBar';
 //import { withRouter } from 'react-router-dom'
 //import Registration from './Components/auth/Registration';
 
+
+let userName = sessionStorage.getItem('userName')
 class App extends Component {
 
   state = {
-		user: sessionStorage.getItem('activeUser') !== null, //Evaluates True or False
+	  user: sessionStorage.getItem('activeUser') !== null, //Evaluates True or False
     activeUserId: this.getUser(),
-    userName: this.getUserName()
+    userName: userName
   };
 
 	//Check if credentials are in session storage
   //returns true/false
 
-  isAuthenticated = () => sessionStorage.getItem('activeUser') !== null;
+  isAuthenticated = () => sessionStorage.getItem('activeUserId') !== null;
 
   setUser = (id, username) => {
     sessionStorage.setItem('activeUser', id);
@@ -44,10 +47,10 @@ class App extends Component {
 	}
 
 	clearUser = () => {
-    sessionStorage.removeItem('activeUserId');
+    sessionStorage.removeItem('activeUser');
     sessionStorage.removeItem('userName');
 		this.setState({
-			user: this.isAuthenticated()
+			user: false
 		});
   };
 
@@ -58,13 +61,16 @@ class App extends Component {
 
 
   render() {
+  
     return(
       <>
        {this.state.user ?
       <>
-       <ApplicationViews userId={this.state.activeUserId} userName={this.state.userName} handleLogout={this.handleLogout}/>
+       <NavigationBar userId={this.state.userId} userName={this.state.userName} clearUser={this.clearUser} {...this.props}/>
+
+       <ApplicationViews userId={this.state.activeUserId} userName={this.state.userName} handleLogout={this.handleLogout} clearUser={this.clearUser}/>
       </>
-      : <Login setUser={this.setUser} userId={this.state.activeUserId} userName={this.state.userName} {...this.props} />
+      : <Login setUser={this.setUser} userId={this.state.activeUserId} userName={this.state.userName} {...this.props}/>
   }
       </>
     )

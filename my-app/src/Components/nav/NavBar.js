@@ -5,8 +5,12 @@ import './NavBar.css'
 
 
 class NavigationBar extends Component {
-
+  handleLogout = () => {
+    this.props.clearUser();
+    //this.props.history.push('/Login')
+}
   render() {
+    
     return (
       <Navbar className= "navbar navbar-light light-blue flex-md-nowrap p-0">
       <>
@@ -16,7 +20,7 @@ class NavigationBar extends Component {
             <li><Link className='nav-link' to='/songplans'>My Song Plan</Link></li>
             <li><Link className='nav-link' to='/messages'>Messages</Link></li>
             <li><Link className='nav-link' to='/search'>Explore Songs</Link></li>
-            <li><Button onClick={this.handleLogout}>Logout</Button></li>
+            <li><Button onClick={this.props.clearUser}>Logout</Button></li>
           </ul>
           </>
      </Navbar>

@@ -45,7 +45,7 @@ class Login extends Component {
 			} else {
 				console.log('error')
 			}
-		})
+		}).then(()=> this.props.history.push('/'))
   };
 
   // Registration
@@ -78,8 +78,10 @@ class Login extends Component {
 		email: this.state.regEmail,
 		passwordConfirm: this.state.regPasswordConfirm
 	};
-
 	APIManager.post("users", registration)
+	.then((user)=>
+	this.props.setUser(user.id, user.userName)
+	)
 	.then(() => this.props.history.push("/"))
 }
 
@@ -118,7 +120,7 @@ class Login extends Component {
 					</Form>
               </ModalBody>
           <ModalFooter>
-		  <Button type="button" disabled={this.state.loadingStatus} onClick={this.toggle}>Submit</Button>
+		  <Button type="button" disabled={this.state.loadingStatus} onClick={this.handleRegistration}>Submit</Button>
           </ModalFooter>
       </Modal>
           </div>
