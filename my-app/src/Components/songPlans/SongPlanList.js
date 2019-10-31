@@ -8,6 +8,7 @@ import ResultsCard from './results/ResultsCard';
 import FolderResultsCard from './results/ResultsCard';
 
 
+
 class SongPlanList extends Component {
     state = {
         allSongPlans: [],
@@ -16,7 +17,7 @@ class SongPlanList extends Component {
     }
 
     componentDidMount() {
-        APIManager.getAll("songPlans").then((allSongs) => {
+        APIManager.getUserData("songPlans", this.props.userId ).then((allSongs) => {
             this.setState({
                 allSongPlans: allSongs
             })
@@ -32,7 +33,7 @@ class SongPlanList extends Component {
     deleteSong(id) {
         APIManager.delete("songPlans", id)
             .then(() => {
-                APIManager.getAll("songPlans").then((allSongs) => {
+                APIManager.getUserData("songPlans", this.props.userId).then((allSongs) => {
                     this.setState({
                         allSongs: allSongs
                     })
@@ -63,8 +64,6 @@ class SongPlanList extends Component {
 
 
     render() {
-        console.log(this.state.searchPlanResults)
-        console.log(this.state.searchFolderResults)
         return (
             <>
                 <h1>Song Plans</h1>
@@ -87,7 +86,7 @@ class SongPlanList extends Component {
                 }
              
                 <div>
-                    <FolderList />
+                    <FolderList {...this.props} />
                 </div>
                 <h2>SEARCH PLAN RESULTS</h2>
                 <div>

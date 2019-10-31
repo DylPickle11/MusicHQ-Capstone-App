@@ -39,6 +39,97 @@
       "email": "sim@mail.com",
       "passwordConfirm": "1234",
       "id": 6
+    },
+    {
+      "userName": "Gudding",
+      "password": "1234",
+      "email": "pd@gmail.com",
+      "passwordConfirm": "1234",
+      "id": 7
+    },
+    {
+      "userName": "Sill",
+      "password": "1234",
+      "email": "s@gmail.com",
+      "passwordConfirm": "1234",
+      "id": 8
+    },
+    {
+      "userName": "will",
+      "password": "1234",
+      "email": "w@gmail.com",
+      "passwordConfirm": "1234",
+      "id": 9
+    },
+    {
+      "userName": "may",
+      "password": "1234",
+      "email": "m@gmail.com",
+      "passwordConfirm": "1234",
+      "id": 10
+    },
+    {
+      "userName": "mad",
+      "password": "1234",
+      "email": "mad@gmail.com",
+      "passwordConfirm": "1234",
+      "id": 11
+    },
+    {
+      "userName": "gh",
+      "password": "4321",
+      "email": "gh@ghmail.com",
+      "passwordConfirm": "4321",
+      "id": 12
+    },
+    {
+      "userName": "Pudding",
+      "password": "54321",
+      "email": "pd@gmail.com",
+      "passwordConfirm": "54321",
+      "id": 13
+    },
+    {
+      "userName": "notpudding",
+      "password": "4321",
+      "email": "n@mail.com",
+      "passwordConfirm": "4321",
+      "id": 14
+    },
+    {
+      "userName": "Pudding1",
+      "password": "54321",
+      "email": "we@gmail.com",
+      "passwordConfirm": "54321",
+      "id": 15
+    },
+    {
+      "userName": "Pudding2",
+      "password": "4321",
+      "email": "dg@gmail.com",
+      "passwordConfirm": "4321",
+      "id": 16
+    },
+    {
+      "userName": "Pudding3",
+      "password": "1234",
+      "email": "df@gmail.com",
+      "passwordConfirm": "1234",
+      "id": 17
+    },
+    {
+      "userName": "Pudding4",
+      "password": "1234",
+      "email": "dg@gmail.com",
+      "passwordConfirm": "1234",
+      "id": 18
+    },
+    {
+      "userName": "Pudding5",
+      "password": "1234",
+      "email": "df@gmail.com",
+      "passwordConfirm": "1234",
+      "id": 19
     }
   ],
   "songPlans": [
@@ -137,6 +228,16 @@
       "ifPublic": "Yes, please make it Public!",
       "loadingStatus": true,
       "id": 9
+    },
+    {
+      "userId": 6,
+      "title": "This is really interesting",
+      "date": "October 29, 2019 9:48 AM",
+      "description": "I think I am going to be ok",
+      "type": "Instrumental",
+      "comment": "",
+      "loadingStatus": true,
+      "id": 10
     }
   ],
   "folders": [
@@ -205,6 +306,63 @@
     {
       "id": 2,
       "keyword": "No, Keep it Private!"
+    }
+  ],
+  "friendships": [
+    {
+      "currentuserId": 6,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "currentuserId": 6,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "currentuserId": 4,
+      "userId": "3",
+      "id": 3
+    }
+  ],
+  "messages": [
+    {
+      "userId": "6",
+      "title": "Hello Friend",
+      "date": "October 29, 2019 10:07 AM",
+      "messages": "First message out into the world",
+      "id": 1
+    },
+    {
+      "userId": "6",
+      "title": " Hello Friend",
+      "date": "October 29, 2019 10:07 AM",
+      "messages": "First message out into the world",
+      "id": 2
+    },
+    {
+      "userId": "6",
+      "title": " Hello Friend",
+      "date": "October 29, 2019 10:07 AM",
+      "messages": "First message out into the world",
+      "id": 3
+    },
+    {
+      "userId": "6",
+      "title": "Hello",
+      "date": "October 30, 2019 9:01 AM",
+      "description": "First message sent out",
+      "loadingStatus": true,
+      "id": 4
+    },
+    {
+      "userId": "6",
+      "receivedId": "1",
+      "title": "what we doing",
+      "date": "October 30, 2019 2:44 PM",
+      "description": "lets hang out",
+      "loadingStatus": true,
+      "id": 5
     }
   ]
 }

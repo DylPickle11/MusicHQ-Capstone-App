@@ -40,11 +40,12 @@ class Login extends Component {
 			} else if (userName === '') {
 				alert('Please enter a valid userName');
 			} else if (response[0].password === password) {
+				console.log(response[0].id)
                     this.props.setUser(response[0].id, response[0].userName)
 			} else {
 				console.log('error')
 			}
-		})
+		}).then(()=> this.props.history.push('/'))
   };
 
   // Registration
@@ -77,8 +78,10 @@ class Login extends Component {
 		email: this.state.regEmail,
 		passwordConfirm: this.state.regPasswordConfirm
 	};
-
 	APIManager.post("users", registration)
+	.then((user)=>
+	this.props.setUser(user.id, user.userName)
+	)
 	.then(() => this.props.history.push("/"))
 }
 
