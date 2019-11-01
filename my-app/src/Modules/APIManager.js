@@ -77,7 +77,7 @@ export default {
             .then(response => response.json())
     },
     getAllPublic(resource){
-        return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public!`)
+        return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public`)
         .then(response => response.json())
     }
 }

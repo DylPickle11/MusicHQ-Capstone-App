@@ -46,25 +46,25 @@ class SongPlanCard extends Component {
         this.setState(stateToChange)
     }
 
-    // update edited task object
-    updateSongPlan = event => {
-        event.preventDefault()
-        this.setState({ loadingStatus: true });
-        const editedSongPlan = {
-            id: this.props.song.id,
-            title: this.state.title,
-            date: this.state.date,
-            description: this.state.description,
-            type: this.state.type,
-			levelOption: this.state.levelOption,
-			comment: this.state.comment,
-            ifPublic: true,
-            loadingStatus: true
-        };
-        // push edited task
-        APIManager.update("songPlans", editedSongPlan)
-            .then(() => this.props.history.push("/"))
-    }
+    // // update edited task object
+    // updateSongPlan = event => {
+    //     event.preventDefault()
+    //     this.setState({ loadingStatus: true });
+    //     const editedSongPlan = {
+    //         id: this.props.song.id,
+    //         title: this.state.title,
+    //         date: this.state.date,
+    //         description: this.state.description,
+    //         type: this.state.type,
+	// 		levelOption: this.state.levelOption,
+	// 		comment: this.state.comment,
+    //         ifPublic: true,
+    //         loadingStatus: true
+    //     };
+    //     // push edited task
+    //     APIManager.update("songPlans", editedSongPlan)
+    //         .then(() => this.props.history.push("/"))
+    // }
 
     pushToFolder = event => {
         let folderSelect = document.getElementById("folderSelect");
