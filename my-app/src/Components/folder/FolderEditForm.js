@@ -29,6 +29,7 @@ class FolderEditForm extends Component {
         this.setState({ loadingStatus: true });
         const editedFolder = {
             id: this.props.match.params.folderId,
+            userId: parseInt(this.state.userId),
             title: this.state.title,
             date: this.state.date,
             ifPublic: true,

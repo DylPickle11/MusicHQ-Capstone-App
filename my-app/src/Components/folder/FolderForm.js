@@ -26,7 +26,7 @@ class FolderForm extends Component {
       console.log(this.state.userId)
         evt.preventDefault();
             const newFolder = {
-                userId: this.state.userId,
+                userId: parseInt(this.state.userId),
                 title: this.state.title,
                 date: this.state.date,
                 ifPublic: true,

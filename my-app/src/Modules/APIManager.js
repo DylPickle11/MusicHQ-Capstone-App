@@ -72,12 +72,16 @@ export default {
         return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public!&${title}_like=${search}`)
             .then(response => response.json())
     },
+    searchUserDatabaseMatch(resource, userId, search) {
+        return fetch(`${remoteURL}/${resource}?userId=${userId}&title_like=${search}`)
+            .then(response => response.json())
+    },
     searchUserDatabase(resource, userId) {
         return fetch(`${remoteURL}/${resource}?userId=${userId}`)
             .then(response => response.json())
     },
     getAllPublic(resource){
-        return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public!`)
+        return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public`)
         .then(response => response.json())
     }
 }

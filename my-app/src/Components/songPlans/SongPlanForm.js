@@ -26,10 +26,10 @@ class SongPlanForm extends Component {
         allTypes: [],
         type: "",
         allGradesLevel: [],
-        level: "", 
+        level: "Instrumental", 
         comment:"",
         ifPublic: [],
-        ifPublicChoice: "",
+        ifPublicChoice: "Yes, please make it Public",
         loadingStatus: false,
         uploadedFileCloudinaryUrl: '',
         uploadedFile: null
@@ -42,10 +42,10 @@ class SongPlanForm extends Component {
     }
 
     constructNewSongPlan = evt => {
-
+            console.log(this.state.ifPublicChoice)
         evt.preventDefault();
             const newSongPlan = {
-                userId: this.state.userId,
+                userId: parseInt(this.state.userId),
                 title: this.state.title,
                 date: this.state.date,
                 description: this.state.description,
@@ -103,7 +103,7 @@ class SongPlanForm extends Component {
       }
   
     render() {
-
+ console.log(this.state.ifPublic)
         return (
         <>
         <div>
@@ -147,7 +147,7 @@ class SongPlanForm extends Component {
                </div> */}
 
             <FormGroup>
-              <Label for="type">Musical Type</Label>
+              <Label for="type">Grade Level</Label>
               <Input type="select" name="type" id="type" onChange={this.handleFieldChange}>
                 { this.state.allTypes.map(type =>
                    <option key={type.id} value={type.keyword}>{type.keyword}</option>
@@ -157,7 +157,7 @@ class SongPlanForm extends Component {
             </FormGroup>
 
             <FormGroup>
-              <Label for="level">Grade Level</Label>
+              <Label for="level">Music Type</Label>
               <Input type="select" name="level" id="level" onChange={this.handleFieldChange}>
                  { this.state.allGradesLevel.map(level  =>
                  <option key={level.id} value={level.keyword}>{level.keyword}</option>

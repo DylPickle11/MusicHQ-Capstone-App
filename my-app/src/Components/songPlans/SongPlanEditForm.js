@@ -30,7 +30,8 @@ class SongPlanEditForm extends Component {
         event.preventDefault()
         this.setState({ loadingStatus: true });
         const editedSongPlan = {
-            id: this.props.match.params.songPlanId,
+            id: parseInt(this.props.match.params.songPlanId),
+            userId: parseInt(this.state.userId),
             title: this.state.title,
             date: this.state.date,
             description: this.state.description,

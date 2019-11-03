@@ -20,16 +20,17 @@ class SearchList extends Component {
     }
     search = () => {
         const searchInput = document.getElementById("search");
-        let inputValue = searchInput.value;
-        console.log(inputValue)
-       APIManager.searchPublicDatabase(inputValue, "songPlans", "title")
-         .then((publicMatches) => {
-             console.log(publicMatches)
-               this.setState({
-                  publicPlanResults: publicMatches
-               })
-           })
-}
+        let inputValue = searchInput.value.toUpperCase();
+        let publicPlanMatches =[]
+        this.state.allPublicPlans.map(publicPlan=>{
+            if (publicPlan.title.toUpperCase().includes(inputValue)) {
+                publicPlanMatches.push(publicPlan)
+            }
+        })
+        this.setState({
+            publicPlanResults: publicPlanMatches
+        })
+    }
 
     render() {
         return (

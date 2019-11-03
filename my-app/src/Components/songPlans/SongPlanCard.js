@@ -46,25 +46,25 @@ class SongPlanCard extends Component {
         this.setState(stateToChange)
     }
 
-    // update edited task object
-    updateSongPlan = event => {
-        event.preventDefault()
-        this.setState({ loadingStatus: true });
-        const editedSongPlan = {
-            id: this.props.song.id,
-            title: this.state.title,
-            date: this.state.date,
-            description: this.state.description,
-            type: this.state.type,
-			levelOption: this.state.levelOption,
-			comment: this.state.comment,
-            ifPublic: true,
-            loadingStatus: true
-        };
-        // push edited task
-        APIManager.update("songPlans", editedSongPlan)
-            .then(() => this.props.history.push("/"))
-    }
+    // // update edited task object
+    // updateSongPlan = event => {
+    //     event.preventDefault()
+    //     this.setState({ loadingStatus: true });
+    //     const editedSongPlan = {
+    //         id: this.props.song.id,
+    //         title: this.state.title,
+    //         date: this.state.date,
+    //         description: this.state.description,
+    //         type: this.state.type,
+	// 		levelOption: this.state.levelOption,
+	// 		comment: this.state.comment,
+    //         ifPublic: true,
+    //         loadingStatus: true
+    //     };
+    //     // push edited task
+    //     APIManager.update("songPlans", editedSongPlan)
+    //         .then(() => this.props.history.push("/"))
+    // }
 
     pushToFolder = event => {
         let folderSelect = document.getElementById("folderSelect");
@@ -139,7 +139,7 @@ class SongPlanCard extends Component {
                 <Button onClick={this.toggle2} type="button">Post comment</Button>
                   <Modal isOpen={this.state.modal2} toggle={this.toggle2} className={this.props.className}>
 			        <ModalBody>
-				      <Form onSubmit={this.updateSongPlan}>
+				      <Form onSubmit={this.toggle2}>
 				      <ModalHeader toggle={this.toggle2}>Comment</ModalHeader>
 					    <FormGroup>
 					     <Input onChange={this.handleFieldChange} id='comment' type='comment'placeholder='comment' required=''autoFocus=''/>
@@ -147,7 +147,7 @@ class SongPlanCard extends Component {
 					  </Form>
                     </ModalBody>
                    <ModalFooter>
-		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.toggle2}>Comment</Button>
+		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPLan}>Comment</Button>
                    </ModalFooter>
                 </Modal>
             </Card>

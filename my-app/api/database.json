@@ -25,224 +25,58 @@
       "email": "mel@gmail.com",
       "passwordConfirm": "123",
       "id": 4
-    },
-    {
-      "userName": "brenda",
-      "password": "123",
-      "email": "b@gmail.com",
-      "passwordConfirm": "123",
-      "id": 5
-    },
-    {
-      "userName": "sim",
-      "password": "1234",
-      "email": "sim@mail.com",
-      "passwordConfirm": "1234",
-      "id": 6
-    },
-    {
-      "userName": "Gudding",
-      "password": "1234",
-      "email": "pd@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 7
-    },
-    {
-      "userName": "Sill",
-      "password": "1234",
-      "email": "s@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 8
-    },
-    {
-      "userName": "will",
-      "password": "1234",
-      "email": "w@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 9
-    },
-    {
-      "userName": "may",
-      "password": "1234",
-      "email": "m@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 10
-    },
-    {
-      "userName": "mad",
-      "password": "1234",
-      "email": "mad@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 11
-    },
-    {
-      "userName": "gh",
-      "password": "4321",
-      "email": "gh@ghmail.com",
-      "passwordConfirm": "4321",
-      "id": 12
-    },
-    {
-      "userName": "Pudding",
-      "password": "54321",
-      "email": "pd@gmail.com",
-      "passwordConfirm": "54321",
-      "id": 13
-    },
-    {
-      "userName": "notpudding",
-      "password": "4321",
-      "email": "n@mail.com",
-      "passwordConfirm": "4321",
-      "id": 14
-    },
-    {
-      "userName": "Pudding1",
-      "password": "54321",
-      "email": "we@gmail.com",
-      "passwordConfirm": "54321",
-      "id": 15
-    },
-    {
-      "userName": "Pudding2",
-      "password": "4321",
-      "email": "dg@gmail.com",
-      "passwordConfirm": "4321",
-      "id": 16
-    },
-    {
-      "userName": "Pudding3",
-      "password": "1234",
-      "email": "df@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 17
-    },
-    {
-      "userName": "Pudding4",
-      "password": "1234",
-      "email": "dg@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 18
-    },
-    {
-      "userName": "Pudding5",
-      "password": "1234",
-      "email": "df@gmail.com",
-      "passwordConfirm": "1234",
-      "id": 19
     }
   ],
   "songPlans": [
     {
-      "userId": "1",
-      "title": "New soongs",
-      "date": "October 29, 2019 9:48 AM",
-      "description": "Fixing bugs",
-      "type": "Instrumental",
-      "levelOption": "Middle School",
+      "userId": 1,
+      "title": "BB Song Plan 4",
+      "date": "November 1, 2019 10:00 AM",
+      "description": "pretty songs",
+      "type": "Middle School",
+      "levelOption": "Instrumental",
       "comment": "",
-      "ifPublic": "Yes, please make it Public!",
+      "ifPublic": "Yes, please make it Public",
       "loadingStatus": true,
-      "id": 1
+      "id": 23
     },
     {
-      "userId": "1",
-      "title": "This is really interesting",
-      "date": "October 29, 2019 9:48 AM",
-      "description": "I think I am going to be ok",
-      "type": "Instrumental",
-      "levelOption": "Middle School",
+      "userId": 1,
+      "title": "BB song plan 5",
+      "date": "November 1, 2019 10:01 AM",
+      "description": "These are horror songs",
+      "type": "Early High School",
+      "levelOption": "vocal",
       "comment": "",
-      "ifPublic": "Yes, please make it Public!",
+      "ifPublic": "Yes, please make it Public",
       "loadingStatus": true,
-      "id": 2
+      "id": 24
     },
     {
-      "userId": "4",
-      "title": "Mel's song",
-      "date": "October 29, 2019 10:07 AM",
-      "description": "Here we go",
-      "type": "Instrumental",
-      "levelOption": "Late Elementary",
-      "comment": "",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 3
-    },
-    {
-      "userId": "4",
-      "title": "Things are getting better",
-      "date": "October 29, 2019 11:32 AM",
-      "description": "Need to reorganize",
-      "type": "Instrumental",
-      "levelOption": "Early High School",
-      "comment": "",
-      "ifPublic": "on",
-      "loadingStatus": true,
-      "id": 4
-    },
-    {
-      "userId": "6",
-      "title": "sdfsdfs",
-      "date": "October 29, 2019 2:51 PM",
-      "description": "sdfsdfsd",
+      "id": 26,
+      "userId": 4,
+      "title": "Kodaly Techniques!!! !!!!!!!!!!!!!!!",
+      "date": "November 1, 2019 3:29 PM",
+      "description": "Twinkle Twinkle little star",
       "type": "",
-      "levelOption": "",
-      "comment": "",
-      "ifPublic": "No, Keep it Private!",
-      "loadingStatus": true,
-      "id": 6
-    },
-    {
-      "userId": "6",
-      "title": "Lets see if it works",
-      "date": "October 29, 2019 2:57 PM",
-      "description": "true of false?",
-      "type": "Middle School",
       "levelOption": "vocal",
-      "comment": "",
-      "ifPublic": false,
-      "loadingStatus": true,
-      "id": 7
+      "ifPublic": true,
+      "loadingStatus": true
     },
     {
-      "userId": "6",
-      "title": "asdasd",
-      "date": "October 29, 2019 2:58 PM",
-      "description": "asdasd",
+      "userId": 4,
+      "title": "BB Song Plan 4",
+      "date": "November 1, 2019 10:00 AM",
+      "description": "pretty songs",
       "type": "Middle School",
-      "levelOption": "vocal",
-      "comment": "",
-      "ifPublic": "Yes, please make it Public!",
-      "loadingStatus": true,
-      "id": 8
-    },
-    {
-      "userId": "6",
-      "title": "sdfsf",
-      "date": "October 29, 2019 3:00 PM",
-      "description": "sdfsdf",
-      "type": "Middle School",
-      "levelOption": "vocal",
-      "comment": "",
-      "ifPublic": "Yes, please make it Public!",
-      "loadingStatus": true,
-      "id": 9
-    },
-    {
-      "userId": 6,
-      "title": "This is really interesting",
-      "date": "October 29, 2019 9:48 AM",
-      "description": "I think I am going to be ok",
-      "type": "Instrumental",
       "comment": "",
       "loadingStatus": true,
-      "id": 10
+      "id": 27
     }
   ],
   "folders": [
     {
-      "userId": "1",
+      "userId": 1,
       "title": "Hold my MVP",
       "date": "",
       "ifPublic": true,
@@ -250,19 +84,27 @@
       "id": 2
     },
     {
-      "userId": "4",
-      "title": "Making a new folder",
+      "id": 5,
+      "userId": 2,
+      "title": "Folder 2 !!!!!",
+      "date": "",
+      "ifPublic": true,
+      "loadingStatus": true
+    },
+    {
+      "userId": 4,
+      "title": "To hold the kodaly technique",
       "date": "",
       "ifPublic": true,
       "loadingStatus": true,
-      "id": 3
+      "id": 6
     }
   ],
   "folderPlans": [
     {
       "userdId": "4",
-      "folderId": "3",
-      "songPlanId": 3,
+      "folderId": "6",
+      "songPlanId": 26,
       "id": 1
     }
   ],
@@ -321,48 +163,9 @@
     },
     {
       "currentuserId": 4,
-      "userId": "3",
+      "userId": 3,
       "id": 3
     }
   ],
-  "messages": [
-    {
-      "userId": "6",
-      "title": "Hello Friend",
-      "date": "October 29, 2019 10:07 AM",
-      "messages": "First message out into the world",
-      "id": 1
-    },
-    {
-      "userId": "6",
-      "title": " Hello Friend",
-      "date": "October 29, 2019 10:07 AM",
-      "messages": "First message out into the world",
-      "id": 2
-    },
-    {
-      "userId": "6",
-      "title": " Hello Friend",
-      "date": "October 29, 2019 10:07 AM",
-      "messages": "First message out into the world",
-      "id": 3
-    },
-    {
-      "userId": "6",
-      "title": "Hello",
-      "date": "October 30, 2019 9:01 AM",
-      "description": "First message sent out",
-      "loadingStatus": true,
-      "id": 4
-    },
-    {
-      "userId": "6",
-      "receivedId": "1",
-      "title": "what we doing",
-      "date": "October 30, 2019 2:44 PM",
-      "description": "lets hang out",
-      "loadingStatus": true,
-      "id": 5
-    }
-  ]
+  "messages": []
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SongPlanCard from './SongPlanCard';
-import { withRouter } from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
+
 import APIManager from '../../Modules/APIManager';
 import FolderList from '../folder/FolderList';
 import { Button } from 'reactstrap';
@@ -12,17 +13,24 @@ import FolderResultsCard from './results/ResultsCard';
 class SongPlanList extends Component {
     state = {
         allSongPlans: [],
+        allFolderPlans: [],
         searchPlanResults: [],
         searchFolderResults: []
     }
 
     componentDidMount() {
-        APIManager.getUserData("songPlans", this.props.userId ).then((allSongs) => {
-            this.setState({
+        APIManager.getUserData("songPlans", this.props.userId ).then((allSongs) =>
+          {  this.setState({
                 allSongPlans: allSongs
             })
         })
+        APIManager.getUserData("folders", this.props.userId ).then((allFolders) =>
+          {  this.setState({
+                allFolderPlans: allFolders
+            })
+        })
     }
+
     // set state to value of input
     handleFieldChange = event => {
         const stateToChange = {}
@@ -41,29 +49,35 @@ class SongPlanList extends Component {
             })
     }
 
-    search = () => {
-        const searchInput = document.getElementById("search");
-        let inputValue = searchInput.value;
-        APIManager.searchDatabase(inputValue, "songPlans", "title")
-        .then((matchSongPlanResults) => {
-            console.log(matchSongPlanResults)
-               this.setState({
-                searchPlanResults: matchSongPlanResults
-            })
-            })
-        APIManager.searchDatabase(inputValue, "folders", "title")
-        .then((matchFolderResult) => {
-            this.setState({
-                searchFolderResults: matchFolderResult
-            })
-       })
-}
+    search = ()=> {
+      const searchInput= document.getElementById("search");
+      let inputValue = searchInput.value;
+      let songPlanMatches =[];
+      let folderMatches =[];
+        this.state.allSongPlans.map(songPlan=>{
+            if (songPlan.title.toUpperCase().includes(inputValue)) {
+                songPlanMatches.push(songPlan)
+            }
+        })
+        this.state.allFolderPlans.map(folderPlan=>{
+            if (folderPlan.title.toUpperCase().includes(inputValue)) {
+                folderMatches.push(folderPlan)
+            }
+        })
+        this.setState({
+            searchFolderResults: folderMatches
+        })
+    }
+
+        
+
 
 
 
 
 
     render() {
+        console.log(this.state.searchFolderResults)
         return (
             <>
                 <h1>Song Plans</h1>
