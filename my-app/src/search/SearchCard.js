@@ -25,7 +25,6 @@ class SearchCard extends Component {
     }
 
     render() {
-        console.log(this.props.publicPlan)
         return (
             <Card>
                 <CardHeader>{this.props.publicPlan.title}</CardHeader>

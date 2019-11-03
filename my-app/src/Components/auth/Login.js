@@ -88,6 +88,8 @@ class Login extends Component {
   render() {
     return (
       <Form onSubmit={this.handleLogin}>
+		<h1>SongPlan</h1> 
+		<h3></h3> 
         <fieldset>
           <h3>Please sign in</h3>
           <div className="flex-login">

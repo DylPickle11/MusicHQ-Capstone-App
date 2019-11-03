@@ -139,7 +139,7 @@ class SongPlanCard extends Component {
                 <Button onClick={this.toggle2} type="button">Post comment</Button>
                   <Modal isOpen={this.state.modal2} toggle={this.toggle2} className={this.props.className}>
 			        <ModalBody>
-				      <Form onSubmit={this.updateSongPlan}>
+				      <Form onSubmit={this.toggle2}>
 				      <ModalHeader toggle={this.toggle2}>Comment</ModalHeader>
 					    <FormGroup>
 					     <Input onChange={this.handleFieldChange} id='comment' type='comment'placeholder='comment' required=''autoFocus=''/>
@@ -147,7 +147,7 @@ class SongPlanCard extends Component {
 					  </Form>
                     </ModalBody>
                    <ModalFooter>
-		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.toggle2}>Comment</Button>
+		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPLan}>Comment</Button>
                    </ModalFooter>
                 </Modal>
             </Card>

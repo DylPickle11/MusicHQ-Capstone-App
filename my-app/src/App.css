@@ -20,3 +20,10 @@
 .App-link {
   color: #09d3ac;
 }
+
+body {
+  background-image: url('./joanna-kosinska-1_CMoFsPfso-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: cover;
+}
