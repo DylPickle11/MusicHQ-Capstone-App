@@ -60,12 +60,18 @@ export default {
             body: JSON.stringify(editedObject)
         }).then(response => response.json());
 
-    }, getObjectWithDatabase(firstResource, id, secondResource) {
+    }, 
+    getObjectWithDatabase(firstResource, id, secondResource) {
         return fetch(`${remoteURL}/${firstResource}/${id}?_embed=${secondResource}`)
             .then(response => response.json())
     
-    }, getFriends(currentuserId) {
+    }, 
+    getFriends(currentuserId) {
         return fetch(`http://localhost:3000/friendships?currentuserId=${currentuserId}&_expand=user`)
+        .then(response => response.json());
+      },
+    getFriendRequests(userId) {
+        return fetch(`${remoteURL}/friendRequests?receiverId=${userId}&_expand=user`)
         .then(response => response.json());
       },
     searchPublicDatabase(search, resource, title) {
