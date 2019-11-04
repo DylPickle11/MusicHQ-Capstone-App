@@ -83,6 +83,14 @@ export default {
     getAllPublic(resource){
         return fetch(`${remoteURL}/${resource}?ifPublic=Yes, please make it Public`)
         .then(response => response.json())
+    },
+    getAllComments(resource, songPlanId) {
+        return fetch(`${remoteURL}/${resource}?songPlanId=${songPlanId}`)
+        .then(response => response.json())
+    },
+    getCommentUserExpand(songPlanId) {
+        return fetch(`${remoteURL}/comments?songPlanId=${songPlanId}&expand=user`)
+        .then(response => response.json())
     }
 }
 
