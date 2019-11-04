@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import APIManager from "./../../Modules/APIManager";
 import '../../bootstrap.min.css'
 import {Card, CardSubtitle, CardText,CardHeader, Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button, Label} from 'reactstrap';
+import CommentCard from '../comments/CommentCard';
 //import {FaRegTrashAlt } from "react-icons/fa"
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,7 +19,8 @@ class SongPlanCard extends Component {
         type: "",
         levelOption: "",
         ifPublic: "",
-        comment: "",
+        allComments: [],
+        comment: "", 
         allFolders: [],
 		loadingStatus: false,
         modal1: false,
@@ -46,26 +48,6 @@ class SongPlanCard extends Component {
         this.setState(stateToChange)
     }
 
-    // // update edited task object
-    // updateSongPlan = event => {
-    //     event.preventDefault()
-    //     this.setState({ loadingStatus: true });
-    //     const editedSongPlan = {
-    //         id: this.props.song.id,
-    //         title: this.state.title,
-    //         date: this.state.date,
-    //         description: this.state.description,
-    //         type: this.state.type,
-	// 		levelOption: this.state.levelOption,
-	// 		comment: this.state.comment,
-    //         ifPublic: true,
-    //         loadingStatus: true
-    //     };
-    //     // push edited task
-    //     APIManager.update("songPlans", editedSongPlan)
-    //         .then(() => this.props.history.push("/"))
-    // }
-
     pushToFolder = event => {
         let folderSelect = document.getElementById("folderSelect");
         let  folderValue = folderSelect.value;
@@ -80,6 +62,18 @@ class SongPlanCard extends Component {
         .then(() => this.props.history.push("/"))
     }
 
+    postComment = event =>{
+        event.preventDefault()
+        this.setState({ loadingStatus: true });
+        const Comment = {
+            userId: parseInt(this.state.userId),
+            songPlanId: this.props.song.id,
+            comment: this.state.comment
+        };
+       APIManager.post("comments", Comment)
+       .then(() => this.props.history.push("/songplans"))
+    }
+
     componentDidMount() {
         APIManager.get("songPlans", this.props.song.id)
             .then(SongPlan => {
@@ -89,7 +83,6 @@ class SongPlanCard extends Component {
                     description: SongPlan.description,
                     type: SongPlan.type,
 					levelOption: SongPlan.levelOption,
-					comment: SongPlan.comment,
                     ifPublic: true,
                     loadingStatus: false
                 });
@@ -99,15 +92,26 @@ class SongPlanCard extends Component {
                     allFolders: allFolders
                 })
             })
+        APIManager.getCommentUserExpand(this.props.song.id).then((allComments) => {
+            this.setState({
+                 allComments: allComments
+             })
+        }) 
     }
 
 
     render() {
+        console.log(this.state.allComments)
         return (
             <Card className="songPlan-Card">
                 <CardHeader>Title:{this.props.song.title}</CardHeader>
                 <CardText>description:{this.props.song.description}</CardText>
                 <CardSubtitle>{this.props.song.date}</CardSubtitle>
+
+                {this.state.allComments.map(comment=>
+                 <CommentCard key={comment.id} comment={comment} {...this.props}/>      
+                )}
+
                 <CardSubtitle>Comment:{this.props.song.comment}</CardSubtitle>
                 <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
 
@@ -147,7 +151,7 @@ class SongPlanCard extends Component {
 					  </Form>
                     </ModalBody>
                    <ModalFooter>
-		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.updateSongPLan}>Comment</Button>
+		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.postComment}>Comment</Button>
                    </ModalFooter>
                 </Modal>
             </Card>

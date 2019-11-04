@@ -35,7 +35,6 @@
       "description": "pretty songs",
       "type": "Middle School",
       "levelOption": "Instrumental",
-      "comment": "",
       "ifPublic": "Yes, please make it Public",
       "loadingStatus": true,
       "id": 23
@@ -167,5 +166,37 @@
       "id": 3
     }
   ],
-  "messages": []
+  "messages": [],
+  "comments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "songPlanId": 23,
+      "comment": "This is a great songPlan"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "songPlanId": 23,
+      "comment": "This is a wonderful songPlan"
+    },
+    {
+      "userId": 1,
+      "songPlanId": 23,
+      "comment": "What is going on",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "songPlanId": 23,
+      "comment": "How many more comments can I leave",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "songPlanId": 23,
+      "comment": "is it working",
+      "id": 5
+    }
+  ]
 }
