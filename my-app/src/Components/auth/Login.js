@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import AuthManager from '../../Modules/AuthManager';
 import APIManager from './../../Modules/APIManager';
-import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup} from 'reactstrap';
-import { Button, Col, Row } from 'react-bootstrap'
+import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button} from 'reactstrap';
 import './Login.css';
 
 class Login extends Component {
