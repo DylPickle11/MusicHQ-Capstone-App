@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import AuthManager from '../../Modules/AuthManager';
-//import Registration from '../auth/Registration';
-import { withRouter } from "react-router-dom"
-import APIManager from "./../../Modules/APIManager";
-import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button} from 'reactstrap';
+import APIManager from './../../Modules/APIManager';
+import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup} from 'reactstrap';
+import { Button, Col, Row } from 'react-bootstrap'
 import './Login.css';
 
-
 class Login extends Component {
-  // Set initial state
   state = {
-    userId: "",
-    userName: "",
-    password: ""
+    userId: '',
+    userName: '',
+	password: '',
+	regUserName: '',
+	regPassword: '',
+	regEmail: '',
+	regPasswordConfirm: '',
+	loadingStatus: false,
+	modal: false
   }
 
   // Update state whenever an input field is edited
@@ -23,7 +27,6 @@ class Login extends Component {
   }
 
   handleLogin = (e) => {
-	  console.log(this.props)
     e.preventDefault()
     let userName = this.state.userName;
     let password = this.state.password;
@@ -47,21 +50,6 @@ class Login extends Component {
 			}
 		}).then(()=> this.props.history.push('/'))
   };
-
-  // Registration
-  // Set initial state
-	constructor(props) {
-		super(props);
-	this.state = {
-		regUserName: '',
-		regPassword: '',
-		regEmail: '',
-		regPasswordConfirm: '',
-		loadingStatus: false,
-		modal: false
-	}
-	this.toggle = this.toggle.bind(this);
-}
 
 	toggle = () => {
         this.setState(prevState => ({
@@ -87,50 +75,50 @@ class Login extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleLogin}>
-		<h1>SongPlan</h1> 
-		<h3></h3> 
-        <fieldset>
-          <h3>Please sign in</h3>
-          <div className="flex-login">
-            <Input onChange={this.handleFieldChange} type="text" id="userName" placeholder="UserName" required="" autoFocus=""/>
-            <Input onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
-          </div>
-          <Button type="submit" onClick={this.handleLogin}>Sign in</Button>
-          <div>
+      <>
+	    <h1 className="header">SongPlan</h1>
+        <div className="flex-parent">
+          <div className="flex-form">
+            <h3>Please sign in</h3>
+            <div className="flex-login">
+		      <form className="form-group" onSubmit={this.handleLogin}></form>
+			  <FormGroup>	
+                <input className="space" className="form-control" onChange={this.handleFieldChange} type="text" id="userName" placeholder="UserName" required="" autoFocus=""/>
+			  </FormGroup>	
+			  <FormGroup>		
+                <input className="space" className="form-control" onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
+			  </FormGroup>	
+				<button type="button" className="btn btn-primary space" onClick={this.handleLogin}>Sign in</button>
+                <Button className="space" onClick={this.toggle} type="button">Do not have an Account? Register Now</Button>
+		    </div>
+		  </div>
+		</div>
 
-        <Button onClick={this.toggle} type="button">Do not have an Account? Register Now</Button>
+	        	{/* Registration Modal */}
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-			  <ModalBody>
-				<Form onSubmit={this.handleRegistration} id='loginForm'>
-				  <ModalHeader toggle={this.toggle}>Register Now</ModalHeader>
-					<FormGroup>
-					  <Input onChange={this.handleFieldChange} id='regUserName' type='userName'placeholder='User Name' required=''autoFocus=''/>
-					</FormGroup>
-
-					<FormGroup>
-					  <Input onChange={this.handleFieldChange} type='email' id='regEmail' placeholder='Email' required='' autoFocus=''/>
-					</FormGroup>
-
-					<FormGroup>
-					  <Input onChange={this.handleFieldChange} type='password' id='regPassword' placeholder='Password' required=''/>
-					</FormGroup>
-
-					<FormGroup>
-					  <Input onChange={this.handleFieldChange} type='password' id='regPasswordConfirm' placeholder='Confirm Password' required=''/>
-					</FormGroup>
-					</Form>
-              </ModalBody>
-          <ModalFooter>
-		  <Button type="button" disabled={this.state.loadingStatus} onClick={this.handleRegistration}>Submit</Button>
-          </ModalFooter>
-      </Modal>
-          </div>
-        </fieldset>
-      </Form>
-
+		    <ModalBody>
+			  <Form className='form-group' onSubmit={this.handleRegistration} id='loginForm'>
+			    <ModalHeader toggle={this.toggle}>Register Now</ModalHeader>
+				<FormGroup>	
+				  <Input onChange={this.handleFieldChange} id='regUserName' type='userName'placeholder='User Name' required=''autoFocus=''/>
+				</FormGroup>
+                <FormGroup>
+				  <Input onChange={this.handleFieldChange} type='email' id='regEmail' placeholder='Email' required='' autoFocus=''/>
+				</FormGroup>
+                <FormGroup>
+				  <Input onChange={this.handleFieldChange} type='password' id='regPassword' placeholder='Password' required=''/>
+				</FormGroup>
+				<FormGroup>
+				  <Input onChange={this.handleFieldChange} type='password' id='regPasswordConfirm' placeholder='Confirm Password' required=''/>
+				</FormGroup>
+			  </Form>
+            </ModalBody>
+            <ModalFooter>
+		      <Button type="button" disabled={this.state.loadingStatus} onClick={this.handleRegistration}>Submit</Button>
+            </ModalFooter>
+          </Modal>
+	 </>
     )
   }
 }
-
 export default withRouter(Login);
