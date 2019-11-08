@@ -3,15 +3,7 @@ import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import moment from 'moment';
-// import Dropzone from 'react-dropzone';
-// import request from 'superagent';
-
-//import Upload from '../upload/Upload';
-//import SongPlan from './SongPlan.css';
-//import Dropzone from '../dropzone/Dropzone';
-
-// const CLOUDINARY_UPLOAD_PRESET = 'xkcknffm';
-// const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dylcapstone-app/video/upload';
+import Video from '../upload/Upload'
 
 class SongPlanForm extends Component {
     moment = require('moment');
@@ -103,7 +95,7 @@ class SongPlanForm extends Component {
       }
   
     render() {
- console.log(this.state.ifPublic)
+ 
         return (
         <>
         <div>
@@ -122,6 +114,10 @@ class SongPlanForm extends Component {
                 <Label for="description">Description</Label>
                 <Input type="textarea" name="description" id="description" onChange={this.handleFieldChange} placeholder="description"/>
             </FormGroup>
+
+            <div>
+              <Video />
+             </div> 
 
             {/* <Dropzone
                onDrop={this.onImageDrop.bind(this)}

@@ -4,6 +4,7 @@ import APIManager from "./../../Modules/APIManager";
 import '../../bootstrap.min.css'
 import {Card, CardSubtitle, CardText,CardHeader, Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button, Label} from 'reactstrap';
 import CommentCard from '../comments/CommentCard';
+import './SongPlan.css'
 //import {FaRegTrashAlt } from "react-icons/fa"
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -101,9 +102,9 @@ class SongPlanCard extends Component {
 
 
     render() {
-        console.log(this.state.allComments)
         return (
-            <Card className="songPlan-Card">
+            <div className="Card">
+            <Card className="">
                 <CardHeader>Title:{this.props.song.title}</CardHeader>
                 <CardText>description:{this.props.song.description}</CardText>
                 <CardSubtitle>{this.props.song.date}</CardSubtitle>
@@ -155,6 +156,7 @@ class SongPlanCard extends Component {
                    </ModalFooter>
                 </Modal>
             </Card>
+            </div>
         )
     }
 }

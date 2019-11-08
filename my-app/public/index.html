@@ -40,5 +40,25 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDr813GCWSFL8bYeOjZHD2E56Gbl5Hw1Jw",
+    authDomain: "songplan.firebaseapp.com",
+    databaseURL: "https://songplan.firebaseio.com",
+    projectId: "songplan",
+    storageBucket: "songplan.appspot.com",
+    messagingSenderId: "858832427018",
+    appId: "1:858832427018:web:32aa73dbc0e9d54402a7f3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
   </body>
 </html>

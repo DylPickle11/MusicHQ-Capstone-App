@@ -11,11 +11,40 @@
 
   .Card {
     background-color: white;
-    padding: 32px;
+    border: 3px purple solid;
+    margin: 2em;
+    height: 50%;
     width: 50%;
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
     box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
   }
+
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    border: 3px black solid;
+    align-items: stretch;
+ }
+  .songPlan-container {
+    border: 3px green solid;
+    width: 50%;
+ }
+
+  .folder-container {
+    border: 3px blue solid;
+    width: 50%;
+ }
+
+  .results-container {
+    border: 3px white solid;
+ }
+
+ .songPlan-Card {
+   display: flex;
+   width: 50%;
+   margin: auto 0;
+ }

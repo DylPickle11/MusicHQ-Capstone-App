@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import SongPlanCard from './SongPlanCard';
 import { withRouter} from 'react-router-dom';
-
 import APIManager from '../../Modules/APIManager';
 import FolderList from '../folder/FolderList';
-import { Button } from 'reactstrap';
+import SongPlanCard from './SongPlanCard';
 import ResultsCard from './results/ResultsCard';
 import FolderResultsCard from './results/ResultsCard';
-
-
+import './SongPlan.css'
 
 class SongPlanList extends Component {
     state = {
@@ -69,64 +66,47 @@ class SongPlanList extends Component {
         })
     }
 
-        
-
-
-
-
-
-
     render() {
-        console.log(this.state.searchFolderResults)
+    
         return (
             <>
-                <h1>Song Plans</h1>
+              <h1>Song Plans</h1>
+                  <div className="input-container">
+                    <input id="search"className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFieldChange}/>
+                    <button type="button" disabled={this.state.loadingStatus} onClick={this.search}>Search</button>
+                  </div>
 
-              <div className="md-form active-purple active-purple-2 mb-3">
-                <input id="search"className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFieldChange}/>
-                <Button type="button" disabled={this.state.loadingStatus} onClick={this.search}>Search</Button>
-              </div>
-                <button onClick={() => {this.props.history.push("/songPlans/new")}}>New Post</button>
-                <button onClick={() => {this.props.history.push("/folder/new")}}>New Folder</button>
-                <h2>SONGPLANS</h2>
-                {
-                    this.state.allSongPlans.map(song =>
-                        <SongPlanCard
-                        key={song.id}
-                         song={song}
+                  <div className="main-container">
+                    <div className="songPlan-container">
+                      <h2>SONGPLANS</h2>
+                      <button onClick={() => {this.props.history.push("/songPlans/new")}}>New Post</button>
+                    
+                      { this.state.allSongPlans.map(song =>
+                          <SongPlanCard key={song.id} song={song} deleteSong={this.deleteSong}
+                          {...this.props}/>)
+                      }
+                    </div>
+
+                    <div className='folder-container'>
+                      <button onClick={() => {this.props.history.push("/folder/new")}}>New Folder</button>
+                        <FolderList {...this.props} />
+                    </div>
+                  </div>
+
+                    <div className="main-container">
+                      <h2>SEARCH RESULTS</h2>
+
+                      {this.state.searchPlanResults.map(result =>
+                         <ResultsCard key={result.id} result={result}
                          deleteSong={this.deleteSong}
-                         {...this.props}/>
-                    )
-                }
-             
-                <div>
-                    <FolderList {...this.props} />
-                </div>
-                <h2>SEARCH PLAN RESULTS</h2>
-                <div>
-                {
-                    this.state.searchPlanResults.map(result =>
-                        <ResultsCard
-                        key={result.id}
-                         result={result}
+                         {...this.props}/>)
+                      }
+                      {this.state.searchFolderResults.map(result =>
+                        <FolderResultsCard key={result.id} result={result}
                          deleteSong={this.deleteSong}
-                         {...this.props}/>
-                    )
-                }
-                </div>
-                <h2>SEARCH FOLDER RESULTS</h2>
-                <div>
-                {
-                    this.state.searchFolderResults.map(result =>
-                        <FolderResultsCard
-                        key={result.id}
-                         result={result}
-                         deleteSong={this.deleteSong}
-                         {...this.props}/>
-                    )
-                }
-                </div>   
-                
+                         {...this.props}/>)
+                      }
+                    </div>
             </>
         )
     }
