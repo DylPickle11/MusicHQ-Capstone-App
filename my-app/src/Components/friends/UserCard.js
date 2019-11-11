@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager'
-import { Card, CardTitle, CardText, CardBody, Button} from "reactstrap";
+import { Card, CardTitle, CardBody, Button} from "reactstrap";
 import moment from 'moment';
-
-
 
 
 export default class FriendCard extends Component {
@@ -26,19 +23,15 @@ export default class FriendCard extends Component {
         date: this.date
     };
    APIManager.post("friendRequests", request)
-   alert('Friend Request sent')
+   alert('Friend Request Sent')
 }
   render() {
     return (
       <div>
         <Card>
           <CardBody className="cardBody">
-            <CardTitle className="cardTitle">
-            <CardText>{this.props.friend.user.userName}</CardText>
-            </CardTitle>
-            <Link to={`/messages/new/${this.props.friend.user.id}`}type="button"><Button color='primary'>Send Message</Button></Link>
-            {/* <Button disabled={this.state.loadingStatus} onClick={this.friendRequest}>Add</Button> */}
-            <Button className="btn btn-danger">Remove</Button>
+            <CardTitle className="cardTitle">{this.props.user.userName}</CardTitle>
+             <Button className="btn btn-success" disabled={this.state.loadingStatus} onClick={this.friendRequest}>Add</Button>
           </CardBody>
         </Card>
       </div>

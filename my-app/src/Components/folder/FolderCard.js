@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import APIManager from '../../Modules/APIManager';
-import {Card, CardText, Button, CardHeader} from 'reactstrap';
-import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'reactstrap';
 
 class FolderCard extends Component {
     handleDelete = () => {
@@ -14,14 +12,16 @@ class FolderCard extends Component {
 
     render() {
         return (
-            <Card>
-                <CardHeader>{this.props.folder.title}</CardHeader>
-                <CardText>{this.props.folder.date}</CardText>
-                <CardText>{this.props.folder.ifPublic}</CardText>
+            <div className="card">
+             <div className="card-body">
+                <h5 className="card-title">{this.props.folder.title}</h5>
+                <p className="card-text">{this.props.folder.date}</p>
+                <p className="card-text">{this.props.folder.ifPublic}</p>
                 <Button onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/files`) }}>Open Folder</Button>
-                <Button type="button" onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/edit`) }}><FaRegEdit/></Button>
-                <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button>
-            </Card>
+                <Button type="button" onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/edit`) }}>Edit</Button>
+                <Button className="song-btns" color="danger" onClick={this.handleDelete}>Delete</Button>
+             </div>
+            </div>
         )
     }
 }

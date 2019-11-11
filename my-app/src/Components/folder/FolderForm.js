@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import APIManager from '../../Modules/APIManager';
 import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import moment from 'moment';
+import './Form.css'
 
 class FolderForm extends Component {
     //set the initial state
@@ -34,28 +35,27 @@ class FolderForm extends Component {
             }
 
         APIManager.post("folders", newFolder)
-            .then(()=> this.props.history.push("/"))
+            .then(()=> this.props.history.push("/folders"))
     }
 
     render() {
 
       return (
         <>
-        <div>
+        <div className='form'>
            <Form>
             <h1>New Folder</h1>
             <FormGroup>
               <Label for="date">Title</Label>
-              <Input type="text" name="title" id="title" onChange={this.handleFieldChange} placeholder="place title"/>
+              <Input type="text" className="input"name="title" id="title" onChange={this.handleFieldChange} placeholder="place title"/>
             </FormGroup>
 
             <FormGroup>
                <Label for="date">Date</Label>
-               <Input type="text" name="date" id="date" value={this.date} onChange={this.handleFieldChange} placeholder="place date"/>
+               <Input type="text" name="date" className="input" id="date" value={this.date} onChange={this.handleFieldChange} placeholder="place date"/>
             </FormGroup>
+            <Button type="button" className="btn btn-success" disabled={this.state.loadingStatus} onClick={this.constructFolder}>Submit</Button>
           </Form>
-          <Button type="button" disabled={this.state.loadingStatus} onClick={this.constructFolder}>Submit</Button>
-
         </div>
       </>
       );

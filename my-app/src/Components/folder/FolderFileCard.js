@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import APIManager from '../../Modules/APIManager';
-import {Card, CardText, CardHeader, CardSubtitle} from 'reactstrap';
-//import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
+import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class FolderFileCard extends Component {
@@ -15,15 +15,17 @@ class FolderFileCard extends Component {
     render() {
         console.log(this.props)
         return (
-            <Card>
-                <CardHeader>{this.props.file.songPlan.title}</CardHeader>
-                <CardSubtitle>{this.props.file.songPlan.date}</CardSubtitle>
-                <CardText>{this.props.file.songPlan.description}</CardText>
-     {/*
-                <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
-                <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button>
-     */}
-       </Card>
+            <div className="card">
+              <div className="card-body">
+               <h5 className="card-title">Title: {this.props.file.songPlan.title}</h5>
+               <p className="card-text">Description: {this.props.file.songPlan.description}</p>
+               <p className="card-text">{this.props.file.songPlan.date}</p>
+               <Link to={`/songPlans/${this.props.file.songPlan.id}`} type="button"><Button className="btn btn-info">Details</Button></Link>
+              </div>
+            </div>  
+                
+    
+     
         )
     }
 }

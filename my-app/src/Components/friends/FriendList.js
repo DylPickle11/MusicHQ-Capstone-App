@@ -1,9 +1,10 @@
 import APIManager from '../../Modules/APIManager';
 import React, { Component } from "react";
 import FriendCard from './FriendCard';
-import MessageList from './messages/MessageList';
+import UserCard from './UserCard';
 import RequestCard from './messages/RequestCard';
 import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button, Label} from 'reactstrap';
+import '../songPlans/SongPlan.css'
 
 //Make message form to send the message possibly a modal
 //This should create and object that has the userId and friendId on it
@@ -46,7 +47,7 @@ export default class FriendList extends Component {
        this.setState({
          allPossibleFriends: allMatches
        })
-     }) 
+     })
   }
 
   searchUserFriends = () =>{
@@ -55,7 +56,6 @@ export default class FriendList extends Component {
     let allMatches = []
     APIManager.getFriends(this.props.userId)
     .then ((userFriends)=> {
-      console.log(userFriends)
       userFriends.map(userFriend=>{
         if (userFriend.userName === searchResults) {
                allMatches.push(userFriend.userName)
@@ -78,12 +78,21 @@ export default class FriendList extends Component {
             friends : friends
          })
         })
+    let unfriends = [];
     APIManager.getAll("users")
         .then((users)=>{
-       this.setState({
-           users: users
+          users.map(user =>{
+            this.state.friends.map(friend=>{
+              if(user.id !== friend.user.id && user.id !== friend.currentUserId) {
+                 unfriends.push(user)
+              }
+           })
+          })
+          this.setState({
+            users: unfriends
+          })
         })
-       })
+
     APIManager.getFriendRequests(this.props.userId)
        .then((requests)=>{
         this.setState({
@@ -95,36 +104,39 @@ export default class FriendList extends Component {
     }
 
     render() {
-      console.log(this.state.requests)
       return (
         <>
-          <div className="md-form active-purple active-purple-2 mb-3">
-          <input id="search"className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFieldChange}/>
-                   <Button type="button" /*disabled={this.state.loadingStatus}*/ onClick={this.searchUserFriends}>Search</Button>
-                   <Button type="button" /*disabled={this.state.loadingStatus}*/ onClick={this.searchAllFriends}>Add Friends</Button>
-          </div>
-          {/* <div>
-          <h1>Your Friends Results</h1>
-           {this.state.friends.map(friend => (
+          <div className="main-container">
+            <div className="songPlan-container">
+              <h2>All Friends</h2>
+              <input id="search"className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFieldChange}/>
+              <Button type="button" /*disabled={this.state.loadingStatus}*/ onClick={this.searchUserFriends}>Search</Button>
+              {this.state.friends.map(friend => (
               <FriendCard key={friend.id} friend={friend} {...this.props} />
-            ))} 
-          </div> */}
-          <div>
-          <h1>Friend Requests </h1>
-           {this.state.requests.map(request => (
+              ))}
+            </div>
+
+            <div className="folder-container">
+             <h2>Friend Requests </h2>
+             {this.state.requests.map(request => (
               <RequestCard key={request.id} request={request} {...this.props} />
-            ))} 
+              ))} 
+            </div>
+
+            <div>
+              <h2>Soon to Be friends</h2>
+             {this.state.users.map(user => (
+              <UserCard key={user.id} user={user} {...this.props} />
+              ))}
+            </div>
+
+              {/* <div>
+              <input id="search"className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFieldChange}/>
+                   <Button type="button" disabled={this.state.loadingStatus} onClick={this.searchAllFriends}>Add Friends</Button>
+              </div>      */}
+
           </div>
-          <div>
-              <h1>All Friends</h1>
-            {this.state.users.map(user => (
-              <FriendCard key={user.id} user={user} {...this.props} />
-            ))}
-          </div>
-          
-          <div>
-             <MessageList {...this.props} />
-          </div>
+
         </>
       );
     }

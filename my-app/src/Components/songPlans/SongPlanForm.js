@@ -5,7 +5,9 @@ import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import moment from 'moment';
 import firebase from 'firebase';
 import FileUploader from "react-firebase-file-uploader";
-import firebaseConfig from '../upload/UploadConfig'
+import firebaseConfig from '../upload/UploadConfig';
+import '../folder/Form.css'
+
 
 firebase.initializeApp(firebaseConfig);
 
@@ -39,7 +41,6 @@ class SongPlanForm extends Component {
     }
 
     constructNewSongPlan = evt => {
-            console.log(this.state.videoURL)
         evt.preventDefault();
             const newSongPlan = {
                 userId: parseInt(this.state.userId),
@@ -100,10 +101,9 @@ class SongPlanForm extends Component {
       }
   
     render() {
-        console.log(this.state)
         return (
         <>
-        <div>
+        <div className="form">
            <Form>
             <h1>New Song Plan</h1>
             <FormGroup>
@@ -121,7 +121,7 @@ class SongPlanForm extends Component {
             </FormGroup>
 
             <div>
-            <> 
+            <>
    <div>
     <label>Progress</label>
     <p>{this.state.progress}</p>
@@ -136,34 +136,11 @@ class SongPlanForm extends Component {
    onProgress = {this.handleProgress}
    />
    </>
-             </div> 
-
-            {/* <Dropzone
-               onDrop={this.onImageDrop.bind(this)}
-               accept="image/*"
-              multiple={false}>
-               {({getRootProps, getInputProps}) => {
-                return (
-                   <div  {...getRootProps()} >
-                  <input {...getInputProps()} />
-          {
-          <p>Try dropping some files here, or click to select files to upload.</p>
-          }
-        </div>
-      )
-  }}
-</Dropzone>
-            <div>
-              {this.state.uploadedFileCloudinaryUrl === '' ? null :
-             <div>
-             <p>{this.state.uploadedFile.name}</p>
-              <img src={this.state.uploadedFileCloudinaryUrl} />
-             </div>}
-               </div> */}
+             </div>
 
             <FormGroup>
               <Label for="type">Grade Level</Label>
-              <Input type="select" name="type" id="type" onChange={this.handleFieldChange}>
+              <Input className="input" type="select" name="type" id="type" onChange={this.handleFieldChange}>
                 { this.state.allTypes.map(type =>
                    <option key={type.id} value={type.keyword}>{type.keyword}</option>
                 )
@@ -173,34 +150,23 @@ class SongPlanForm extends Component {
 
             <FormGroup>
               <Label for="level">Music Type</Label>
-              <Input type="select" name="level" id="level" onChange={this.handleFieldChange}>
+              <Input className="input" type="select" name="level" id="level" onChange={this.handleFieldChange}>
                  { this.state.allGradesLevel.map(level  =>
                  <option key={level.id} value={level.keyword}>{level.keyword}</option>
                  )}
               </Input>
             </FormGroup>
-             
+
             <FormGroup>
               <legend>Would you like this to be Public?</legend>
-              <Input type="select" name="ifPublic" id="ifPublicChoice" onChange={this.handleFieldChange}>
+              <Input className="input" type="select" name="ifPublic" id="ifPublicChoice" onChange={this.handleFieldChange}>
              {this.state.ifPublic.map(ifPub=>
                  <option key={ifPub.id} value={ifPub.keyword}>{ifPub.keyword}</option>
              )}
              </Input>
              </FormGroup>
-            
-          {/* //   <FormGroup>
-          //     <Label for="exampleFile">File</Label>
-          //     <Input type="file" name="file" id="exampleFile" />
-          //     <FormText color="muted">
-          // This is some placeholder block-level help text for the above input.
-          // It's a bit lighter and easily wraps to a new line.
-          //     </FormText>
-          //   </FormGroup>  */}
-
-          </Form>
-          <Button type="button" disabled={this.state.loadingStatus} onClick={this.constructNewSongPlan}>Submit</Button>
-
+             <Button type="button" disabled={this.state.loadingStatus} onClick={this.constructNewSongPlan}>Submit</Button>
+           </Form>
         </div>
       </>
       );

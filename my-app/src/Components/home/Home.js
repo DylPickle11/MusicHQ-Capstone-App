@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import SongPlanList from "../songPlans/SongPlanList";
-import FolderList from '../folder/FolderList';
 import './Home.css';
 //import { withRouter } from "react-router-dom"
 

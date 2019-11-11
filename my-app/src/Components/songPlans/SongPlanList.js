@@ -4,7 +4,6 @@ import APIManager from '../../Modules/APIManager';
 import FolderList from '../folder/FolderList';
 import SongPlanCard from './SongPlanCard';
 import ResultsCard from './results/ResultsCard';
-import FolderResultsCard from './results/ResultsCard';
 import './SongPlan.css'
 
 class SongPlanList extends Component {
@@ -19,11 +18,6 @@ class SongPlanList extends Component {
                 allSongPlans: allSongs
             })
         })
-        // APIManager.getUserData("folders", this.props.userId ).then((allFolders) =>
-        //   {  this.setState({
-        //         allFolderPlans: allFolders
-        //     })
-        // })
     }
 
     // set state to value of input
@@ -64,8 +58,8 @@ class SongPlanList extends Component {
               <h1>Hi, {this.props.userName}</h1>
                 <div className="main-container">
                   <div className="songPlan-container">
-                    <h2>SONGPLANS</h2>  
-                      <button class="btn btn-success" onClick={() => {this.props.history.push("/songPlans/new")}}>Create SongPlan</button>
+                    <h2>SONGPLANS</h2>
+                      <button className="btn btn-success" onClick={() => {this.props.history.push("/songPlans/new")}}>Create SongPlan</button>
 
                       { this.state.allSongPlans.map(song =>
                           <SongPlanCard key={song.id} song={song} deleteSong={this.deleteSong}
@@ -77,7 +71,7 @@ class SongPlanList extends Component {
                       <h2>SEARCH RESULTS</h2>
                       <div className="input-container">
                          <input id="search" className="form-control search" type="text" placeholder="Search SongPlans" aria-label="Search" onChange={this.handleFieldChange}/>
-                         <button type="button" class="btn btn-success" disabled={this.state.loadingStatus} onClick={this.search}>Search</button>
+                         <button type="button" className="btn btn-success" disabled={this.state.loadingStatus} onClick={this.search}>Search</button>
                        </div>
 
                        { this.state.searchPlanResults.map(result =>

@@ -50,14 +50,11 @@ class FolderList extends Component {
         return (
             <>
               <h1>Folders</h1>
-                <div className="input-container">
-                  <input id="search" className="form-control search" type="text" placeholder="Search"  aria-label="Search" onChange={this.handleFieldChange}/>
-                  <button type="button" disabled={this.state.loadingStatus} onClick={this.searchFolder}>Search</button>
-                </div>
 
                 <div className="main-container">
                   <div className="songPlan-container">
-                  <button onClick={() => {this.props.history.push("/folder/new")}}>New Folder</button>
+                  <h2> My Folders</h2>
+                  <button className="btn btn-success" onClick={() => {this.props.history.push("/folder/new")}}>New Folder</button>
                   { this.state.allFolders.map(folder =>
                    <FolderCard key={folder.id} folder={folder} deleteFolder={this.deleteFolder} {...this.props}/>
                     )
@@ -66,6 +63,10 @@ class FolderList extends Component {
 
                 <div className='folder-container'>
                   <h2>SEARCH RESULTS</h2>
+                  <div className="input-container">
+                    <input id="search" className="form-control search" type="text" placeholder="Search"  aria-label="Search" onChange={this.handleFieldChange}/>
+                    <button type="button" className="btn btn-success" disabled={this.state.loadingStatus} onClick={this.searchFolder}>Search</button>
+                </div>
                   {this.state.searchFolderResults.map(result =>
                         <FolderResultsCard key={result.id} result={result}
                          deleteSong={this.deleteSong}

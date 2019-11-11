@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import APIManager from "./../../Modules/APIManager";
 import '../../bootstrap.min.css'
-import {Card, CardSubtitle, CardText,CardHeader, Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button, Label} from 'reactstrap';
+import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button, Label} from 'reactstrap';
 import CommentCard from '../comments/CommentCard';
 import './SongPlan.css'
-//import {FaRegTrashAlt } from "react-icons/fa"
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
 class SongPlanCard extends Component {
   // Set initial state
@@ -48,6 +46,13 @@ class SongPlanCard extends Component {
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
     }
+
+    handleDelete = () => {
+        console.log(this.props)
+        this.setState({ loadingStatus: true })
+        APIManager.delete("songPlans", this.props.song.id)
+          .then(() => APIManager.getUserData("songPlans", this.props.userId))
+      }
 
     pushToFolder = event => {
         let folderSelect = document.getElementById("folderSelect");
@@ -97,7 +102,7 @@ class SongPlanCard extends Component {
             this.setState({
                  allComments: allComments
              })
-        }) 
+        })
     }
 
 
@@ -111,9 +116,11 @@ class SongPlanCard extends Component {
                 <p className="card-text">{this.props.song.date}</p>
 
                 <h6>Comments</h6>
-                {this.state.allComments.map(comment=>
-                 <CommentCard key={comment.id} comment={comment} {...this.props}/>
-                )}
+                <div className="comments">
+                  {this.state.allComments.map(comment=>
+                   <CommentCard key={comment.id} comment={comment} {...this.props}/>
+                  )}
+                </div>
 
                 <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button className="btn btn-info">Details</Button></Link>
 
@@ -156,6 +163,7 @@ class SongPlanCard extends Component {
 		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.postComment}>Comment</Button>
                    </ModalFooter>
                 </Modal>
+                <Button className="song-btns" color="danger" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Delete</Button>
                 </div>
             </div>
             </>

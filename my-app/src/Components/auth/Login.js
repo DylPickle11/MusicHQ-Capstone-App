@@ -48,7 +48,7 @@ class Login extends Component {
 			} else {
 				console.log('error')
 			}
-		}).then(()=> this.props.history.push('/'))
+		}).then(()=> this.props.history.push('/songplans'))
   };
 
 	toggle = () => {
@@ -70,7 +70,7 @@ class Login extends Component {
 	.then((user)=>
 	this.props.setUser(user.id, user.userName)
 	)
-	.then(() => this.props.history.push("/"))
+	.then(() => this.props.history.push("/songplans"))
 }
 
   render() {

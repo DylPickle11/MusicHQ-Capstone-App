@@ -2,7 +2,6 @@ const remoteURL = "http://localhost:3000";
 
 export default {
     //Login and Register
-
     addUser(newUser) {
       return fetch(`${remoteURL}/users`, {
         method: "POST",
@@ -21,6 +20,10 @@ export default {
     // Get Specific User Data
     getUserData(resource, userId) {
         return fetch(`${remoteURL}/${resource}?userId=${userId}`)
+            .then(response => response.json())
+    },
+    getMessageData(resource, userId) {
+        return fetch(`${remoteURL}/${resource}?receivedId=${userId}`)
             .then(response => response.json())
     },
     // Get resources
@@ -67,7 +70,7 @@ export default {
     
     }, 
     getFriends(currentuserId) {
-        return fetch(`http://localhost:3000/friendships?currentuserId=${currentuserId}&_expand=user`)
+        return fetch(`http://localhost:3000/friendships?currentUserId=${currentuserId}&_expand=user`)
         .then(response => response.json());
       },
     getFriendRequests(userId) {
