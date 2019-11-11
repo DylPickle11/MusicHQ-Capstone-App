@@ -3,7 +3,11 @@ import { withRouter } from 'react-router-dom';
 import APIManager from '../../Modules/APIManager';
 import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import moment from 'moment';
-import Video from '../upload/Upload'
+import firebase from 'firebase';
+import FileUploader from "react-firebase-file-uploader";
+import firebaseConfig from '../upload/UploadConfig'
+
+firebase.initializeApp(firebaseConfig);
 
 class SongPlanForm extends Component {
     moment = require('moment');
@@ -23,8 +27,9 @@ class SongPlanForm extends Component {
         ifPublic: [],
         ifPublicChoice: "Yes, please make it Public",
         loadingStatus: false,
-        uploadedFileCloudinaryUrl: '',
-        uploadedFile: null
+        video:'',
+        videoURL:'',
+        progress: 0
     }
 
     handleFieldChange = evt => {
@@ -34,7 +39,7 @@ class SongPlanForm extends Component {
     }
 
     constructNewSongPlan = evt => {
-            console.log(this.state.ifPublicChoice)
+            console.log(this.state.videoURL)
         evt.preventDefault();
             const newSongPlan = {
                 userId: parseInt(this.state.userId),
@@ -45,6 +50,7 @@ class SongPlanForm extends Component {
                 levelOption: this.state.level,
                 comment: this.state.comment,
                 ifPublic: this.state.ifPublicChoice,
+                videoURL: this.state.videoURL,
                 loadingStatus: true
             };
 
@@ -52,30 +58,29 @@ class SongPlanForm extends Component {
           .then(() => this.props.history.push("/songPlans"))
     }
 
-    // onImageDrop(files) {
-    //   this.setState({
-    //     uploadedFile: files[0]
-    //   });
-    //    this.handleImageUpload(files[0])
-    // }    
-  
-    //   handleImageUpload(file) {
-    //     let upload = request.post(CLOUDINARY_UPLOAD_URL)
-    //                         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-    //                         .field('file', file);
-    
-    //     upload.end((err, response) => {
-    //       if (err) {
-    //         console.error(err);
-    //       }
-    
-    //       if (response.body.secure_url !== '') {
-    //         this.setState({
-    //           uploadedFileCloudinaryUrl: response.body.secure_url
-    //         });
-    //       }
-    //     });
-    //   }
+    handleUploadStart = () => {
+      this.setState({
+        progress: 0
+      })
+    }
+
+    handleUploadSuccess = filename => {
+      this.setState({
+        video: filename,
+        progress: 100
+      })
+    firebase.storage().ref().child(filename).getDownloadURL()
+    .then(url => this.setState({
+      videoURL: url
+    }))
+    alert('Video Uploaded Successfully')
+    }
+
+    handleProgress = progress => {
+      this.setState({
+        progress: progress
+      })
+    }
 
     componentDidMount() { //set state one time
         let levels =[];
@@ -95,7 +100,7 @@ class SongPlanForm extends Component {
       }
   
     render() {
- 
+        console.log(this.state)
         return (
         <>
         <div>
@@ -116,7 +121,21 @@ class SongPlanForm extends Component {
             </FormGroup>
 
             <div>
-              <Video />
+            <> 
+   <div>
+    <label>Progress</label>
+    <p>{this.state.progress}</p>
+
+   </div>
+   <FileUploader
+   accept='image/*, audio/*, video/*'
+   name='video'
+   storageRef={firebase.storage().ref()}
+   onUploadStart = {this.handleUploadStart}
+   onUploadSuccess = {this.handleUploadSuccess}
+   onProgress = {this.handleProgress}
+   />
+   </>
              </div> 
 
             {/* <Dropzone

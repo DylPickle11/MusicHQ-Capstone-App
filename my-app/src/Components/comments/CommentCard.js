@@ -6,9 +6,9 @@ class CommentCard extends Component {
 
     render() {
         return (
-            <Card>
-                {this.props.comment.userId}:{this.props.comment.comment}
-            </Card>
+                
+                <p>{this.props.comment.user.userName}: {this.props.comment.comment}</p>
+          
         )
     }
 }

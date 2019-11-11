@@ -10,9 +10,7 @@ import './SongPlan.css'
 class SongPlanList extends Component {
     state = {
         allSongPlans: [],
-        allFolderPlans: [],
-        searchPlanResults: [],
-        searchFolderResults: []
+        searchPlanResults: []
     }
 
     componentDidMount() {
@@ -21,11 +19,11 @@ class SongPlanList extends Component {
                 allSongPlans: allSongs
             })
         })
-        APIManager.getUserData("folders", this.props.userId ).then((allFolders) =>
-          {  this.setState({
-                allFolderPlans: allFolders
-            })
-        })
+        // APIManager.getUserData("folders", this.props.userId ).then((allFolders) =>
+        //   {  this.setState({
+        //         allFolderPlans: allFolders
+        //     })
+        // })
     }
 
     // set state to value of input
@@ -50,63 +48,44 @@ class SongPlanList extends Component {
       const searchInput= document.getElementById("search");
       let inputValue = searchInput.value;
       let songPlanMatches =[];
-      let folderMatches =[];
         this.state.allSongPlans.map(songPlan=>{
             if (songPlan.title.toUpperCase().includes(inputValue)) {
                 songPlanMatches.push(songPlan)
             }
         })
-        this.state.allFolderPlans.map(folderPlan=>{
-            if (folderPlan.title.toUpperCase().includes(inputValue)) {
-                folderMatches.push(folderPlan)
-            }
-        })
         this.setState({
-            searchFolderResults: folderMatches
+            searchPlanResults: songPlanMatches
         })
     }
 
     render() {
-    
         return (
             <>
-              <h1>Song Plans</h1>
-                  <div className="input-container">
-                    <input id="search"className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFieldChange}/>
-                    <button type="button" disabled={this.state.loadingStatus} onClick={this.search}>Search</button>
-                  </div>
+              <h1>Hi, {this.props.userName}</h1>
+                <div className="main-container">
+                  <div className="songPlan-container">
+                    <h2>SONGPLANS</h2>  
+                      <button class="btn btn-success" onClick={() => {this.props.history.push("/songPlans/new")}}>Create SongPlan</button>
 
-                  <div className="main-container">
-                    <div className="songPlan-container">
-                      <h2>SONGPLANS</h2>
-                      <button onClick={() => {this.props.history.push("/songPlans/new")}}>New Post</button>
-                    
                       { this.state.allSongPlans.map(song =>
                           <SongPlanCard key={song.id} song={song} deleteSong={this.deleteSong}
                           {...this.props}/>)
                       }
                     </div>
 
-                    <div className='folder-container'>
-                      <button onClick={() => {this.props.history.push("/folder/new")}}>New Folder</button>
-                        <FolderList {...this.props} />
-                    </div>
-                  </div>
-
-                    <div className="main-container">
+                    <div className="folder-container">
                       <h2>SEARCH RESULTS</h2>
+                      <div className="input-container">
+                         <input id="search" className="form-control search" type="text" placeholder="Search SongPlans" aria-label="Search" onChange={this.handleFieldChange}/>
+                         <button type="button" class="btn btn-success" disabled={this.state.loadingStatus} onClick={this.search}>Search</button>
+                       </div>
 
-                      {this.state.searchPlanResults.map(result =>
-                         <ResultsCard key={result.id} result={result}
-                         deleteSong={this.deleteSong}
-                         {...this.props}/>)
-                      }
-                      {this.state.searchFolderResults.map(result =>
-                        <FolderResultsCard key={result.id} result={result}
-                         deleteSong={this.deleteSong}
-                         {...this.props}/>)
+                       { this.state.searchPlanResults.map(result =>
+                       <ResultsCard key={result.id} result={result} deleteSong={this.deleteSong}
+                       {...this.props}/>)
                       }
                     </div>
+                </div>
             </>
         )
     }

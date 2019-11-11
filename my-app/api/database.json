@@ -93,18 +93,6 @@
     {
       "userId": 1,
       "title": "",
-      "date": "November 7, 2019 5:47 PM",
-      "description": "",
-      "type": "",
-      "levelOption": "Instrumental",
-      "comment": "",
-      "ifPublic": "Yes, please make it Public",
-      "loadingStatus": true,
-      "id": 30
-    },
-    {
-      "userId": 1,
-      "title": "",
       "date": "November 7, 2019 5:52 PM",
       "description": "",
       "type": "",
@@ -125,6 +113,19 @@
       "ifPublic": "Yes, please make it Public",
       "loadingStatus": true,
       "id": 32
+    },
+    {
+      "userId": 1,
+      "title": "Plan with video URL",
+      "date": "November 7, 2019 7:41 PM",
+      "description": "Hopefully this works",
+      "type": "Early High School",
+      "levelOption": "vocal",
+      "comment": "",
+      "ifPublic": "Yes, please make it Public",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/dayne-topkin-cB10K2ugb-4-unsplash.jpg?alt=media&token=7cffc458-bb9d-4e97-9138-b1a0cf924557",
+      "loadingStatus": true,
+      "id": 33
     }
   ],
   "folders": [
@@ -135,6 +136,14 @@
       "ifPublic": true,
       "loadingStatus": true,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "Another Folder",
+      "date": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 3
     },
     {
       "id": 5,
@@ -284,6 +293,12 @@
       "songPlanId": 28,
       "comment": "Bonita is here",
       "id": 7
+    },
+    {
+      "userId": 1,
+      "songPlanId": 23,
+      "comment": "Cool!",
+      "id": 8
     }
   ]
 }

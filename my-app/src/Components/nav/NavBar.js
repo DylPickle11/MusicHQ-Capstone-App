@@ -12,18 +12,19 @@ class NavigationBar extends Component {
   render() {
     
     return (
-      <Navbar className= "navbar navbar-light light-blue flex-md-nowrap p-0">
       <>
-
-        <h5>Hi, {this.props.userName}</h5>
+      <nav className= "navbar navbar-expand-lg navbar-light bg-light">
+        <a className="navbar-brand" href="#">SongPlan Logo</a>
+         <li className='nav-link'>Welcome, {this.props.userName}</li>
           <ul className="nav nav-pills nav-fill">
             <li><Link className='nav-link' to='/songplans'>My Song Plan</Link></li>
+            <li><Link className='nav-link' to='/folders'>My Folders</Link></li>
             <li><Link className='nav-link' to='/messages'>Messages</Link></li>
             <li><Link className='nav-link' to='/search'>Explore Songs</Link></li>
             <li><Button onClick={this.props.clearUser}>Logout</Button></li>
           </ul>
-          </>
-     </Navbar>
+     </nav>
+     </>
     );
   }
 

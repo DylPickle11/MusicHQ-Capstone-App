@@ -103,21 +103,22 @@ class SongPlanCard extends Component {
 
     render() {
         return (
-            <div className="Card">
-            <Card className="">
-                <CardHeader>Title:{this.props.song.title}</CardHeader>
-                <CardText>description:{this.props.song.description}</CardText>
-                <CardSubtitle>{this.props.song.date}</CardSubtitle>
+            <>
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Title: {this.props.song.title}</h5>
+                <p className="card-text">Description: {this.props.song.description}</p>
+                <p className="card-text">{this.props.song.date}</p>
 
+                <h6>Comments</h6>
                 {this.state.allComments.map(comment=>
-                 <CommentCard key={comment.id} comment={comment} {...this.props}/>      
+                 <CommentCard key={comment.id} comment={comment} {...this.props}/>
                 )}
 
-                <CardSubtitle>Comment:{this.props.song.comment}</CardSubtitle>
-                <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button color='primary'>Details</Button></Link>
+                <Link to={`/songPlans/${this.props.song.id}`} type="button"><Button className="btn btn-info">Details</Button></Link>
 
                 {/* Modal to Add to Folder*/}
-                <button onClick={this.toggle} className="btn btn-primary" type="button">Add to Folder</button>
+                <button onClick={this.toggle} className="btn btn-primary" type="button">Add to Folder</ button>
                   <Modal isOpen={this.state.modal1} toggle={this.toggle} className={this.props.className}>
 			        <ModalBody>
 				      <Form onSubmit={this.pushToFolder}>
@@ -126,17 +127,17 @@ class SongPlanCard extends Component {
                         <FormGroup>
                           <Label for="folder">Push to Folder</Label>
                             <Input type="select" name="folder" id="folderSelect" onChange={this.handleFieldChange}>
-                        {
+                            {
                             this.state.allFolders.map(folder =>
                                 <option key={folder.id} value={folder.id}>{folder.title}</option>
                             )
-                        }
+                             }
                          </Input>
                         </FormGroup>
 					  </Form>
                     </ModalBody>
                     <ModalFooter>
-		              <Button type="button" disabled={this.state.loadingStatus} onClick={this.pushToFolder}>Push to Folder</Button>
+		              <Button type="button" disabled={this.state.loadingStatus} onClick={this.pushToFolder}>Save to Folder</Button>
                     </ModalFooter>
                  </Modal>
 
@@ -155,8 +156,9 @@ class SongPlanCard extends Component {
 		             <Button type="button" disabled={this.state.loadingStatus} onClick={this.postComment}>Comment</Button>
                    </ModalFooter>
                 </Modal>
-            </Card>
+                </div>
             </div>
+            </>
         )
     }
 }

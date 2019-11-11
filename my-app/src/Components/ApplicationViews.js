@@ -6,6 +6,7 @@ import SongPlanList from './songPlans/SongPlanList';
 import SongPlanDetail from './songPlans/SongPlanDetail';
 import SongPlanForm from './songPlans/SongPlanForm';
 import SongPlanEditForm from './songPlans/SongPlanEditForm';
+import FolderList from './folder/FolderList'
 import FolderForm from './folder/FolderForm';
 import FolderEditForm from './folder/FolderEditForm';
 import FolderFileView from './folder/FolderFileView';
@@ -27,6 +28,10 @@ class ApplicationViews extends Component {
         }} />
         <Route exact path="/Login" render={(props) => {
           return <Login {...props} />
+        }} />
+        
+        <Route exact path="/folders" render={(props) => {
+          return <FolderList {...this.props} />
         }} />
 
         <Route exact path="/folder/new" render={(props) => {

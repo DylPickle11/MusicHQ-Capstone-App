@@ -21,7 +21,7 @@ class Video extends Component {
 
 handleUploadStart = () => {
   this.setState({
-    progress:0
+    progress: 0
   })
 }
 
@@ -34,18 +34,33 @@ firebase.storage().ref().child(filename).getDownloadURL()
 .then(url => this.setState({
   videoURL: url
 }))
+alert('Video Uploaded Successfully')
+}
+
+handleProgress = progress => {
+  this.setState({
+    progress: progress
+  })
 }
 
  render () {
-   console.log(this.state)
+
   return(
+   <> 
+   <div>
+    <label>Progress</label>
+    <p>{this.state.progress}</p>
+
+   </div>
    <FileUploader
    accept='image/*, audio/*, video/*'
    name='video'
    storageRef={firebase.storage().ref()}
    onUploadStart = {this.handleUploadStart}
    onUploadSuccess = {this.handleUploadSuccess}
+   onProgress = {this.handleProgress}
    />
+   </>
   )
  }
 

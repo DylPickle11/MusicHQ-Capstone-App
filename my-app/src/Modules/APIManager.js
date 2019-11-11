@@ -95,7 +95,7 @@ export default {
         .then(response => response.json())
     },
     getCommentUserExpand(songPlanId) {
-        return fetch(`${remoteURL}/comments?songPlanId=${songPlanId}&expand=user`)
+        return fetch(`${remoteURL}/comments?songPlanId=${songPlanId}&_expand=user`)
         .then(response => response.json())
     }
 }

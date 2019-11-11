@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import AuthManager from '../../Modules/AuthManager';
 import APIManager from './../../Modules/APIManager';
-import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button} from 'reactstrap';
+import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup } from 'reactstrap';
 import './Login.css';
+
 
 class Login extends Component {
   state = {
@@ -87,8 +88,8 @@ class Login extends Component {
 			  <FormGroup>		
                 <input className="space" className="form-control" onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
 			  </FormGroup>	
-				<button type="button" className="btn btn-primary space" onClick={this.handleLogin}>Sign in</button>
-                <Button className="space" onClick={this.toggle} type="button">Do not have an Account? Register Now</Button>
+				<button type="button" className="btn btn-primary" onClick={this.handleLogin}>Sign in</button>
+                <button className="btn btn-primary" onClick={this.toggle} type="button">Do not have an Account? Register Now</button>
 		    </div>
 		  </div>
 		</div>
@@ -113,7 +114,7 @@ class Login extends Component {
 			  </Form>
             </ModalBody>
             <ModalFooter>
-		      <Button type="button" disabled={this.state.loadingStatus} onClick={this.handleRegistration}>Submit</Button>
+		      <button type="button" disabled={this.state.loadingStatus} onClick={this.handleRegistration}>Submit</button>
             </ModalFooter>
           </Modal>
 	 </>

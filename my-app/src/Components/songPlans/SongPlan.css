@@ -1,6 +1,6 @@
 .App {
     text-align: center;
-    background-color: rgb(206, 213, 223);
+    /* background-color: rgb(206, 213, 223); */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -9,12 +9,11 @@
     font-size: calc(10px + 2vmin);
   }
 
-  .Card {
+  .card {
     background-color: white;
-    border: 3px purple solid;
-    margin: 2em;
-    height: 50%;
-    width: 50%;
+    margin: 1em;
+    height: 90%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -26,25 +25,36 @@
   .main-container {
     display: flex;
     flex-direction: row;
-    border: 3px black solid;
     align-items: stretch;
  }
   .songPlan-container {
-    border: 3px green solid;
+    overflow-y: scroll;
+    max-height: 500px;
     width: 50%;
  }
 
   .folder-container {
-    border: 3px blue solid;
+    overflow-y: scroll;
+    max-height: 500px;
     width: 50%;
  }
 
-  .results-container {
-    border: 3px white solid;
- }
+  .input-container {
+    display: flex;
+    flex-direction: row;
+  }
 
  .songPlan-Card {
    display: flex;
    width: 50%;
    margin: auto 0;
+ }
+
+ #search {
+   width: 40% 
+ }
+
+ .image{
+   max-width: 300px;
+   max-height: 200px;
  }
