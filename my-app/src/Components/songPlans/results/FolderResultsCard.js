@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import APIManager from '../../../Modules/AuthManager';
-import {Card, CardText, Button, CardHeader} from 'reactstrap';
-import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
+import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class ResultsCard extends Component {
@@ -13,16 +12,17 @@ class ResultsCard extends Component {
       }
 
     render() {
-        console.log(this.props.result)
         return (
-            <Card>
-                <CardHeader>{this.props.result.title}</CardHeader>
-                <CardText>{this.props.result.date}</CardText>
-                <CardText>{this.props.result.ifPublic}</CardText>
-                {/* <Button onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/files`) }}>Open Folder</Button>
-                <Button type="button" onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/edit`) }}><FaRegEdit/></Button>
-                <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button> */}
-            </Card>
+            <div className="card">
+             <div className="card-body">
+                <h5 className="card-title">{this.props.result.title}</h5>
+                <p className="card-text">{this.props.result.date}</p>
+                <p className="card-text">{this.props.result.ifPublic}</p>
+                <Button onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/files`) }}>Open Folder</Button>
+                <Button type="button" onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/edit`) }}>Edit</Button>
+                <Button className="song-btns" color="danger" onClick={this.handleDelete}>Delete></Button>
+             </div>
+            </div>
         )
     }
 }

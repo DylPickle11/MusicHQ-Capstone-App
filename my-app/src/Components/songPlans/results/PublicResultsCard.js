@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card, CardText, CardHeader} from 'reactstrap';
+import {Card, Button} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class PublicResultsCard extends Component {
@@ -7,14 +7,16 @@ class PublicResultsCard extends Component {
 
     render() {
         return (
-            <Card>
-                <CardHeader>{this.props.planResults.title}</CardHeader>
-                <CardText>{this.props.planResults.date}</CardText>
-                <CardText>{this.props.planResults.ifPublic}</CardText>
-                {/* <Button onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/files`) }}>Open Folder</Button>
-                <Button type="button" onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/edit`) }}><FaRegEdit/></Button>
-                <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button> */}
-            </Card>
+            <Card className="card">
+              <div className="card-body">
+                <h5 className="card-title">Title: {this.props.planResults.title}</h5>
+                <p className="card-text">Description: {this.props.planResults.description}</p>
+                <p className="card-text">{this.props.planResults.date}</p>
+                <p className="card-text">Level: {this.props.planResults.levelOption}</p>
+                <p className="card-text">Public: {this.props.planResults.type}</p>
+              <Button type="button" className="btn btn-success" onClick={this.saveToUser}>Save to User</Button>
+             </div>
+          </Card>
         )
     }
 }

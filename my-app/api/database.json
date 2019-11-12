@@ -68,15 +68,49 @@
       "id": 27
     },
     {
-      "id": 28,
       "userId": 1,
-      "title": "This is a new song",
-      "date": "November 3, 2019 10:12 PM",
-      "description": "This will be about rock music!!!!!",
-      "type": "Middle School",
+      "title": "Plan with video URL",
+      "date": "November 7, 2019 7:41 PM",
+      "description": "Hopefully this works",
+      "type": "Early High School",
       "levelOption": "vocal",
-      "ifPublic": true,
-      "loadingStatus": true
+      "comment": "",
+      "ifPublic": "Yes, please make it Public",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/dayne-topkin-cB10K2ugb-4-unsplash.jpg?alt=media&token=7cffc458-bb9d-4e97-9138-b1a0cf924557",
+      "loadingStatus": true,
+      "id": 33
+    },
+    {
+      "userId": 2,
+      "title": "BB Song Plan 4",
+      "date": "November 1, 2019 10:00 AM",
+      "description": "pretty songs",
+      "type": "Middle School",
+      "loadingStatus": true,
+      "id": 35
+    },
+    {
+      "userId": 2,
+      "title": "Plan with video URL",
+      "date": "November 7, 2019 7:41 PM",
+      "description": "Hopefully this works",
+      "type": "Early High School",
+      "comment": "",
+      "loadingStatus": true,
+      "id": 36
+    },
+    {
+      "userId": 1,
+      "title": "Sorida",
+      "date": "November 11, 2019 3:10 PM",
+      "description": "Here is the video",
+      "type": "Late Elementary",
+      "levelOption": "Instrumental",
+      "comment": "",
+      "ifPublic": "Yes, please make it Public",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/SORIDA_WIN_20190213_12_14_34_Pro.mp4?alt=media&token=bf539b06-8a35-4805-a5e8-6c0bdba1120e",
+      "loadingStatus": true,
+      "id": 37
     }
   ],
   "folders": [
@@ -103,6 +137,22 @@
       "ifPublic": true,
       "loadingStatus": true,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "How are you",
+      "date": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "title": "sdfdsff",
+      "date": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 10
     }
   ],
   "folderPlans": [
@@ -115,7 +165,7 @@
     {
       "userdId": "1",
       "folderId": "2",
-      "songPlanId": 28,
+      "songPlanId": 23,
       "id": 2
     }
   ],
@@ -163,37 +213,61 @@
   ],
   "friendships": [
     {
-      "currentuserId": 6,
+      "currentUserId": 6,
       "userId": 1,
       "id": 1
     },
     {
-      "currentuserId": 6,
+      "currentUserId": 6,
       "userId": 2,
       "id": 2
     },
     {
-      "currentuserId": 4,
+      "currentUserId": 4,
       "userId": 3,
       "id": 3
     },
     {
-      "userId": 2,
       "currentUserId": 1,
+      "userId": 2,
       "id": 4
-    }
-  ],
-  "messages": [],
-  "friendRequests": [
+    },
     {
       "userId": 1,
-      "receiverId": 3,
-      "ifApproved": false,
-      "ifPending": true,
-      "date": "November 4, 2019 8:34 AM",
-      "id": 1
+      "currentUserId": 3,
+      "id": 5
     }
   ],
+  "messages": [
+    {
+      "userId": "1",
+      "receivedId": "2",
+      "title": "MO!!!",
+      "date": "November 11, 2019 1:36 PM",
+      "description": "How are you MO?!",
+      "loadingStatus": true,
+      "id": 1
+    },
+    {
+      "userId": "2",
+      "receivedId": "2",
+      "title": "Hey BB",
+      "date": "November 11, 2019 2:20 PM",
+      "description": "YES!!!!",
+      "loadingStatus": true,
+      "id": 2
+    },
+    {
+      "userId": "2",
+      "receivedId": "1",
+      "title": "Hello MO! Hope you are ok!",
+      "date": "November 11, 2019 5:18 PM",
+      "description": "Coool",
+      "loadingStatus": true,
+      "id": 3
+    }
+  ],
+  "friendRequests": [],
   "comments": [
     {
       "id": 1,
@@ -218,24 +292,6 @@
       "songPlanId": 23,
       "comment": "How many more comments can I leave",
       "id": 4
-    },
-    {
-      "userId": 1,
-      "songPlanId": 23,
-      "comment": "is it working",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "songPlanId": 23,
-      "comment": "leave a comment",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "songPlanId": 28,
-      "comment": "Bonita is here",
-      "id": 7
     }
   ]
 }

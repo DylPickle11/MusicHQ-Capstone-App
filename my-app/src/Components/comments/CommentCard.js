@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import {Card, CardText } from 'reactstrap';
-
+import './Comment.css'
 
 class CommentCard extends Component {
 
     render() {
-        console.log(this.props)
         return (
-            <Card>
-                {this.props.comment.userId}:{this.props.comment.comment}
-            </Card>
+
+                <p className="comments"><span className="color">{this.props.comment.user.userName}</span>: {this.props.comment.comment}</p>
+
         )
     }
 }

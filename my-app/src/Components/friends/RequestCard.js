@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardTitle, CardText, CardBody, Button} from "reactstrap";
-import APIManager from '../../../Modules/APIManager'
+import APIManager from '../../Modules/APIManager'
 
 export default class RequestCard extends Component {
     state = {
@@ -29,9 +29,9 @@ export default class RequestCard extends Component {
     }
 
   render() {
-      console.log(this.props)
     return (
       <div>
+        
         <Card>
           <CardBody className="cardBody">
             <CardTitle className="cardTitle">Friend Request</CardTitle>

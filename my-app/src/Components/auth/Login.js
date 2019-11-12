@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import AuthManager from '../../Modules/AuthManager';
 import APIManager from './../../Modules/APIManager';
-import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button} from 'reactstrap';
+import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup } from 'reactstrap';
 import './Login.css';
+
 
 class Login extends Component {
   state = {
@@ -42,12 +43,11 @@ class Login extends Component {
 			} else if (userName === '') {
 				alert('Please enter a valid userName');
 			} else if (response[0].password === password) {
-				console.log(response[0].id)
                     this.props.setUser(response[0].id, response[0].userName)
 			} else {
 				console.log('error')
 			}
-		}).then(()=> this.props.history.push('/'))
+		}).then(()=> this.props.history.push('/songplans'))
   };
 
 	toggle = () => {
@@ -69,7 +69,7 @@ class Login extends Component {
 	.then((user)=>
 	this.props.setUser(user.id, user.userName)
 	)
-	.then(() => this.props.history.push("/"))
+	.then(() => this.props.history.push("/songplans"))
 }
 
   render() {
@@ -87,8 +87,8 @@ class Login extends Component {
 			  <FormGroup>		
                 <input className="space" className="form-control" onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
 			  </FormGroup>	
-				<button type="button" className="btn btn-primary space" onClick={this.handleLogin}>Sign in</button>
-                <Button className="space" onClick={this.toggle} type="button">Do not have an Account? Register Now</Button>
+				<button type="button" className="btn btn-primary" onClick={this.handleLogin}>Sign in</button>
+                <button className="btn btn-primary" onClick={this.toggle} type="button">Do not have an Account? Register Now</button>
 		    </div>
 		  </div>
 		</div>
@@ -113,7 +113,7 @@ class Login extends Component {
 			  </Form>
             </ModalBody>
             <ModalFooter>
-		      <Button type="button" disabled={this.state.loadingStatus} onClick={this.handleRegistration}>Submit</Button>
+		      <button type="button" disabled={this.state.loadingStatus} onClick={this.handleRegistration}>Submit</button>
             </ModalFooter>
           </Modal>
 	 </>

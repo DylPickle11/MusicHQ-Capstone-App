@@ -1,11 +1,7 @@
-import APIManager from '../../../Modules/APIManager';
+import APIManager from '../../Modules/APIManager';
 import React, { Component } from "react";
 import MessageCard from './MessageCard';
 import { Button } from 'reactstrap';
-
-//Make message form to send the message possibly a modal
-//This should create and object that has the userId and friendId on it
-
 
 export default class MessageList extends Component {
     state = {
@@ -14,7 +10,7 @@ export default class MessageList extends Component {
     };
   
     componentDidMount() {
-      APIManager.getUserData('messages',this.props.userId)
+      APIManager.getMessageData('messages',this.props.userId)
       .then((messages)=>
         this.setState({
             messages : messages
@@ -22,6 +18,7 @@ export default class MessageList extends Component {
       )}
 
     render() {
+  
       return (
         <>
           <div className="md-form active-purple active-purple-2 mb-3">

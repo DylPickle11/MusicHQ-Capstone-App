@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import APIManager from '../../Modules/APIManager'
 import CardHeader from 'reactstrap/lib/CardHeader';
-import {Card, CardText, CardSubtitle, Button } from 'reactstrap';
-import { FaRegEdit} from "react-icons/fa"
+import { Button, Card, CardText, CardSubtitle, } from 'reactstrap';
+import { FaRegEdit } from "react-icons/fa"
+import { Player } from 'video-react';
+import './SongPlan.css'
 
 class SongPlanDetail extends Component {
     state = {
@@ -13,6 +15,7 @@ class SongPlanDetail extends Component {
         type: "",
         levelOption: "",
         ifPublic: "",
+        videoURL:'',
         loadingStatus: true
     }
 
@@ -36,6 +39,7 @@ class SongPlanDetail extends Component {
             type: song.type,
             levelOption: song.levelOption,
             ifPublic: song.ifPublic,
+            videoURL: song.videoURL,
             loadingStatus: false
           });
         });
@@ -44,9 +48,13 @@ class SongPlanDetail extends Component {
     render() {
       return (
         <Card>
-                <CardHeader>Title:{this.state.title}</CardHeader>
+                <h5 className="card-title">Title:{this.state.title}</h5>
                 <CardSubtitle>Date:{this.state.date}</CardSubtitle>
                 <CardText>Description:{this.state.description}</CardText>
+                Video:<div className="image"><img  className="image"alt='Video image' src={`${this.state.videoURL}`} /></div>
+                Video:<Player className="video" playsInline poster="/assets/poster.png" src={`${this.state.videoURL}`} fluid={true} width={50}
+        height={50}/>
+
                 <CardText>Type:{this.state.type}</CardText>
                 <CardText>Level:{this.state.levelOption}</CardText>
                 <CardText>Public:{this.state.ifPublic}</CardText>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import APIManager from '../Modules/APIManager';
-import {Card, CardText, Button, CardHeader} from 'reactstrap';
-// import {FaRegTrashAlt, FaRegEdit } from "react-icons/fa"
-
+import {Card, Button} from 'reactstrap';
 
 class SearchCard extends Component {
     saveToUser = () =>{
@@ -18,23 +16,22 @@ class SearchCard extends Component {
                 ifPublic: this.props.publicPlan.ifPublicChoice,
                 loadingStatus: true
         } 
-        console.log(songForUser)
          APIManager.post("songPlans", songForUser)
-        // .then(() => this.props.history.push("/search"))  
+        alert('Saved to your Song Plan') 
         
     }
 
     render() {
         return (
-            <Card>
-                <CardHeader>{this.props.publicPlan.title}</CardHeader>
-                <CardText>{this.props.publicPlan.description}</CardText>
-                <CardText>{this.props.publicPlan.levelOption}</CardText>
-                <CardText>{this.props.publicPlan.type}</CardText>
-                <Button type="button" /*disabled={this.state.loadingStatus}*/ onClick={this.saveToUser}>Save to User</Button>
-                {/* <Button onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/files`) }}>Open Folder</Button>
-                <Button type="button" onClick={() => { this.props.history.push(`/folder/${this.props.folder.id}/edit`) }}><FaRegEdit/></Button>
-                <Button className="song-btns" color="danger" onClick={this.handleDelete}><FaRegTrashAlt/></Button> */}
+            <Card className="card">
+              <div className="card-body">
+                <h5 className="card-title">Title: {this.props.publicPlan.title}</h5>
+                <p className="card-text">Description: {this.props.publicPlan.description}</p>
+                <p className="card-text">{this.props.publicPlan.date}</p>
+                <p className="card-text">Level: {this.props.publicPlan.levelOption}</p>
+                <p className="card-text">Public: {this.props.publicPlan.type}</p>
+                <Button type="button" className="btn btn-success" onClick={this.saveToUser}>Save to User</Button>
+               </div> 
             </Card>
         )
     }
