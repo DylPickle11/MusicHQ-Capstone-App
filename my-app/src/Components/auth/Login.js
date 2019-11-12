@@ -43,7 +43,6 @@ class Login extends Component {
 			} else if (userName === '') {
 				alert('Please enter a valid userName');
 			} else if (response[0].password === password) {
-				console.log(response[0].id)
                     this.props.setUser(response[0].id, response[0].userName)
 			} else {
 				console.log('error')

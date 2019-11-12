@@ -51,7 +51,7 @@ class SongPlanCard extends Component {
         console.log(this.props)
         this.setState({ loadingStatus: true })
         APIManager.delete("songPlans", this.props.song.id)
-          .then(() => APIManager.getUserData("songPlans", this.props.userId))
+           .then(() => this.props.history.push("/folders"))
       }
 
     pushToFolder = event => {

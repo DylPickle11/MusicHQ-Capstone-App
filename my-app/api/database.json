@@ -81,19 +81,6 @@
       "id": 33
     },
     {
-      "userId": 1,
-      "title": "dsfsdfdsf",
-      "date": "November 11, 2019 10:27 AM",
-      "description": "sdfsdfsdfsdf",
-      "type": "Middle School",
-      "levelOption": "vocal",
-      "comment": "",
-      "ifPublic": "Yes, please make it Public",
-      "videoURL": "",
-      "loadingStatus": true,
-      "id": 34
-    },
-    {
       "userId": 2,
       "title": "BB Song Plan 4",
       "date": "November 1, 2019 10:00 AM",
@@ -136,14 +123,6 @@
       "id": 2
     },
     {
-      "userId": 1,
-      "title": "Another Folder",
-      "date": "",
-      "ifPublic": true,
-      "loadingStatus": true,
-      "id": 3
-    },
-    {
       "id": 5,
       "userId": 2,
       "title": "Folder 2 !!!!!",
@@ -161,19 +140,19 @@
     },
     {
       "userId": 1,
-      "title": "New Folder",
-      "date": "",
-      "ifPublic": true,
-      "loadingStatus": true,
-      "id": 7
-    },
-    {
-      "userId": 1,
       "title": "How are you",
       "date": "",
       "ifPublic": true,
       "loadingStatus": true,
       "id": 8
+    },
+    {
+      "userId": 1,
+      "title": "sdfdsff",
+      "date": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 10
     }
   ],
   "folderPlans": [
@@ -277,6 +256,15 @@
       "description": "YES!!!!",
       "loadingStatus": true,
       "id": 2
+    },
+    {
+      "userId": "2",
+      "receivedId": "1",
+      "title": "Hello MO! Hope you are ok!",
+      "date": "November 11, 2019 5:18 PM",
+      "description": "Coool",
+      "loadingStatus": true,
+      "id": 3
     }
   ],
   "friendRequests": [],

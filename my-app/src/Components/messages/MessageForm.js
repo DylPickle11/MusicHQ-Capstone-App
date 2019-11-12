@@ -39,7 +39,6 @@ class MessageForm extends Component {
     }
 
     render() {
-        console.log(this.props.match.params.userId)
         return (
         <>
         <div>
