@@ -11,8 +11,8 @@ export default class RequestCard extends Component {
         event.preventDefault()
         this.setState({ loadingStatus: true });
         const friendShip = {
-            userId: parseInt(this.props.request.userId),
-            currentUserId: parseInt(this.props.userId)
+            currentUserId: parseInt(this.props.request.userId),
+            userId: parseInt(this.props.userId)
         };
         
        APIManager.post("friendShips", friendShip)

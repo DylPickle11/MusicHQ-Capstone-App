@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class FolderFileCard extends Component {
     handleDelete = () => {
-        //invoke the delete function in APIManger and re-direct to the coffee list.
         this.setState({ loadingStatus: true })
         APIManager.delete('folders', this.props.folder.id)
           .then(() => this.props.history.push("/"))

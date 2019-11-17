@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import APIManager from '../../../Modules/APIManager'
+import APIManager from '../../Modules/APIManager'
 import {Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import moment from 'moment';
 

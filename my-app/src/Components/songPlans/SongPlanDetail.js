@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import APIManager from '../../Modules/APIManager'
-import CardHeader from 'reactstrap/lib/CardHeader';
 import { Button, Card, CardText, CardSubtitle, } from 'reactstrap';
 import { FaRegEdit } from "react-icons/fa"
 import { Player } from 'video-react';
@@ -48,17 +47,16 @@ class SongPlanDetail extends Component {
     render() {
       return (
         <Card>
-                <h5 className="card-title">Title:{this.state.title}</h5>
-                <CardSubtitle>Date:{this.state.date}</CardSubtitle>
-                <CardText>Description:{this.state.description}</CardText>
-                Video:<div className="image"><img  className="image"alt='Video image' src={`${this.state.videoURL}`} /></div>
-                Video:<Player className="video" playsInline poster="/assets/poster.png" src={`${this.state.videoURL}`} fluid={true} width={50}
-        height={50}/>
+                <h5 className="card-title">Title: {this.state.title}</h5>
+                <p>Date: {this.state.date}</p>
+                <p>Description: {this.state.description}</p>
+                Sheet Music:<div className="image"><img  className="image"alt='Video image' src={`${this.state.videoURL}`} /></div>
+                {/* Video: <div style={{height: '400px'}, {width: '400px'}}><Player playsInline poster="/assets/poster.png" src={`${this.state.videoURL}`} fluid={true}/></div> */}
 
-                <CardText>Type:{this.state.type}</CardText>
-                <CardText>Level:{this.state.levelOption}</CardText>
-                <CardText>Public:{this.state.ifPublic}</CardText>
-                <Button type="button" onClick={() => { this.props.history.push(`/songPlans/${this.props.songPlanId}/edit`) }}><FaRegEdit/></Button>
+                <p className="card-text">Type: {this.state.type}</p>
+                <p className="card-text">Level: {this.state.levelOption}</p>
+                <p className="card-text">Public: {this.state.ifPublic}</p>
+                <Button type="button" onClick={() => { this.props.history.push(`/songPlans/${this.props.songPlanId}/edit`)}}>Edit</Button>
                 <Button className="song-btns" color="danger" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Delete</Button>
             </Card>
       );

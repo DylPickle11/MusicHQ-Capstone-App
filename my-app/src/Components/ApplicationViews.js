@@ -12,7 +12,7 @@ import FolderEditForm from './folder/FolderEditForm';
 import FolderFileView from './folder/FolderFileView';
 import SearchList from '../search/SearchList';
 import FriendList from './friends/FriendList';
-import MessageForm from './friends/messages/MessageForm';
+import MessageForm from './messages/MessageForm';
 import MessageList from './messages/MessageList';
 
 

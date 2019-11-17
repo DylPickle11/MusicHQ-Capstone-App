@@ -1,3 +1,9 @@
+# Capstone : SongPlan
+
+## What is this Application
+
+### There are perhaps hundreds of music apps out there. Most are aimed at consuming or creating music as well as teaching music theory, performance, and instruments. However, there are few that are aimed at aiding music educators in their task of preparing quality music plans. In the past, music educators have often times relied on physical books and memorization of songs to teach. Currently, many beginning teachers are shifting through youtube videos to gather quality songs and examples. My app seeks to help digitize and organize educational songs for educators. Allowing them a rich database with other music educators to consult with resources freely and easily. (MusicHQ or MusicEdCorner or ShareSong or SongPlan) is a single page app that allows music educators to create, edit, save, and share their various song plans. Song plans will be displayed as a list of cards. Users can organize their songs into folders and send song plan or folders to other friended (those who have approved their requests). Users will have the option to scan through the database and look at other public songs.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

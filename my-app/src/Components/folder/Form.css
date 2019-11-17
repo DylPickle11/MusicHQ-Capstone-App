@@ -14,3 +14,11 @@
 .input {
 width: 100%;
 }
+
+.Form {
+    margin: 1em;
+    padding: 1em; 
+}
+.input2 {
+    width: 30%;
+    }

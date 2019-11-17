@@ -3,20 +3,20 @@
     {
       "id": 1,
       "userName": "bb",
-      "password": "222"
+      "password": "123"
     },
     {
       "userName": "mo",
-      "password": "654321",
+      "password": "123",
       "email": "mo@gmail.com",
-      "passwordConfirm": "654321",
+      "passwordConfirm": "123",
       "id": 2
     },
     {
       "userName": "Slim",
-      "password": "321",
+      "password": "123",
       "email": "Slim@gmail.com",
-      "passwordConfirm": "321",
+      "passwordConfirm": "123",
       "id": 3
     },
     {
@@ -37,136 +37,129 @@
   "songPlans": [
     {
       "userId": 1,
-      "title": "BB Song Plan 4",
-      "date": "November 1, 2019 10:00 AM",
-      "description": "pretty songs",
+      "title": "Do Re Mi Fa",
+      "date": "November 11, 2019 9:47 PM",
+      "description": "Do a deer...\nFrom the Sound of Music",
       "type": "Middle School",
-      "levelOption": "Instrumental",
-      "ifPublic": "Yes, please make it Public",
-      "loadingStatus": true,
-      "id": 23
-    },
-    {
-      "id": 26,
-      "userId": 4,
-      "title": "Kodaly Techniques!!! !!!!!!!!!!!!!!!",
-      "date": "November 1, 2019 3:29 PM",
-      "description": "Twinkle Twinkle little star",
-      "type": "",
-      "levelOption": "vocal",
-      "ifPublic": true,
-      "loadingStatus": true
-    },
-    {
-      "userId": 4,
-      "title": "BB Song Plan 4",
-      "date": "November 1, 2019 10:00 AM",
-      "description": "pretty songs",
-      "type": "Middle School",
-      "comment": "",
-      "loadingStatus": true,
-      "id": 27
-    },
-    {
-      "userId": 1,
-      "title": "Plan with video URL",
-      "date": "November 7, 2019 7:41 PM",
-      "description": "Hopefully this works",
-      "type": "Early High School",
-      "levelOption": "vocal",
+      "levelOption": "Vocal",
       "comment": "",
       "ifPublic": "Yes, please make it Public",
-      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/dayne-topkin-cB10K2ugb-4-unsplash.jpg?alt=media&token=7cffc458-bb9d-4e97-9138-b1a0cf924557",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/Do%20Re%20Mi%20Fa.png?alt=media&token=7b5d76f8-e174-4794-b177-d48701c00766",
       "loadingStatus": true,
-      "id": 33
+      "id": 1
     },
     {
       "userId": 2,
-      "title": "BB Song Plan 4",
-      "date": "November 1, 2019 10:00 AM",
-      "description": "pretty songs",
+      "title": "My Name is Joe",
+      "date": "November 11, 2019 11:34 PM",
+      "description": "This is a silly one about a man named Joe who lives in a button factory",
       "type": "Middle School",
-      "loadingStatus": true,
-      "id": 35
-    },
-    {
-      "userId": 2,
-      "title": "Plan with video URL",
-      "date": "November 7, 2019 7:41 PM",
-      "description": "Hopefully this works",
-      "type": "Early High School",
-      "comment": "",
-      "loadingStatus": true,
-      "id": 36
-    },
-    {
-      "userId": 1,
-      "title": "Sorida",
-      "date": "November 11, 2019 3:10 PM",
-      "description": "Here is the video",
-      "type": "Late Elementary",
-      "levelOption": "Instrumental",
+      "levelOption": "Vocal",
       "comment": "",
       "ifPublic": "Yes, please make it Public",
-      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/SORIDA_WIN_20190213_12_14_34_Pro.mp4?alt=media&token=bf539b06-8a35-4805-a5e8-6c0bdba1120e",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/My%20name%20is%20Joe.jpg?alt=media&token=d7110922-c312-4f6c-8bf6-158bf8e1c821",
       "loadingStatus": true,
-      "id": 37
-    }
-  ],
-  "folders": [
-    {
-      "userId": 1,
-      "title": "Hold my MVP",
-      "date": "",
-      "ifPublic": true,
-      "loadingStatus": true,
-      "id": 2
+      "id": 3
     },
     {
       "id": 5,
-      "userId": 2,
-      "title": "Folder 2 !!!!!",
-      "date": "",
-      "ifPublic": true,
+      "userId": 3,
+      "title": "Shake those Simmons Down!",
+      "date": "November 12, 2019 9:53 AM",
+      "description": "Shake Shake",
+      "type": "Middle School",
+      "levelOption": "Vocal",
+      "comment": "",
+      "ifPublic": "Yes, please make it Public",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/Shake%20those%20Simmons%20Down.jpg?alt=media&token=147b3d07-b133-4a39-985d-ef9568bc7ddc",
       "loadingStatus": true
     },
     {
-      "userId": 4,
-      "title": "To hold the kodaly technique",
-      "date": "",
-      "ifPublic": true,
+      "userId": 3,
+      "title": "Seven Sons",
+      "date": "November 12, 2019 12:07 PM",
+      "description": "Father Abraham had seven sons...",
+      "type": "Late Elementary",
+      "levelOption": "Vocal",
+      "comment": "",
+      "ifPublic": "Yes, please make it Public",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/Seven%20Sons.png?alt=media&token=8c957687-2120-4747-bd78-93e7b77e87f1",
       "loadingStatus": true,
       "id": 6
     },
     {
+      "id": 7,
       "userId": 1,
-      "title": "How are you",
-      "date": "",
-      "ifPublic": true,
+      "title": "Paddle!!!!!!",
+      "date": "November 12, 2019 12:10 PM",
+      "description": "This song is about a canoe",
+      "type": "Late Elementary",
+      "levelOption": "Vocal",
+      "comment": "",
+      "ifPublic": "Yes, please make it Public",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/Paddle.png?alt=media&token=15099b42-c8bb-4a08-a6d0-6bd657ec3a5b",
+      "loadingStatus": true
+    },
+    {
+      "userId": 1,
+      "title": "Sorida",
+      "date": "November 12, 2019 1:21 PM",
+      "description": "Welcome ",
+      "type": "Late Elementary",
+      "levelOption": "Vocal",
+      "comment": "",
+      "ifPublic": "Yes, please make it Public",
+      "videoURL": "https://firebasestorage.googleapis.com/v0/b/songplan.appspot.com/o/Sorida.png?alt=media&token=acef1a55-defe-4828-abc4-784e6f94e3aa",
       "loadingStatus": true,
       "id": 8
     },
     {
       "userId": 1,
-      "title": "sdfdsff",
+      "title": "My Name is Joe",
+      "date": "November 11, 2019 11:34 PM",
+      "description": "This is a silly one about a man named Joe who lives in a button factory",
+      "type": "Middle School",
+      "comment": "",
+      "loadingStatus": true,
+      "id": 9
+    }
+  ],
+  "folders": [
+    {
+      "userId": 1,
+      "title": "Monday Lesson Plan",
       "date": "",
       "ifPublic": true,
       "loadingStatus": true,
-      "id": 10
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "Tuesday Lesson PLan",
+      "date": "",
+      "ifPublic": true,
+      "loadingStatus": true,
+      "id": 2
     }
   ],
   "folderPlans": [
     {
-      "userdId": "4",
-      "folderId": "6",
-      "songPlanId": 26,
+      "userdId": "1",
+      "folderId": "1",
+      "songPlanId": 1,
       "id": 1
     },
     {
       "userdId": "1",
-      "folderId": "2",
-      "songPlanId": 23,
+      "folderId": "1",
+      "songPlanId": 1,
       "id": 2
+    },
+    {
+      "userdId": "1",
+      "folderId": "2",
+      "songPlanId": 8,
+      "id": 3
     }
   ],
   "gradeLevels": [
@@ -194,11 +187,11 @@
   "types": [
     {
       "id": 1,
-      "keyword": "instrumental"
+      "keyword": "Instrumental"
     },
     {
       "id": 2,
-      "keyword": "vocal"
+      "keyword": "Vocal"
     }
   ],
   "ifPublic": [
@@ -213,85 +206,63 @@
   ],
   "friendships": [
     {
-      "currentUserId": 6,
-      "userId": 1,
+      "currentUserId": 1,
+      "userId": 3,
       "id": 1
     },
     {
-      "currentUserId": 6,
-      "userId": 2,
+      "currentUserId": 1,
+      "userId": 5,
       "id": 2
-    },
-    {
-      "currentUserId": 4,
-      "userId": 3,
-      "id": 3
     },
     {
       "currentUserId": 1,
       "userId": 2,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "currentUserId": 3,
-      "id": 5
+      "id": 3
     }
   ],
   "messages": [
     {
-      "userId": "1",
-      "receivedId": "2",
-      "title": "MO!!!",
-      "date": "November 11, 2019 1:36 PM",
-      "description": "How are you MO?!",
-      "loadingStatus": true,
-      "id": 1
-    },
-    {
-      "userId": "2",
-      "receivedId": "2",
-      "title": "Hey BB",
-      "date": "November 11, 2019 2:20 PM",
-      "description": "YES!!!!",
+      "userId": "3",
+      "receivedId": "1",
+      "title": "Hey!",
+      "date": "November 11, 2019 11:26 PM",
+      "description": "Doing great BB. You?",
       "loadingStatus": true,
       "id": 2
     },
     {
-      "userId": "2",
-      "receivedId": "1",
-      "title": "Hello MO! Hope you are ok!",
-      "date": "November 11, 2019 5:18 PM",
-      "description": "Coool",
+      "userId": "1",
+      "receivedId": "3",
+      "title": "Hello Slim",
+      "date": "November 12, 2019 9:25 AM",
+      "description": "How are you?",
       "loadingStatus": true,
       "id": 3
+    },
+    {
+      "userId": "1",
+      "receivedId": "3",
+      "title": "Slim",
+      "date": "November 12, 2019 1:23 PM",
+      "description": "Here you go",
+      "loadingStatus": true,
+      "id": 4
     }
   ],
   "friendRequests": [],
   "comments": [
     {
-      "id": 1,
       "userId": 1,
-      "songPlanId": 23,
-      "comment": "This is a great songPlan"
+      "songPlanId": 1,
+      "comment": "This worked out well! SO much fun!",
+      "id": 1
     },
     {
-      "id": 2,
-      "userId": 2,
-      "songPlanId": 23,
-      "comment": "This is a wonderful songPlan"
-    },
-    {
-      "userId": 1,
-      "songPlanId": 23,
-      "comment": "What is going on",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "songPlanId": 23,
-      "comment": "How many more comments can I leave",
-      "id": 4
+      "userId": 3,
+      "songPlanId": 5,
+      "comment": "This is wonderful",
+      "id": 2
     }
   ]
 }

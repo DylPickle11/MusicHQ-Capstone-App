@@ -1,3 +1,5 @@
+
+
 .App {
     text-align: center;
     /* background-color: rgb(206, 213, 223); */
@@ -73,5 +75,5 @@
    height: 100px;
  }
 .video-react-controls-enabled .video-react-paused .video-react-fluid .video-react-user-inactive .video-react-workinghover .video-react .video {
-  padding-top: 5%;
+  padding-top: 0% !important
 }

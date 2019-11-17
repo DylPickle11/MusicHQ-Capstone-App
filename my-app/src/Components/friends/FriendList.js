@@ -2,7 +2,7 @@ import APIManager from '../../Modules/APIManager';
 import React, { Component } from "react";
 import FriendCard from './FriendCard';
 import UserCard from './UserCard';
-import RequestCard from './messages/RequestCard';
+import RequestCard from './RequestCard';
 import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Form, FormGroup, Button, Label} from 'reactstrap';
 import '../songPlans/SongPlan.css'
 

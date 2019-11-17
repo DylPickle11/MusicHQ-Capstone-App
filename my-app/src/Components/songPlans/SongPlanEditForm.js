@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import APIManager from './../../Modules/APIManager'
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import moment from 'moment';
+import '../folder/Form.css'
 
 class SongPlanEditForm extends Component {
     moment = require('moment');
@@ -15,7 +16,10 @@ class SongPlanEditForm extends Component {
         description: "",
         type: "",
         levelOption: "",
-        ifPublic: "",
+        ifPublic: [],
+        ifPublic:"",
+        comment:"",
+        videoURL:'',
         loadingStatus: false
       }
 
@@ -37,12 +41,14 @@ class SongPlanEditForm extends Component {
             description: this.state.description,
             type: this.state.type,
             levelOption: this.state.levelOption,
-            ifPublic: true,
+            comment: this.state.comment,
+            ifPublic: this.state.ifPublic,
+            videoURL: this.state.videoURL,
             loadingStatus: true
         };
         // push edited task
         APIManager.update("songPlans", editedSongPlan)
-            .then(() => this.props.history.push("/"))
+            .then(() => this.props.history.push("/songplans"))
     }
 
     componentDidMount() {
@@ -54,7 +60,8 @@ class SongPlanEditForm extends Component {
                     description: SongPlan.description,
                     type: SongPlan.type,
                     levelOption: SongPlan.levelOption,
-                    ifPublic: true,
+                    ifPublic: SongPlan.ifPublic,
+                    videoURL: SongPlan.videoURL,
                     loadingStatus: false
                 });
             });
@@ -64,26 +71,27 @@ class SongPlanEditForm extends Component {
 
     // render JSX to be displayed on the DOM
     render() {
+      console.log(this.state)
         return (
             <>
-           <Form onSubmit={this.updateSongPlan}>
+           <Form className="Form" onSubmit={this.updateSongPlan}>
             <h1>Edit Song Plan</h1>
             <FormGroup>
                <h6>Date updated:{this.state.date}</h6>
             </FormGroup>
 
             <FormGroup>
-              <Input type="text" name="title" id="title" value={this.state.title} onChange={this.handleFieldChange} placeholder="place title"/>
+              <Input className="input2" type="text" name="title" id="title" value={this.state.title} onChange={this.handleFieldChange} placeholder="place title"/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="description">Description</Label>
-                <Input type="text" name="description" id="description" value={this.state.description} onChange={this.handleFieldChange} placeholder="place url"/>
+                <Input className="input2" type="text" name="description" id="description" value={this.state.description} onChange={this.handleFieldChange} placeholder="place url"/>
             </FormGroup>
 
             <FormGroup>
               <Label for="type">Musical Type</Label>
-              <Input type="select" name="type" id="type" onChange={this.handleFieldChange} multiple>
+              <Input className="input2" type="select" name="type" id="type" onChange={this.handleFieldChange}>
                 <option>Instrumental</option>
                 <option>Vocal</option>
               </Input>
@@ -91,7 +99,7 @@ class SongPlanEditForm extends Component {
 
             <FormGroup>
               <Label for="level">Grade Level</Label>
-              <Input type="select" name="level" id="level" value={this.state.levelOption} onChange={this.handleFieldChange}>
+              <Input className="input2" type="select" name="level" id="level" value={this.state.levelOption} onChange={this.handleFieldChange}>
                 <option value="1">Early Elementary</option>
                 <option value="2">Late Elementary</option>
                 <option value="3">Middle School</option>
@@ -103,16 +111,16 @@ class SongPlanEditForm extends Component {
             <FormGroup value={this.state.ifPublic} onChange={this.handleFieldChange}>
               <legend>Would you like this to be Public?</legend>
 
-            <FormGroup check>
+            <FormGroup >
               <Label check>
-              <Input type="radio" name="radio1" id="ifPublic" onChange={this.handleFieldChange}/>{' '}
+              <Input type="radio" name="radio1" id="ifPublicChoice" onChange={this.handleFieldChange}/>{' '}
               Please make it Public!
               </Label>
             </FormGroup>
 
-            <FormGroup check>
+            <FormGroup >
               <Label check>
-              <Input type="radio" name="radio1" id="ifPublic" onChange={this.handleFieldChange} />{' '}
+              <Input  type="radio" name="radio1" id="ifPublicChoice" onChange={this.handleFieldChange} />{' '}
               Keep it Private!
               </Label>
            </FormGroup>

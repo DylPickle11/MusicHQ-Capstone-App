@@ -48,7 +48,6 @@ class SongPlanCard extends Component {
     }
 
     handleDelete = () => {
-        console.log(this.props)
         this.setState({ loadingStatus: true })
         APIManager.delete("songPlans", this.props.song.id)
            .then(() => this.props.history.push("/folders"))
@@ -65,7 +64,7 @@ class SongPlanCard extends Component {
             songPlanId: this.props.song.id
         };
         APIManager.post("folderPlans", pushSong)
-        .then(() => this.props.history.push("/"))
+        .then(() => this.props.history.push("/songplans"))
     }
 
     postComment = event =>{
